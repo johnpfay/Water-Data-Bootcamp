@@ -1,7 +1,7 @@
 ---
 title: "LoadStreamflow"
-author: "John Fay"
-date: "January 3, 2018"
+author: "L. Patterson and J. Fay"
+date: "Spring, 2018"
 output: html_document
 ---
 
@@ -59,8 +59,9 @@ neuse <- readNWISdata(siteNumbers = siteNo, parameterCd = pcode, statCd = scode,
   neuse <- renameNWISColumns(neuse); colnames(neuse)
 
 #see attributes
-attributes(neuse)
-#to access attributes in future: attr(neuse, "name of interest)
+#attributes(neuse)
+
+  #to access attributes in future: attr(neuse, "name of interest)
 names(attributes(neuse))
   parameterInfo = attr(neuse, "variableInfo")
   siteInfo <- attr(neuse, "siteInfo")
