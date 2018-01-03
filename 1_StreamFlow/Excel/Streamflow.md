@@ -8,11 +8,11 @@ Prior to 1978, flooding of the Neuse River caused extensive damage to public and
 
 Now, some 3 dozen years after the Falls Lake was completed, we want to evaluate its impact on streamflow downstream of its dam. And we'll use this opportunity to examine some data analytic techniques, specifically ones using Microsoft Excel. These techniques will cover ways to get data into Excel and how to organize it. 
 
+This document begins with a review of the analytical workflow of most data projects. Then we apply this workflow to the question posed above. Here, we focus on using Excel to tackle the assignment, but companion documents will examine how R and Python can accomplish the same set of tasks
+
 ---
 
-## Analytical workflow
-
-Before commencing with the actual analysis, 
+## Analytical workflow - a preview
 
 #### 1. Clarifying the central question
 
@@ -54,9 +54,31 @@ Often overlooked by the data analyst is the step of reviewing your analysis and 
 
 ---
 
-## Obtaining the data
+## Applying the Analytical Workflow
 
-## Exploring the data
+### Obtaining the data
+
+As mentioned above, we've determined that we need streamflow data for some site below Falls Lake dam, and those data are provided via the USGS' National Water Information System. The following steps outline the process of finding the appropriate gaging site and then the data we need to run our analysis. 
+
+<u>Finding the data</u>
+
+1. Open the NWIS mapper in a browser: https://maps.waterdata.usgs.gov/mapper/index.html
+2. Locate Falls Lake on the map. (Tip: Search for `Falls Lake, NC`)
+3. On the map, visually follow the stream flowing out of Falls Lake dam until you find a gage site. Click on it, and it should reveal Site #: `02087500`, `NEUSE RIVER NEAR CLAYTON, NC`. This is the site we'll use for our analysis. 
+4. Click on the [Access Data](https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=02087500) link. This brings up the interface for selecting which data you want to grab. 
+5. Click on the [Daily Data](https://waterdata.usgs.gov/nwis/dv?referred_module=sw&site_no=02087500) link to access the form for selecting daily stream discharge data. 
+6. Check the box next to `00060 Discharge (Max.,Min.,Mean)`;
+   Select `Tab-separated`as the output format;
+   Set the Begin date to `1930-10-01` and the End date to `2017-09-30`
+   And finally hit `Go`. This will call up a page with all the data you just requested.
+
+​     **\*  (If needed you can go directly to the link you need here: [LINK](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30))**
+
+<u>Getting the data into Excel</u>
+
+1. Select the entire contents of the web page with the discharge data. (Tip: use `ctrl`-`a` )
+
+### Exploring the data
 
 - #### Plot streamflow data to look for gaps/outliers
 
