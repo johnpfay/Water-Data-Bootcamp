@@ -60,23 +60,55 @@ Often overlooked by the data analyst is the step of reviewing your analysis and 
 
 As mentioned above, we've determined that we need streamflow data for some site below Falls Lake dam, and those data are provided via the USGS' National Water Information System. The following steps outline the process of finding the appropriate gaging site and then the data we need to run our analysis. 
 
-<u>Finding the data</u>
+#### <u>Finding the streamflow data</u>
 
 1. Open the NWIS mapper in a browser: https://maps.waterdata.usgs.gov/mapper/index.html
+
 2. Locate Falls Lake on the map. (Tip: Search for `Falls Lake, NC`)
+
 3. On the map, visually follow the stream flowing out of Falls Lake dam until you find a gage site. Click on it, and it should reveal Site #: `02087500`, `NEUSE RIVER NEAR CLAYTON, NC`. This is the site we'll use for our analysis. 
+
+   [img]
+
 4. Click on the [Access Data](https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=02087500) link. This brings up the interface for selecting which data you want to grab. 
-5. Click on the [Daily Data](https://waterdata.usgs.gov/nwis/dv?referred_module=sw&site_no=02087500) link to access the form for selecting daily stream discharge data. 
-6. Check the box next to `00060 Discharge (Max.,Min.,Mean)`;
-   Select `Tab-separated`as the output format;
-   Set the Begin date to `1930-10-01` and the End date to `2017-09-30`
-   And finally hit `Go`. This will call up a page with all the data you just requested.
 
-​     **\*  (If needed you can go directly to the link you need here: [LINK](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30))**
+   [img]
 
-<u>Getting the data into Excel</u>
+5. Click on the [Current/Historical Observations](https://waterdata.usgs.gov/nwis/uv?site_no=02087500) link to access the form for selecting the current and historical stream flow data we want.
+
+6. In this form:
+   \- Check the box next to `00060 Discharge`;
+
+   \- Select `Tab-separated data` and `Display in browser` as the output format;
+
+   \- Set the From date to `1930-10-01` and the End date to `2017-09-30` (note: the "water year" goes from Oct. to Sept.);
+
+   \- And finally hit `Go`. This will call up a page with all the data you just requested. 
+
+   [img]
+
+​     *\*  (If needed, this [LINK](https://nwis.waterdata.usgs.gov/usa/nwis/uv/?cb_00060=on&format=rdb&site_no=02087500&period=&begin_date=1930-10-01&end_date=2017-09-300) will take you directly to the data...)*
+
+Pause and have a look at what's provided. The first several lines begin with a '#' and display the dataset's *metadata*, i.e. data about the data. Then, the first line without the '#' appears to be column headers, but the line after that looks different than the actual data values below that. (As it happens, this line indicates the data *length* and *type*: `5s` indicates a `s`tring that is `5` characters long. The other data types include `d` for *date*, and `n` for *numeric*.) 
+
+#### <u>Getting the data into Excel</u>
+
+Now that we have the data in digital form, we need to get it into Excel so that each value is in its own cell. There are two, somewhat imperfect, methods to do this, each requiring a bit of manual editing. 
+
+###### Method 1:
 
 1. Select the entire contents of the web page with the discharge data. (Tip: use `ctrl`-`a` )
+
+2. Copy the contents and paste them into a new Excel worksheet. 
+
+3. Notice that the contents are lumped into a single column, which is a problem. To fix this, you can use the `Text to Columns` command.
+
+  1. Select the row of text you want to convert into columns (Click the header of Row `A`)
+  2. From the `Data` menu, click the `Text to Columns` command.
+  3. In the wizard, specify that your data are `delimited` by a `space`, and then click `Finish`. 
+
+
+   This works, but not perfectly. The actual data, in rows 
 
 ### Exploring the data
 
