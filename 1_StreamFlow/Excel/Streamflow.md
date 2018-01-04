@@ -1,3 +1,9 @@
+---
+Title: Analysis of Streamflow Data using Excel
+Author: Lauren Patterson and John Fay
+Date: Spring 2018
+---
+
 # Unit 1: Analysis of Streamflow Data using Excel
 
 [TOC]
@@ -56,7 +62,7 @@ Often overlooked by the data analyst is the step of reviewing your analysis and 
 
 ## Applying the Analytical Workflow
 
-### Obtaining the data
+### ♦ Obtaining the data
 
 As mentioned above, we've determined that we need streamflow data for some site below Falls Lake dam, and those data are provided via the USGS' National Water Information System. The following steps outline the process of finding the appropriate gaging site and then the data we need to run our analysis. 
 
@@ -72,9 +78,7 @@ As mentioned above, we've determined that we need streamflow data for some site 
 
 4. Click on the [Access Data](https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=02087500) link. This brings up the interface for selecting which data you want to grab. 
 
-   [img]
-
-5. Click on the [Current/Historical Observations](https://waterdata.usgs.gov/nwis/uv?site_no=02087500) link to access the form for selecting the current and historical stream flow data we want.
+5. On this page, from the dropdown menu near the top, select `Time-series: Daily Data` and hit `GO`. This will open the form for selecting the current and historical stream flow data we want.
 
 6. In this form:
    \- Check the box next to `00060 Discharge`;
@@ -87,11 +91,13 @@ As mentioned above, we've determined that we need streamflow data for some site 
 
    [img]
 
-​     *\*  (If needed, this [LINK](https://nwis.waterdata.usgs.gov/usa/nwis/uv/?cb_00060=on&format=rdb&site_no=02087500&period=&begin_date=1930-10-01&end_date=2017-09-300) will take you directly to the data...)*
+​     *\*  (If needed, this [LINK](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) will take you directly to the data...)*
 
 Pause and have a look at what's provided. The first several lines begin with a '#' and display the dataset's *metadata*, i.e. data about the data. Then, the first line without the '#' appears to be column headers, but the line after that looks different than the actual data values below that. (As it happens, this line indicates the data *length* and *type*: `5s` indicates a `s`tring that is `5` characters long. The other data types include `d` for *date*, and `n` for *numeric*.) 
 
 #### <u>Getting the data into Excel</u>
+
+\**Before embarking on our work with Excel, be sure you are clear what each of the following refers to with respect to Excel:* `workbook`, `worksheet`, `row`, `column`, `cell`.
 
 Now that we have the data in digital form, we need to get it into Excel so that each value is in its own cell. There are two, somewhat imperfect, methods to do this, each requiring a bit of manual editing. 
 
@@ -99,22 +105,142 @@ Now that we have the data in digital form, we need to get it into Excel so that 
 
 1. Select the entire contents of the web page with the discharge data. (Tip: use `ctrl`-`a` )
 
-2. Copy the contents and paste them into a new Excel worksheet. 
+2. `Copy` the contents and `paste` them into a new Excel worksheet. 
 
-3. Notice that the contents are lumped into a single column, which is a problem. To fix this, you can use the `Text to Columns` command.
+3. Notice that the contents are lumped into a single column, which is a problem. To fix this, you can use the
 
-  1. Select the row of text you want to convert into columns (Click the header of Row `A`)
-  2. From the `Data` menu, click the `Text to Columns` command.
-  3. In the wizard, specify that your data are `delimited` by a `space`, and then click `Finish`. 
+   `Text to Columns` command.
 
+  4. Select the row of text you want to convert into columns (Click the header of Row `A`)
+  5. From the `Data` menu, click the `Text to Columns` command.
+  6. In the wizard, specify that your data are `delimited` by a `space`, and then click `Finish`. 
 
-   This works, but not perfectly. The actual data, in rows 
+This works, but not perfectly. Notice the data (starting in row 34) are in columns now, but the column headers don’t match the data fields until 2004 when minimum and maximum discharge were collected. We, need to be careful for these types of errors using this method. Let's look at an alternative method and see whether it works better...
 
-### Exploring the data
+###### Method 2: 
 
-- #### Plot streamflow data to look for gaps/outliers
+1. Clear the contents of your Excel spreadsheet and copy the contents of the NWIS data web page, if necessary.
+2. In your blank worksheet, right-click cell A1 and select `Paste Special...` from the context menu.
+3. In the Paste Special wizard, select `text` and hit `OK`. Notice that the data are in the correct columns!
+4. Rename the worksheet "`Raw`" and save your workbook. 
 
-- #### Summarize and plot data
+###### Method 3: 
+
+*(Note, this method is somewhat buggy and may take a bit longer to complete...)*
+
+1. From the `Data` menu, select `From Web`. 
+2. In the `New Web Query` window, copy and paste the NWIS data web page's [URL](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) into the `Address:` box and click `Go`.
+3. You'll see the data appear in this window; Click the orange arrow to select the data to import.
+4. Click the `import` button. 
+
+---
+
+### ♦ Exploring the data
+
+While we now have our data in Excel, we should explore and inspect the data before we dive into our analysis. This serves to identify any irregularities in the data, stemming either from our import process or in the dataset itself. Plots and summary statistics are a quick way to identify any data gaps or outliers. 
+
+#### Create a copy of the raw data and clean it up
+
+We'll begin by creating a tidier version of the raw data, but keeping the raw worksheet intact in case we make a mistake and need to revert to it. And with this copy, we'll remove the metadata and other extraneous items so that we have a clean, efficient dataset, ready for quick analysis. 
+
+- Create a copy your `Raw` worksheet and rename it `EDA` (for exploratory data analysis). 
+  - Right click the `Raw` worksheet tab, and select `Move or Copy...`
+
+  - Be sure, `create a copy` is checked and click `OK`. 
+
+  - Right click on the `Raw (2)` worksheet tab and select `Rename`
+
+  - Type in `EDA` as the new name
+
+    ​		**---All further work will be done in this EDA worksheet ---**
+
+- Delete the metadata rows and the data type specification row (rows 1-31 and 33).
+  * Select the entire row by selecting the row number. Use `shift-click` to make continuous selections and `ctrl`-`click` to make disjunct selections.
+  * Right-click and select `Delete`. 
+
+- As we are only interested in *mean* discharge, we can remove the other columns. 
+
+  * Delete all columns but `site_no`, `datetime`, and mean discharge, currently labeled `85235_00060_00003`. 
+  * Rename the `85235_00060_00003` as `Mean flow (cfs)`
+    **\*Note: It's always good to include the units in a field name!**
+
+- Name the range of cells comprising your EDA dataset
+
+  - Select the entire range of cells containing data (including headers). You can do this selecting cell A1, and then while holding down the`shift` & `ctrl` keys, click the down arrow and then the right arrow on your keyboard. 
+  - Click `ctrl`-`F3` to bring up the Name Manager
+  - In the Name Manager, click `New...` and give your range a name, e.g. `flowdata`. 
+
+#### Plot streamflow data to look for gaps/outliers
+
+* Create a scatterplot of discharge over time
+
+  * Choose the data you want to plot:
+
+    * Highlight cells B1 and C1.
+    * Press `ctrl`+`shift`+`↓` to select all data cells beneath your initial selection.
+
+  * Create a scatter plot with straight lines from your selected data:
+
+    * From the `Insert` menu, over in the `Charts` panel, select the scatterplot dropdown, and chose an appropriate chart type given the data. (Straight lines makes sense since our data are based on measurements.)
+
+    *Notice that the X-axis contains an odd sampling of dates and lots of dead space on either side. Different plot types behave differently in Excel, and scatterplots are finicky with dates, so we need to either manually adjust the x axis or chose a different plot type. We'll examine both ways...* 
+
+  * Format the X-axis to eliminate empty data space:
+
+    * Double-click the x-axis to open the *Format Axis* menu.
+    * In the *Format Axis* panel, click the *Axis Options* icon (looks like a bar chart). 
+    * Notice that the axis bounds are currently set from 0 to 50,000. To set these to our data's minimum and maximum values, just type them in as dates, e.g., `1930-10-01` and `2017-09-30`. 
+
+  * <u>Or</u>, you can convert your scatterplot to a 2-d line plot.
+
+    * With the chart selected, and the `Design` tab active, select `Change Chart Type` to switch your scatterplot to a line plot. *Notice you can preview the design of a chart before committing to it.*
+    * Notice that the date format is much tidier with a line plot...
+
+* Adjust the aesthetics of your plot
+
+  * Change the title to something meaningful, such as “Neuse Streamflow near Clayton, NC”
+
+  * Add a y-axis label: `Design` -> `Add Chart Element` -> `Axis Titles` -> `Primary Vertical`
+
+  * Change the y-axis bounds:
+
+    * Set the maximum to 23,000; note the minimum drops to -2000. Change the minimum to 0
+
+    * Set the display units to Thousands. 
+
+    * Delete the gridlines
+
+    * Play with the colors, font sizes, borders, etc. Try setting your plot to use narrower lines to show more detail. 
+
+      ​
+
+* Save your workbook...
+
+You remembered that scientists like the metric system and you need to convert the data from cubic feet per second to cubic meters per second. You'll need to create a new column with the discharge values in these units and re-create a new plot. Here are the steps:
+
+* Add a header in column `D`: "Mean flow (cms)"
+* Compute cms values from your cfs ones:
+  * In cell `D2`, enter the formula `=C2*0.028316847` (0.028316847 is the conversion rate from cfs to cms). 
+  * To carry this formula down to all records, double click on the bottom right corner of the `D2` cell.
+* Check that the new values appear correct:
+  * First, lock the header row so it doesn't disappear when scrolling
+    * Click `ctrl`-`home` to set the active cell as the top left cell `A1`.
+    * Highlight Row 1
+    * From the View menu, select `Freeze Top Row`
+    * Scroll down and examine the Discharge (cms) data. Note the header row stays put!
+* Re-plot the data in cubic meters per second. 
+  * Select your existing plot and click on the data line. That will indicate the columns of data on which the plot was based. 
+  * Click on the side of the blue rectangle and drag it so that it covers the column D, not C. 
+  * Change the y-axis label and bounds. 
+  * Reformat other aesthetics as needed...
+
+##### ♦♦Exercise
+
+Your general manager looks at the chart but he doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. Make a new plot and show side by side. (1 CFS = 0.53817 MGD)
+
+#### Summarize and plot data
+
+---
 
 ## Q1: Evaluating 100-year flood frequency
 
@@ -144,7 +270,7 @@ Now that we have the data in digital form, we need to get it into Excel so that 
 
  * ##### Compute return intervals from records after 1984
 
-## Q2: Evaluating impact on minimum flows
+### Q2: Evaluating impact on minimum flows
 
 - #### Background: 7Q10 
 
