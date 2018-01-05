@@ -12,7 +12,7 @@ Date: Spring 2018
 
 Prior to 1978, flooding of the Neuse River caused extensive damage to public and private properties including roadways, railroads, industrial sites and farmlands. The Falls Lake Project was developed by the US Army Corps of Engineers to control damaging floods and to supply a source of water for surrounding communities. Construction of the dam began in 1978 and was completed in 1981. In addition to recreation opportunities, Falls Lake now provides flood and water-quality control, water supply, and fish and wildlife conservation ([source](https://www.ncparks.gov/falls-lake-state-recreation-area/history)).
 
-Now, some 3 dozen years after the Falls Lake was completed, we want to evaluate its impact on streamflow downstream of its dam. And we'll use this opportunity to examine some data analytic techniques, specifically ones using Microsoft Excel. These techniques will cover ways to get data into Excel and how to organize it. 
+Now, some 3 dozen years after Falls Lake was constructed, we want to evaluate its impact on downstream streamflow, using this as an opportunity to examine some data analytic techniques, specifically ones using Microsoft Excel. These techniques will cover ways to get data into Excel and how to manage, wrangle, and analyze those data. 
 
 This document begins with a review of the analytical workflow of most data projects. Then we apply this workflow to the question posed above. Here, we focus on using Excel to tackle the assignment, but companion documents will examine how R and Python can accomplish the same set of tasks
 
@@ -22,31 +22,37 @@ This document begins with a review of the analytical workflow of most data proje
 
 #### 1. Clarifying the central question
 
-Data analysis has a workflow that often begins with clarifying the central question. For example, our initial question is *"How has Falls Lake affected streamflow?"* This question has some useful specifics: We know where we'll be working (Falls Lake) and what to core dataset will be (streamflow). However, it's vague on how we might evaluate effects of the dam on streamflow. As a data analyst your first job is often to clarify the central question into one that has a definitive answer, or at least one that allows you to present data to a way that facilitates others in making a more informed decision.
+Data analysis has a workflow that often begins with clarifying the central question. For example, our initial question is *"How has Falls Lake affected streamflow?"* This question has some useful specifics: We know where we'll be working (Falls Lake) and what to core dataset will be (streamflow). However, the question is vague on how precisely we might evaluate effects of the dam on streamflow. As a data analyst your first job is often to <u>clarify a basic question into one that is *actionable*</u>, that is one that has a clear route to an answer or at least that allows you to present data to a way that facilitates effective decision making. 
 
-This step usually requires some communication between the the client, project managers, experts in the field, and you, the data analyst. (And let's hope it goes better than this meeting: https://www.youtube.com/watch?v=BKorP55Aqvg .) For our example, however, we'll narrow the question down to the following objectives:
+This step usually requires some communication between the the client, project managers, experts in the field, and you, the data analyst. (And let's hope it goes better than this meeting: https://www.youtube.com/watch?v=BKorP55Aqvg .) For our Falls Lake example, however, we'll assume this meeting took place and narrowed on on the following questions:
 
 * How has the 100-year flood frequency changed since building the lake?
 * How have 7-month minimum flows changed since building the lake?
 * Has has variability in streamflow changed since building the lake?
 
-Expert hydrologists on our team have provided more specific guidance on these analyses below. 
+While these are still a touch vague, our expert hydrologists will provide more specific guidance on these analyses below. 
+
+
 
 #### 2. What data do I need to answer the question? Do those data exist?
 
-With our objectives clarified, our next step is to identify the data needed drive our analyses. In our case, it's fairly obvious: we need long-term streamflow data at some point downstream (and not too far downstream) from the Falls Lake dam. In other cases, it may not be as obvious and may require another conference with the project team to figure out what that ideal dataset may be. 
+With our objectives clarified, our next step is to <u>identify the data needed drive our analyses</u>. In our case, it's fairly obvious: we need long-term streamflow data at some point downstream (and not too far downstream) from the Falls Lake dam. In other cases, it may not be as obvious and may require another conference with the project team to figure out what that ideal dataset may be. 
 
-When a target dataset is identified, the following question is whether those data exist? Knowing where to look or whom to ask whether a certain dataset exists comes with experience, though web-search skills can be quite useful too. In other words, it's not really something you can teach in a broad sense. However, if you've exhausted your search and still can't find the proper dataset for your analysis, your fallback is to look for **proxies**, or similar (existing) data that can be used in place of your [missing] data without making too crazy of assumption. In some cases, **models** can be used to derive suitable data to run your analysis. 
+When a target dataset is identified, the following question is <u>whether those data exist</u>? Knowing where to look or whom to ask whether a certain dataset exists comes with experience (though web-search skills can be quite useful too). In other words, it's not really something one can teach in a broad sense. However, if you've exhausted your search and still can't find the proper dataset for your analysis, your fallback is to look for **proxies**, or similar (existing) data that can be used in place of your [missing] data without making too crazy of assumption. In some cases, **models** can be used to derive suitable data to run your analysis. 
 
-Again, we are fortunate in our case. The data we want are provided by the USGS' National Water Information System (NWIS). Instructions on how to grab the data we want will be provided below. 
+Again, we are fortunate in our case. The data we want are provided by the USGS' *National Water Information System* (NWIS). Instructions on how to grab the data we want are provided in this document. 
+
+
 
 #### 3. Obtaining, exploring, and cleaning the data
 
-Data come in a variety of forms and formats. Some datasets lend themselves to easy import and immediate analysis; others may not be digital-ready (e.g. hard-copies or PDFs) or have an inconsistent format rendering them essentially useless. As they saying goes, "your mileage may vary" with the dataset you find. While there are techniques, technologies, and some tricks in getting messy, seemingly irretrievable data into a workable format, we will not focus deeply on that. Rather, we'll cover some reliable techniques for getting fairly standard data into a workable, or **tidy** format in Excel. Comparable, actually more powerful techniques exist for obtaining and cleaning data exist in R and Python scripting languages. 
+Data come in a variety of forms and formats. Some datasets lend themselves to easy import and immediate analysis; others may not be digital-ready (e.g. hard-copies or PDFs) or have an inconsistent format rendering them essentially useless. As they saying goes, "your mileage may vary" with the dataset you find. While there are techniques, technologies, and some tricks in getting messy, seemingly irretrievable data into a workable format, we will not focus deeply on that. Rather, we'll cover some reliable techniques for <u>getting data into a workable, or **tidy** format</u> in Excel. Comparable, actually more powerful techniques exist for obtaining and cleaning data exist in *R* and *Python* scripting languages that we'll examine  a bit later.
+
+
 
 #### 4. Conducting the analysis and communicating the results
 
-With the proper data in your analytical environment (e.g. Excel, R, Python), the remaining steps in the data analysis workflow involve answering your question(s). How this goes depends entirely on your particular needs, but in this exercise we will examine a few basic strategies for workign with data. These include:
+With the proper data in your analytical environment (e.g. *Excel*, *R*, *Python*), the remaining steps in the data analysis workflow involve answering your question(s). How this goes ultimately depends on your particular objectives, but in this exercise we will examine a few basic strategies for working with data. These include:
 
 * Selecting and subsetting specific observations (rows) and variables (columns) of data.
 * Reshaping or changing the layout of your data, e.g. pivoting or transforming rows and columns
@@ -54,9 +60,13 @@ With the proper data in your analytical environment (e.g. Excel, R, Python), the
 * Combining datasets
 * Graphing, charting, and plotting data
 
+
+
 #### 5. Post-mortem: evaluation and documentation
 
 Often overlooked by the data analyst is the step of reviewing your analysis and documenting your work. When you've completed your analysis, you'll often reconvene with the team and assess whether you answered your central question effectively. If not, you'll need to tweak things until you do and perhaps cycle through the workflow again. This is where **documentation** can be hugely helpful. Documentation includes notes to yourself and to others covering in enough detail as to facilitate repeating the entire process. Documentation should include any non-obvious assumption or decision made in doing your analysis. This can be a bit cumbersome with Excel, but is done quite easily through comments in R or Python scripts. 
+
+
 
 ---
 
@@ -99,34 +109,32 @@ Pause and have a look at what's provided. The first several lines begin with a '
 
 \**Before embarking on our work with Excel, be sure you are clear what each of the following refers to with respect to Excel:* `workbook`, `worksheet`, `row`, `column`, `cell`.
 
-Now that we have the data in digital form, we need to get it into Excel so that each value is in its own cell. There are two, somewhat imperfect, methods to do this, each requiring a bit of manual editing. 
+Now that we have obtained the data in digital form, we need to get it into *Excel* so that each value is in its own cell. We'll discuss two, somewhat imperfect, methods to do this, each requiring a bit of manual editing. We also present a third, more automated method. However, while this third method may seem easier, it is less transparent to what is going on an also seems a bit unstable with the current release of *Excel*.   
 
 ###### Method 1:
 
-1. Select the entire contents of the web page with the discharge data. (Tip: use `ctrl`-`a` )
+1. Select the entire contents of the web page containing the discharge data. (Tip: use `ctrl`-`a` )
 
-2. `Copy` the contents and `paste` them into a new Excel worksheet. 
+2. Copy (`ctrl`-`c`) the contents from the browser and paste (`ctrl`-`v`) them into a new *Excel* worksheet. 
 
-3. Notice that the contents are lumped into a single column, which is a problem. To fix this, you can use the
+   *Notice that the contents are lumped into a single column, which prevents us from properly working with the data. To fix this, you can use the `Text to Columns` command.*
 
-   `Text to Columns` command.
+  3. To convert text to data, first select the cells containing text you want to convert into columns. For us, its the entire first column, which you can select by click the header of Column `A`.
+  4. From the `Data` menu, click the `Text to Columns` command in the `Data Tools` panel. 
+  5. In the wizard, specify that your data are `delimited` by a `space`, and then click `Finish`. 
 
-  4. Select the row of text you want to convert into columns (Click the header of Row `A`)
-  5. From the `Data` menu, click the `Text to Columns` command.
-  6. In the wizard, specify that your data are `delimited` by a `space`, and then click `Finish`. 
-
-This works, but not perfectly. Notice the data (starting in row 34) are in columns now, but the column headers don’t match the data fields until 2004 when minimum and maximum discharge were collected. We, need to be careful for these types of errors using this method. Let's look at an alternative method and see whether it works better...
+*This works, but not perfectly. Notice the data (starting in row 34) are in columns now, but the column headers don’t match the data fields until 2004 when minimum and maximum discharge were collected. We, need to be careful for these types of errors using this method. Let's look at an alternative method and see whether it works better...*
 
 ###### Method 2: 
 
-1. Clear the contents of your Excel spreadsheet and copy the contents of the NWIS data web page, if necessary.
+1. Clear the contents of your Excel spreadsheet and copy the contents of the NWIS data web page again, if necessary.
 2. In your blank worksheet, right-click cell A1 and select `Paste Special...` from the context menu.
 3. In the Paste Special wizard, select `text` and hit `OK`. Notice that the data are in the correct columns!
 4. Rename the worksheet "`Raw`" and save your workbook. 
 
 ###### Method 3: 
 
-*(Note, this method is somewhat buggy and may take a bit longer to complete...)*
+*(Note, this method is somewhat buggy and may take a bit longer to run...)*
 
 1. From the `Data` menu, select `From Web`. 
 2. In the `New Web Query` window, copy and paste the NWIS data web page's [URL](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) into the `Address:` box and click `Go`.
@@ -137,13 +145,13 @@ This works, but not perfectly. Notice the data (starting in row 34) are in colum
 
 ### ♦ Exploring the data
 
-While we now have our data in Excel, we should explore and inspect the data before we dive into our analysis. This serves to identify any irregularities in the data, stemming either from our import process or in the dataset itself. Plots and summary statistics are a quick way to identify any data gaps or outliers. 
+While we now have our data in Excel, we should explore and inspect the data before we dive into our analysis. This may expose irregularities in the data, stemming either from our import process or in the dataset itself. **Plots** and **summary statistics** are a quick way to reveal any data gaps or outliers. 
 
 #### Create a copy of the raw data and clean it up
 
 We'll begin by creating a tidier version of the raw data, but keeping the raw worksheet intact in case we make a mistake and need to revert to it. And with this copy, we'll remove the metadata and other extraneous items so that we have a clean, efficient dataset, ready for quick analysis. 
 
-- Create a copy your `Raw` worksheet and rename it `EDA` (for exploratory data analysis). 
+- **Create a copy your `Raw` worksheet and rename it `EDA` (for exploratory data analysis):** 
   - Right click the `Raw` worksheet tab, and select `Move or Copy...`
 
   - Be sure, `create a copy` is checked and click `OK`. 
@@ -154,25 +162,20 @@ We'll begin by creating a tidier version of the raw data, but keeping the raw wo
 
     ​		**---All further work will be done in this EDA worksheet ---**
 
-- Delete the metadata rows and the data type specification row (rows 1-31 and 33).
+- **Delete the metadata rows and the data type specification row (rows 1-31 and 33):**
   * Select the entire row by selecting the row number. Use `shift-click` to make continuous selections and `ctrl`-`click` to make disjunct selections.
   * Right-click and select `Delete`. 
 
-- As we are only interested in *mean* discharge, we can remove the other columns. 
+- **As we are only interested in *mean* discharge, we can remove the other columns:** 
 
   * Delete all columns but `site_no`, `datetime`, and mean discharge, currently labeled `85235_00060_00003`. 
   * Rename the `85235_00060_00003` as `Mean flow (cfs)`
-    **\*Note: It's always good to include the units in a field name!**
+    *\*Note: It's always good to include the units in a field name!*
 
-- Name the range of cells comprising your EDA dataset
-
-  - Select the entire range of cells containing data (including headers). You can do this selecting cell A1, and then while holding down the`shift` & `ctrl` keys, click the down arrow and then the right arrow on your keyboard. 
-  - Click `ctrl`-`F3` to bring up the Name Manager
-  - In the Name Manager, click `New...` and give your range a name, e.g. `flowdata`. 
 
 #### Plot streamflow data to look for gaps/outliers
 
-* Create a scatterplot of discharge over time
+* **Create a scatterplot of discharge over time**:
 
   * Choose the data you want to plot:
 
@@ -196,7 +199,7 @@ We'll begin by creating a tidier version of the raw data, but keeping the raw wo
     * With the chart selected, and the `Design` tab active, select `Change Chart Type` to switch your scatterplot to a line plot. *Notice you can preview the design of a chart before committing to it.*
     * Notice that the date format is much tidier with a line plot...
 
-* Adjust the aesthetics of your plot
+* **Adjust the aesthetics of your plot**
 
   * Change the title to something meaningful, such as “Neuse Streamflow near Clayton, NC”
 
@@ -206,61 +209,183 @@ We'll begin by creating a tidier version of the raw data, but keeping the raw wo
 
     * Set the maximum to 23,000; note the minimum drops to -2000. Change the minimum to 0
 
-    * Set the display units to Thousands. 
+    * Set the display units to *Thousands*. 
 
     * Delete the gridlines
 
     * Play with the colors, font sizes, borders, etc. Try setting your plot to use narrower lines to show more detail. 
 
-      ​
+* **Save your workbook...**
 
-* Save your workbook...
+*You remembered that scientists like the metric system and you need to convert the data from cubic feet per second to cubic meters per second. You'll need to create a new column with the discharge values in these units and re-create a new plot. Here are the steps:*
 
-You remembered that scientists like the metric system and you need to convert the data from cubic feet per second to cubic meters per second. You'll need to create a new column with the discharge values in these units and re-create a new plot. Here are the steps:
-
-* Add a header in column `D`: "Mean flow (cms)"
-* Compute cms values from your cfs ones:
+* **Add a header in column `D`: "Mean flow (cms)"**
+* **Compute cms values from your cfs ones:**
   * In cell `D2`, enter the formula `=C2*0.028316847` (0.028316847 is the conversion rate from cfs to cms). 
   * To carry this formula down to all records, double click on the bottom right corner of the `D2` cell.
-* Check that the new values appear correct:
+* **Check that the new values appear correct:**
   * First, lock the header row so it doesn't disappear when scrolling
     * Click `ctrl`-`home` to set the active cell as the top left cell `A1`.
     * Highlight Row 1
     * From the View menu, select `Freeze Top Row`
     * Scroll down and examine the Discharge (cms) data. Note the header row stays put!
-* Re-plot the data in cubic meters per second. 
+* **Re-plot the data in cubic meters per second.** 
   * Select your existing plot and click on the data line. That will indicate the columns of data on which the plot was based. 
   * Click on the side of the blue rectangle and drag it so that it covers the column D, not C. 
   * Change the y-axis label and bounds. 
   * Reformat other aesthetics as needed...
 
-##### ♦♦Exercise
+---
 
-Your general manager looks at the chart but he doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. Make a new plot and show side by side. (1 CFS = 0.53817 MGD)
+#### Exercise - Plot data in mgal/day
+
+Your project manager looks at the chart but she doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. Make a new plot and show side by side to the CFS plot. (1 CFS = 0.53817 MGD)
+
+---
 
 #### Summarize and plot data
+
+<u>Know your data.</u> Whenever you get data, it’s good practice to look at and understand the raw data to make sure it looks reasonable and you understand something about its quality and content. One of the first things to assess in the metadata is how confident you are in the quality of the data being used in your analysis. Is the data fit for purpose?
+
+##### How confident are we in the data?
+
+Our data included data-value qualification codes, and indication of the confidence we can have in the values reported. Let's examine our data in terms of those codes. We deleted these data from the table, so we'll have to add them back in to the data in our EDA worksheet. 
+
+* **Add a new column header to the table in the EDA worksheet; name it `Confidence`.**
+
+  *We could copy and paste the data back into our table, as we haven't moved things around. However, it's useful to know how the vertical lookup, or* `VLOOKUP` *function works to join data from on table to another using a common joining field.*
+
+* **Under the `Confidence` header you just created, enter the formula: `=VLOOKUP(B2,Raw!$C$34:$I$31810,7,FALSE)`**
+
+*There's a lot going on in that VLOOKUP formula, so lets explain it.* 
+
+*First, the VLOOKUP function looks up a value by matching a given value in one table to a given value in another table, specified by a range of cells. In our example, this matching value is in cell `B2`, i.e. the date `10/1/1930`. VLOOKUP searches the range of cells specified in the second argument, `Raw!$C$34:$I$31810` for that value, and returns the value in the `7`th column of that range.* 
+
+*What still may be confusing is how the range of cells is defined by `Raw!$C$34:$I$31810`. Here, `Raw!` tells Excel that the range of values is in the worksheet named "Raw", not the current worksheet. The range of cells in the "Raw" worksheet is `C34` to `I31801`, but the `$` indicates that, as we copy this formula to other cells, this range should remain static. Otherwise, if we copied the formula to the cell below it the range would dynamical update  from `C34:I31810` to `C35:I31811`, but in our case, we want the lookup range to be locked in.* 
+
+* **Double click the bottom corner to copy this function down to all records in our table.** Now we have re-added the confidence values back to our data table!
+
+Now, let's add into our worksheet a table listing how many records are associated with each confidence value. A look at the metadata indicate three data-value qualification codes: *A*, *P*, and *e*. Let's first confirm what values are contained in our dataset. We can do this quickly by setting up a data filter:
+
+* **Create a Filter for the `Confidence` column to reveal a list of unique values**
+  * Select the entire Confidence column.
+  * With the `Home` menu active, select `Sort & Filter`>`Filter` (from the `Editing` panel)
+
+You'll now see that the header cell has a dropdown arrow. Click this arrow and it will list all the unique values, and you'll see that our data indeed has three values, but they are slightly different than what was listed in the metadata. They are: A, A:e, and P. 
+
+Now to create the table listing how many records are associated with these three values. The `countif` tool is useful here.
+
+* **Create a table listing the number of records associated with each Confidence code using COUNTIF** 
+  * Somewhere in your EDA worksheet, create two header cells: `Confidence code` and `Count`.
+  * Under the `Confidence Code` header cell, enter three label cells, one for each confidence code: `A`, `A:e`, and `P`,
+  * To the left of each label cell, start typing the formula `=countif(` 
+  * To specify the *range* portion of this formula, select the top data cell in the Confidence column (E2), and then press `shift`+ `ctrl`+`↓`. (It should result in `E2:E31778`)
+  * To specify the *criteria* portion of the formula, select the label cell containing the confidence code you want to count. This should be immediately to the left of the cell into which you are typing the formula. The value for `A` should be `31601`.
+  * Before copying this formula down, you need to add `$` to your range so that it remains locked in: Edit the range in your formula from  `E2:E31778` to  `E$2:E$31778`.
+  * Now, double-click the lower right corner of the cell to copy the formula down for the other two confidence codes. 
+
+With this table you can interpret the results. What proportion of the data is reliable? Would a plot be helpful?
+
+
+
+##### Examine Summary Statistics of our Data
+
+Summary statistics provide another quick way to examine our data for peculiarities. Here, we'll outline the process for computing min, max, mean, and percentiles from our data in Excel. We'll simplify this procedure by creating a name for the range of `Mean flow (cfs)` data cell. 
+
+* Assign `CFS` as the name of the range of `Mean flow (cfs)` cells:
+  * Select all the data cells under the `Mean flow (cfs)` header
+  * Type `ctrl`-`F3` to open the Name Manager and click `New` to add a new named range of cells.
+  * Enter CFS as the Name. Note the range is set to what we highlighted as we open the Name Manger. Click `OK`.
+  * Close the Name Manger. Now we can just type `CFS` in any formula and it will refer to that range of cells. We'll see below how this works. 
+* Create a skeleton table with labels: `Min`, `P10`, `P25`, `P75`, `P90`, `Median`, `Average`, and `Max`
+* Insert the appropriate formula for each, using the range of `Mean flow (cms)` cells for each. 
+  * min: `=MIN(CFS)`
+  * P10:  `=PERCENTILE.INC(CFS,0.1)`
+    * `INC` means inclusive: where the percentile value must be between 0 and 1
+    * Alternatively, `EXC` requires the percentile to be between 1/n and 1-1/n, where n is the number of elements 
+  * median: `=MEDIAN(CFS)`
+  * average: `=AVERAGE(CFS)`
+  * max: `=MAX(CFS)`
+
+Now that we know how to compute summary statistics, let's examine whether building Falls lake had a noticeable impact on these values. We can do this by computing summary statistics for subsets of the discharge data, with one subset containing the discharge before 1980, when construction of the lake started, and after 1984, after the dam was completed. 
+
+* Create named ranges for discharge data before 1980 and after 1984
+  * A quick way to do this is search for 1980 and select 12/31/1979 and up with `shift`+`ctrl`+`↑`. With these records selected, assign a name as we did above. 
+  * Then search for 1984 and select from 1/1/1984 and down (`shift`+`ctrl`+`↓`), and name that range. 
+* Compute summary stats for these new ranges as you did above. (Tip: you can use `ctrl`+`H` to replace the named range `CFS` with the new names you created for easy update.)
+
+What do you notice? Particularly with regards to min and max streamflow. Does that make sense given what you know about reservoirs?
+
+##### Is there seasonal variation in streamflow?
+
+To examine seasonal (or monthly) variation in streamflow, we need to extract the months from our date values. We'll also convert calendar years into water years, which run from October thru September. 
+
+* Parse out the Date to include Year and Month
+  * Insert three new columns in your EDA worksheet by right-clicking on Column C and selecting `Insert` three times.
+  * Name these columns `year` and `month`
+  * In the Year column, use the `=Year()` function to extract the year from the corresponding cell in the `datetime` column.
+  * Repeat for the month column. 
+  * Change the format of these cells from *General* to *Number* by highlighting the columns and selecting `Number` from the dropdown list in the `Number` panel in the `Home` menu. 
+  * Extend these formulas to the cells below. 
+* Water year runs from October to September. We adjust the year column to account for this information using `IF`
+  * Create a new column for water year. 
+  * Use the `IF` function to assign the value to the cell in the `year` column if the month value is `>= 10`, otherwise, set the value of the year column minus 1:  `=IF(D2>=10,C2,C2-1)`.
+  * Change the format of the cell from General to Number, if necessary. 
+  * Extend the formula to the cells below, examining to ensure the calculations are correct. 
+* Create a table skeleton of average streamflow by month (1-12) over the different time periods (pre1980, post1984).
+* Use the `AVERAGEIF()` function to compute the average discharge of records where the month equals the specified month. Here, the *range* will be the range of cells in the month column, the criteria will be the month (e.g. '1'), and the average range will be the range of discharge values.
+
+What do you observe? Would a plot of the results facilitate interpretation? 
+
+#### Exercise: Compute total streamflow by water year
+
+Repeat the above using `SUMIF` for annual streamflow based on the water year.
 
 ---
 
 ## Q1: Evaluating 100-year flood frequency
 
-- #### Background: Calculating return intervals
+### Background: Calculating return intervals
 
-- #### Framing the analysis
+Our team hydrologist suggested that one method for evaluating the impacts of dam construction is to monitor changes in flood return intervals. 
 
-- #### Computing maximum annual streamflow using <u>pivot tables</u>
+ ![image3](media/image3.png)
 
-- #### Sorting and ranking data
+**Figure**: Reservoirs should moderate downstream flows. There is a flood control pool to hold flood waters that can be released slowly over time. There is also a conservation pool that holds water that can be released downstream during drier conditions to meet minimum streamflow requirements.
 
-- #### Calculating recurrence intervals
 
-- #### Calculating annual exceedance probability
 
-- #### Plotting recurrence intervals
+Flood insurance policy is built around the concept of the 100-year flood event. The housing industry has been working to explain what that risk actually means to homeowners with 30 year mortgages.
 
-- #### Adding a regression line
+![image4](media/image4.png)
 
-- #### Computing 100 & 500 floods from the regression
+Reservoirs decrease the likelihood of downstream flooding, but that often means development occurs in areas that would have been frequently flooded prior to the reservoir. We’ve seen examples of this just his year with Hurricane Harvey.
+
+
+
+### Framing and executing the analysis
+
+We will use Leopold’s (1994) flood frequency curve and the Weibull equation to calculate the recurrence interval. Here the return interval is computed as $\frac{n+1}{m}$ where `n` is the number of years of data and `m` is the rank of the year from largest to smallest (see this [link](https://en.wikipedia.org/wiki/Return_period) for more info). i.	*\*\*\*NOTE: The accuracy of a return interval is highly impacted by the length of the time series.*
+
+So, for us to do this analysis, we need to first compute maximum annual discharge, i.e., extract the largest discharge observed from each water year. The we sort and rank our data on max annual discharge and then compute a regression line from which we can determine the discharge of a 100 and 500 year flood. 
+
+#### Compute maximum annual streamflow using <u>pivot tables</u>
+
+Excel's pivot tables are one of it's more powerful features, allowing you to easily extract and cross tabulate various summaries from your data. We'll use to sift through discharge records on a per-year basis and identify the largest one. 
+
+* ​
+
+### Sorting and ranking data
+
+### Calculating recurrence intervals
+
+### Calculating annual exceedance probability
+
+### Plotting recurrence intervals
+
+##### Adding a regression line
+
+### Computing 100 & 500 floods from the regression
 
 #### ♦ Exercises:
 
@@ -270,7 +395,7 @@ Your general manager looks at the chart but he doesn’t like the metric system.
 
  * ##### Compute return intervals from records after 1984
 
-### Q2: Evaluating impact on minimum flows
+## Q2: Evaluating impact on minimum flows
 
 - #### Background: 7Q10 
 
