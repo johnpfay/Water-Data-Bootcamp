@@ -450,9 +450,19 @@ Repeat the above analysis only using data prior to 1980 to calculate the return 
 
 #### Background & Framing the Analysis: 7Q10 
 
-  The passing of the Clean Water Act in 1972 and the Endangered Species Act in 1973 has resulted in many reservoirs having downstream flow requirements they need to meet for either water quality purposes or to protect downstream species. For example, at the Clayton gauge, minimum flow requirements have ranged from 184 to 404 cfs since 1983. *Here we want to see if Falls Lake has raised minimum flows.*
+The passing of the Clean Water Act in 1972 and the Endangered Species Act in 1973 has resulted in many reservoirs having downstream flow requirements they need to meet for either water quality purposes or to protect downstream species. For example, at the Clayton gauge, minimum flow requirements have ranged from 184 to 404 cfs since 1983. *Here we want to see if Falls Lake has raised minimum flows.*
 
-  There are many ways to approach low flow to understand how minimum streamflow has changed since Falls Lake was constructed. We will look at a common metric known as 7Q10. <u>**7Q10** is the lowest average discharge over a one week period with a recurrence interval of 10 years.</u> This means there is only a 10% probability that there will be lower flows than the 7Q10 threshold in any given year. This metric can be modified to look at the lowest average discharge over a 7 month period, 7 season period, etc. To get more practice with pivot tables and if statements, we will calculate this metric using the 7 month period. To do this we need to construct a rolling average, which we can do using a series of pivot tables…
+There are many ways to approach low flow to understand how minimum streamflow has changed since Falls Lake was constructed. We will look at a common metric known as 7Q10. <u>**7Q10** is the lowest average discharge over a one [week/month/year] period with a recurrence interval of 10 years.</u> This means there is only a 10% probability that there will be lower flows than the 7Q10 threshold in any given year. 
+
+To get more practice with pivot tables and if statements, we will calculate this metric using the 7 month period. To do this we need to construct a rolling average of monthly discharges spanning 7 month, which we can do using a series of pivot tables. 
+
+The first pivot table aggregates our daily discharge data into total monthly discharge values for each year. From this we table, we can compute a *7-month rolling average of minimum-flows* from the given month's total discharge and those from 6 months preceding it. 
+
+Next, we construct a second Pivot Table from the above data. This one aggregates the monthly data by year, extracting the minimum of the 7-month average for each year. This will enable us to compute a regression similar the one we constructed for the flood return interval, but this regression is to reveal recurrence interval of low flows so that we can determine the stream flow of a 10% low flow event. 
+
+We then sort and rank these annual monthly-minimum values, similar to how we computed flood return intervals, but this time sorting in ascending order to compute *low-flow return interval* and then the *low flow probability of recurrence*. 
+
+With these values computed 
 
 * Create a new tab named `7Q10`
 * Create a new Pivot Table to get the average daily discharge by year and month
