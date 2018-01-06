@@ -373,41 +373,117 @@ So, for us to do this analysis, we need to first compute maximum annual discharg
 
 Excel's pivot tables are one of it's more powerful features, allowing you to easily extract and cross tabulate various summaries from your data. We'll use to sift through discharge records on a per-year basis and identify the largest one. 
 
-* ​
+* Highlight your entire EDA table, headers and all.
+* From the `Insert` menu, select `Pivot Table`, choosing to place the report in a `New Worksheet`.
+* In the new worksheet created, click on the Pivot Table if the `Pivot Table Fields` dialog is not shown. 
+* In the Pivot Table Fields dialog:
+  * Drag the `Water year` field into the `Rows` section
+  * Drag the `Mean discharge (cms)` field into the `Values` section
+  * Using the dropdown menu next to the `the Mean discharge (cms)` item now in the `Values` section, change the `Value Fields Settings` to summarize the field by the `Max` value.  
 
-### Sorting and ranking data
+#### Rank & sort the pivot table data; compute return intervals 
 
-### Calculating recurrence intervals
+We now have the data we want. Next we'll compute rankings and then sort the data. However, to do this we need to copy the data from the dynamic Pivot Table.
 
-### Calculating annual exceedance probability
+* Copy contents of your pivot table
+* Paste *the values* of the contents `right click`+`s`+`v`.
+* Delete the last row in the pasted values (the grand total).
+* Sort the data from largest to smallest: 
+  * Select both columns of data
+  * From the Home menu, select Sort & Filter->Custom Sort 
+  * Sort data by discharge values from largest to smallest. 
+* Compute rankings in a new column named `rank`
+  * Type in a few numbers, e.g., 1, 2, 3.
+  * Select these numbers and double click the lower right hand corner of the selected range.
+  * *Alternatively, you can use the* `RANK.EQ` *function*
+* Calculate return interval in a new column named `RI`
+  * Determine how many years of data you have (e.g. count of year rows or max of rank).
+  * Compute  $\frac{n+1}{m}$ where `n` is the number of years of data and `m` is the rank.
+* Calculate the Annual Exceedance Probability in a new column named `Pe`
+  * $Pe = 1/RI$
+* Compute the the probability of the 100, 500, and 100 year flood occurring over the next 30 years as a binomial distribution: $Pe =1 - [1-(1/T)]^n$ where `T` is the return period (e.g. 100 years) and number of years of interest (30 years in our case).
+  * Add three label cells: 100, 500, 1000 in a new location in your worksheet
+  * Next to them add the formula `=1-(1-(1/XX))^30` where xx is the reference to your label cell. 
 
-### Plotting recurrence intervals
+#### Plot the data and compute a regression equation
 
-##### Adding a regression line
+* Create a scatterplot of max discharge (y-axis) vs. recurrence interval (x-axis)
+  * Note: Excel will default to setting the left most column in your table to the X-axis and the other as the Y-axis, meaning your scatterplot will default to setting the X-axis to Max Discharge and the Y-axis to Recurrence Interval. You'll have to manually switch this using the `Select Data` tool. 
+    * In the Select Data Source dialog, Edit the `RI` category and swap the `Series X values` and `Series Y values`.
+* Place the x-axis on a log scale and add minor tick marks
+* Add a regression line to your plot
+  * Select the points in your plot; right-click and select `Add Trendline`.
+  * Select the trendline; set to logarithmic.
+  * Check the box to display the equation on the chart.
 
-### Computing 100 & 500 floods from the regression
+#### Apply the regression to compute 100, 500, and 1000-year flood discharges
 
-#### ♦ Exercises:
+* Using the regression equation you just calculated and added to your chart, estimate the discharge for the 100, 500, and 1000 year events, i.e., compute `y` for `x` = 100, 500, and 1000, respectively, somewhere in your Excel worksheet. *These are the estimated discharge at 100, 500, and 1000 year flood events.* 
+* Add those estimated discharge values to your chart. 
+  * `Select Data` > `Add` > *RI Year* goes to `X Values`, `Y Values` are the values computed from the regression.
 
- * ##### Compute return interval from all records
+### ♦ Exercise: Calculate the return interval from the pre-1980 data
 
- * ##### Compute return intervals from records before 1980
+Repeat the above analysis only using data prior to 1980 to calculate the return interval.
 
- * ##### Compute return intervals from records after 1984
+* How many fewer years of data are used?
+
+
+* Plot the new dataset on top of the original plot.
+  * `Design` > `Select Data` > `Add`
+  * Add the estimated 100 and 500 year points for each plot based on the regression.
+* How big is the difference between the 100 and 500 year estimates?
+  * Percent is calculated relative to the smaller record (my choice)
+* Calculate the discharge for different return periods and exceedance probabilities
+* Plot annual discharge and calculate the number of times the 100 year flood was surpassed for both the POR and prior to 1980
+  * Plot the estimates on the same chart. How much do they differ? Are you surprised by the results?
+
+*Look at the first plot you did of streamflow on the EDA spreadsheet to look at the distribution of peak events. These events are all hurricanes. How does it change your understanding of why Falls Lake doesn’t seem to impact flood frequency?* 
+
+*What happens to your answer if you remove those three points?*
+
+### 
+
+---
 
 ## Q2: Evaluating impact on minimum flows
 
-- #### Background: 7Q10 
+#### Background & Framing the Analysis: 7Q10 
 
-- #### Framing the analysis
+  The passing of the Clean Water Act in 1972 and the Endangered Species Act in 1973 has resulted in many reservoirs having downstream flow requirements they need to meet for either water quality purposes or to protect downstream species. For example, at the Clayton gauge, minimum flow requirements have ranged from 184 to 404 cfs since 1983. *Here we want to see if Falls Lake has raised minimum flows.*
 
-- #### Computing average daily discharge  by year and month w/Pivot tables
+  There are many ways to approach low flow to understand how minimum streamflow has changed since Falls Lake was constructed. We will look at a common metric known as 7Q10. <u>**7Q10** is the lowest average discharge over a one week period with a recurrence interval of 10 years.</u> This means there is only a 10% probability that there will be lower flows than the 7Q10 threshold in any given year. This metric can be modified to look at the lowest average discharge over a 7 month period, 7 season period, etc. To get more practice with pivot tables and if statements, we will calculate this metric using the 7 month period. To do this we need to construct a rolling average, which we can do using a series of pivot tables…
 
-- #### Computing 7-month averages
+* Create a new tab named `7Q10`
+* Create a new Pivot Table to get the average daily discharge by year and month
+  * Set `year` and `month` as the Pivot Table *rows*. We use year instead of Water Year to ensure the data are being read in the correct order. If we use water year, the wrong September and Octobers are matched together.
+  * In the field settings for both `year` and `month`, change the `Subtotals & Filters` to `None`
+  * Set `Mean Flow (cfs)` as your Pivot Table *value*. Keep as the sum of the monthly flows (since taking lowest 7 month average, small variability in the number of days in each month is ok.
+  * Right click the top left `Row Labels` cell, and select PivotTable Options. 
+    * On the `Totals & Filters` tab, un-check the two Grand Totals options. 
+    * On the `Display` tab, check "Classif PivotTable layout..." This "flattens" your table to that year is shown in one column and month in another.
+* Copy the the entire Pivot Table data and paste, as *values*, into cell F2. (It can go anywhere, but this will make the following steps easier to follow)
+* What we need to do next is fill all the blanks in the year column with the appropriate year. 
+  * Select all the cells in the newly pasted Year column
+  * Click `Home` > `Find & Select` > `Go To Special…`, and a `Go To Special` dialog box will appear.
+  * Check the  `Blanks` option, and click `OK`. All of the blank cells have been selected. 
+  * Then input the formula “=F2” into active cell F3 without changing the selection. 
+  * Press `Ctrl` + `Enter`, Excel will copy the respective formula to all blank cells.
+  * At this point, the filled contents are formulas, and we need to convert the formals to values. Now select the whole range, copy, and paste as values.
+* Add a new column to calculate 7-month averages (i.e., "7Q")
+  * Go to the 7th cell down and set it to compute the average of the streamflow of that row and the preceding 6 rows.
+  * Double-click the bottom corner to copy down. 
+* Create a table listing the minimum flow for each year, using the above table as its source. 
+  * Hint: Use your pivot table skills...
+* Compute the rank, return interval, and probability of recurrence of these minimum flows (using the formulas in the flood lesson). Remember to sort in the opposite direction!
+* Plot the 7Q flow (Y) against the Probability of Recurrence (X)
+  * Fit with a best fitting regression
+* Use the equation to estimate the 7Q10, i.e., the threshold where the 10% of the observed flows are smaller:
+  * Add the 7Q10 point to the graph
+* Looking at your table, how many months were below 7Q10 in the Probability of Recurrence? Was it close to 10%?
+  * Use `COUNTIF` . When using this function, the criteria needs to be in quotes: `=COUNTIF(range,"<=240")`
 
-- #### Extracting 7-month minimum averages
 
-- #### Rank
 
 ## Q3: Exploring trends in streamflow over time
 
