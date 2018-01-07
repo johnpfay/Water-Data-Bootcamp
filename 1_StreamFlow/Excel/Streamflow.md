@@ -375,6 +375,7 @@ Excel's pivot tables are one of it's more powerful features, allowing you to eas
 
 * Highlight your entire EDA table, headers and all.
 * From the `Insert` menu, select `Pivot Table`, choosing to place the report in a `New Worksheet`.
+* Rename this worksheet "Flood".
 * In the new worksheet created, click on the Pivot Table if the `Pivot Table Fields` dialog is not shown. 
 * In the Pivot Table Fields dialog:
   * Drag the `Water year` field into the `Rows` section
@@ -460,38 +461,77 @@ The first pivot table aggregates our daily discharge data into total monthly dis
 
 Next, we construct a second Pivot Table from the above data. This one aggregates the monthly data by year, extracting the minimum of the 7-month average for each year. This will enable us to compute a regression similar the one we constructed for the flood return interval, but this regression is to reveal recurrence interval of low flows so that we can determine the stream flow of a 10% low flow event. 
 
-We then sort and rank these annual monthly-minimum values, similar to how we computed flood return intervals, but this time sorting in ascending order to compute *low-flow return interval* and then the *low flow probability of recurrence*. 
+We then sort and rank these annual monthly-minimum values, similar to how we computed flood return intervals to compute *7 month minimum-flow (7Q) return interval* and then the *low flow probability of recurrence (POR)* of these flows, again using the same methods used for calculating flood return intervals and probabilities of recurrence. From this we can compute a regression between our yearly 7Q flows and POR, and use that regression equation to determine 7Q10, or the expected minimum flow across a span of 10 years. 
 
-With these values computed 
+#### The analysis
 
-* Create a new tab named `7Q10`
-* Create a new Pivot Table to get the average daily discharge by year and month
+* ##### Create a new Pivot Table to get the average daily discharge by year and month:
+
+  * Rename the new worksheet "7Q10"
   * Set `year` and `month` as the Pivot Table *rows*. We use year instead of Water Year to ensure the data are being read in the correct order. If we use water year, the wrong September and Octobers are matched together.
   * In the field settings for both `year` and `month`, change the `Subtotals & Filters` to `None`
   * Set `Mean Flow (cfs)` as your Pivot Table *value*. Keep as the sum of the monthly flows (since taking lowest 7 month average, small variability in the number of days in each month is ok.
   * Right click the top left `Row Labels` cell, and select PivotTable Options. 
     * On the `Totals & Filters` tab, un-check the two Grand Totals options. 
     * On the `Display` tab, check "Classif PivotTable layout..." This "flattens" your table to that year is shown in one column and month in another.
-* Copy the the entire Pivot Table data and paste, as *values*, into cell F2. (It can go anywhere, but this will make the following steps easier to follow)
-* What we need to do next is fill all the blanks in the year column with the appropriate year. 
+
+* ##### Create a static copy of the Pivot Table values
+
+  * Copy the the entire Pivot Table data and paste - as *values* - into cell `F2`. (It can go anywhere, but this will make the subsequent steps easier to follow)
+
+* ##### Fill all the blanks in the year column with the appropriate year. 
+
   * Select all the cells in the newly pasted Year column
   * Click `Home` > `Find & Select` > `Go To Special…`, and a `Go To Special` dialog box will appear.
   * Check the  `Blanks` option, and click `OK`. All of the blank cells have been selected. 
   * Then input the formula “=F2” into active cell F3 without changing the selection. 
   * Press `Ctrl` + `Enter`, Excel will copy the respective formula to all blank cells.
   * At this point, the filled contents are formulas, and we need to convert the formals to values. Now select the whole range, copy, and paste as values.
-* Add a new column to calculate 7-month averages (i.e., "7Q")
+
+* ##### Calculate the 7-month minimum flow averages (i.e., "7Q")
+
+  * Add a new column next to the records you just pasted. Give it the header `7Q`.
   * Go to the 7th cell down and set it to compute the average of the streamflow of that row and the preceding 6 rows.
-  * Double-click the bottom corner to copy down. 
-* Create a table listing the minimum flow for each year, using the above table as its source. 
-  * Hint: Use your pivot table skills...
-* Compute the rank, return interval, and probability of recurrence of these minimum flows (using the formulas in the flood lesson). Remember to sort in the opposite direction!
-* Plot the 7Q flow (Y) against the Probability of Recurrence (X)
-  * Fit with a best fitting regression
-* Use the equation to estimate the 7Q10, i.e., the threshold where the 10% of the observed flows are smaller:
-  * Add the 7Q10 point to the graph
-* Looking at your table, how many months were below 7Q10 in the Probability of Recurrence? Was it close to 10%?
-  * Use `COUNTIF` . When using this function, the criteria needs to be in quotes: `=COUNTIF(range,"<=240")`
+  * Double-click the bottom corner to copy this formula down to the cells below. 
+
+* ##### Create a new table listing the minimum flow for each year, using the above table as its source. 
+
+  * Hint: Use your pivot table skills. But you may want to create the table in the same worksheet.
+
+* ##### Compute the rank, return interval, and probability of recurrence of these minimum flows
+
+  * Hint: Use the methods from the flood lesson, but remember to sort in the opposite direction!
+
+* ##### Plot the 7Q flow (Y) against the Probability of Recurrence (X)
+
+  * Try different regression types and stick with the one with the highest R2 (but avoid *quadratic* or *moving averages*).
+
+* ##### Use the equation to estimate the 7Q10, i.e., the threshold where the 10% of the observed flows are smaller:
+
+  * Set `x` in the regression equation to 0.10 and find `y`. This is your 7Q10. 
+  * Add the 7Q10 point to the graph using `Select Data...` with your plot active. 
+
+* ##### Apply your results: How many months in the monthly Pivot Table fell below the estimated 7Q10?
+
+  Here we want to produce a plot that shows when and how frequently low flows have occurred. We do this by first created a new column of just the monthly discharges falling below our 7Q10 threshold, and then creating a plot where these are highlighted against all monthly discharge values. 
+
+  * Insert a new column to the left of your copied and pasted monthly Pivot Table results. Label it `Below 7Q10`. 
+  * Use the `IF` formula to set values in this column to the monthly discharge value if the monthly discharge was below your computed 7Q10, otherwise set to an empty string (`""`). 
+  * Label the empty column to the right of this table (Column E) "Date" and set it cells to the 15th of the year and month of the record, using the formula `=Date(year,month,day)`
+  * Plot the monthly discharge. Then add a new series to your plot of just the ones falling under the 7Q10 (column J).
+  * Add labels and a legend.
+
+* ##### Count the number of Q710 events per year:
+
+  * Either use the `COUNTIF` function, or
+  * Expand your Pivot table to include the `Below 7Q10` column and count the number of occurrences. (`PivotTableTools` > `Change Data Source...`).
+
+
+#### Continued practice
+
+* On your own - calculate the 7Q10 prior to Falls Lake and after Falls Lake
+
+---
 
 
 
@@ -499,12 +539,37 @@ With these values computed
 
 - #### Background
 
-- #### Framing the analysis
+  Water security is becoming increasingly important as population and water demand continue to grow. This is especially true with changing climate conditions that introduce new variability into our expectations of water supply. Briefly, we want to know whether the average annual streamflow has changed over time. 
 
-- #### Removing duplicates
+- #### Set up
 
-- #### Conditional sums and counts
+  - Create a new spreadsheet and name it `Trends`.
+  - Create a table of `Year`, `Total Streamflow`, and `Count`.
+    - Copy and Paste the entire Water Year column from the EDA tab in the `Year` column. 
+      - Remove duplicate values: `Data menu`>`Data Tools`>`Remove Duplicates`
+    - Use `SUMIF` and `COUNTIF` to calculate the number of observations per year and the annual streamflow
+    - Remove those years with < 90% of data (i.e., fewer than 329 records in a year) , 
+      - Use `IF` to calculate and flag rows.
+  - Plot streamflow over time and add a linear trend line
+  - Go to `File` > `Options` >`Add-ins` > `Analysis Toolpack`
+    - `Data Menu` > `Data Analysis` > `Regression`
+    - Run the regression analysis on the data
+      - Turn on all the plots
+      - Is the trend significant?
+  - Repeat for 1930-1980 and for 1984-2017
+    - What to you observe? 
+    - Are the trends obvious? 
 
-- #### Plotting trends
+- #### More Practice
 
-- #### Computing regressions
+  If there are not annual trends, are there seasonal ones? What about February and August?
+
+- ##### Grab all *February* values:
+
+  - Go to the working spreadsheet and `filter` by month
+  - `AVERAGEIF` the filtered data...
+
+- ##### Repeat the above analysis
+
+  - *What do you observe?*
+
