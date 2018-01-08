@@ -10,11 +10,11 @@ Date: Spring 2018
 
 ## ♦ Background: How has Falls Lake affected streamflow?
 
-Prior to 1978, flooding of the Neuse River caused extensive damage to public and private properties including roadways, railroads, industrial sites, and farmlands. The Falls Lake Project was developed by the U.S. Army Corps of Engineers to control damaging floods and to supply a source of water for surrounding communities. Construction of the dam began in 1978 and was completed in 1981. In addition to recreation opportunities, Falls Lake now provides flood and water-quality control, water supply, and fish and wildlife conservation ([source](https://www.ncparks.gov/falls-lake-state-recreation-area/history)).
+Prior to 1978, flooding of the Neuse River caused extensive damage to public and private properties including roadways, railroads, industrial sites, and farmlands. The Falls Lake Project was developed by the U.S. Army Corps of Engineers to control damaging floods and to supply a source of water for surrounding communities. Construction of the dam began in 1978 and was completed in 1981. In addition to recreation opportunities, Falls Lake now provides flood control, water supply, water quality, and fish and wildlife conservation resources ([source](https://www.ncparks.gov/falls-lake-state-recreation-area/history)).
 
 Now, some 3 dozen years after Falls Lake was constructed, we want to evaluate its impact on downstream streamflow, using this as an opportunity to examine some data analytic techniques, specifically ones using Microsoft Excel. These techniques will cover ways to get data into Excel and how to manage, wrangle, and analyze those data. 
 
-This document begins with a review of the **analytical workflow** of most data projects. Then we apply this workflow to the question posed above. In doing so, we focus on using *Excel* to tackle the assignment, but companion documents will examine how *R* and *Python* can accomplish the same set of tasks in a scripting environment.
+This document begins with a review of the **analytical workflow** of most data projects. We apply this workflow to understand how streamflow has changed since Falls Lake was constructed. In doing so, we focus on using *Excel* to tackle the assignment, but companion documents will examine how *R* and *Python* can accomplish the same set of tasks in a scripting environment.
 
 ---
 
@@ -30,31 +30,31 @@ Data analysis projects follow a similar workflow, one that begins with a general
 
 ### 1. Clarifying the central question
 
-Data analysis has a workflow that often begins with clarifying the central question. For example, our initial question is *"How has Falls Lake affected streamflow?"* This question has some useful specifics: We know where we'll be working (Falls Lake) and what to core dataset will be (streamflow). However, the question is vague on how precisely we might evaluate effects of the dam on streamflow. As a data analyst your first job is often to <u>clarify a basic question into one that is *actionable*</u>, that is one that has a clear route to an answer or at least that allows you to present data to a way that facilitates effective decision making. 
+Data analysis has a workflow that often begins with clarifying the central question. For example, our initial question is *"How has Falls Lake affected streamflow?"* This question has some useful specifics: We know where we'll be working (Falls Lake) and what the core dataset will be (streamflow). However, the question is vague on how we might evaluate the impact on streamflow. As a data analyst your first job is often to <u>clarify a basic question into one that is *actionable*</u>, that is taking a vague question and creating specific questions that shape data exploration and analysis to facilitates effective decision making. 
 
 This step usually requires some communication between the the client, project managers, experts in the field, and you, the data analyst. (And let's hope it goes better than this meeting: https://www.youtube.com/watch?v=BKorP55Aqvg .) For our Falls Lake example, however, we'll assume this meeting took place and narrowed on on the following questions:
 
-* How has the 100-year flood frequency changed since building the lake?
-* How have 7-month minimum flows changed since building the lake?
-* Has has variability in streamflow changed since building the lake?
+* How has the 100-year flood frequency changed since building the reservoir?
+* How have 7-month minimum flows changed since building the reservoir?
+* Are there trends in streamflow (increasing, same or decreasing) since building the reservoir?
 
 While these are still a touch vague, our expert hydrologists will provide more specific guidance on these analyses below. 
 
 
 
-### 2. What data do I need to answer the question? Do those data exist?
+### 2. What data do I need to answer the question? Do the data exist?
 
-With our objectives clarified, our next step is to <u>identify the data needed drive our analyses</u>. In our case, it's fairly obvious: we need long-term streamflow data at some point downstream (and not too far downstream) from the Falls Lake dam. In other cases, it may not be as obvious and may require another conference with the project team to figure out what that ideal dataset may be. 
+With our objectives clarified, our next step is to <u>identify the data needed for our analyses</u>. In our case, it's fairly obvious: we need long-term streamflow data at some point downstream (and not too far downstream) from Falls Lake. In other cases, it may not be as obvious and may require another conference with the project team to figure out what that ideal dataset may be. 
 
-When a target dataset is identified, the following question is <u>whether those data exist</u>? Knowing where to look or whom to ask whether a certain dataset exists comes with experience (though web-search skills can be quite useful too). In other words, it's not really something one can teach in a broad sense. However, if you've exhausted your search and still can't find the proper dataset for your analysis, your fallback is to look for **proxies**, or similar (existing) data that can be used in place of your [missing] data without making too crazy of assumption. In some cases, **models** can be used to derive suitable data to run your analysis. 
+When a target dataset is identified, the following question is <u>whether those data exist</u>? Knowing where to look or whom to ask whether a certain dataset exists comes with experience and your networks (though web-search skills can be quite useful too). However, if you've exhausted your search and still can't find the proper dataset(s), your fallback is to look for **proxies**, or similar (existing) data that can be used in place of your [missing] data. In some cases, **models** can be used to derive suitable data to run your analysis. 
 
-Again, we are fortunate in our case. The data we want are provided by the USGS' *National Water Information System* (NWIS). Instructions on how to grab the data we want are provided in this document.
+In this case, the data we want are provided by the USGS' *National Water Information System* (NWIS). 
 
 
 
 ### 3. Obtaining, exploring, and cleaning the data
 
-Data come in a variety of forms and formats. Some datasets lend themselves to easy import and immediate analysis; others may not be digital-ready (e.g. hard-copies or PDFs) or have an inconsistent format rendering them essentially useless. As they saying goes, "your mileage may vary" with the dataset you find. While there are techniques, technologies, and some tricks in getting messy, seemingly irretrievable data into a workable format, we will not focus deeply on that. Rather, we'll cover some reliable techniques for <u>getting data into a workable, or **tidy** format</u> in Excel. Comparable, actually more powerful techniques exist for obtaining and cleaning data exist in *R* and *Python* scripting languages that we'll examine  a bit later.
+Data come in a variety of forms and formats. Some datasets lend themselves to easy import and immediate analysis; others may not be digital-ready (e.g. hard-copies or PDFs) or have an inconsistent format rendering them essentially useless. As the saying goes, "your mileage may vary" with the dataset you find. While there are techniques, technologies, and some tricks in getting messy, seemingly irretrievable data into a workable format, that is not our focus. Rather, we'll cover some reliable techniques for <u>getting data into a workable, or **tidy** format</u> in Excel. More powerful techniques exist for obtaining and cleaning data exist in *R* and *Python* scripting languages that we'll examine a bit later.
 
 
 
@@ -93,7 +93,7 @@ As mentioned above, we've determined that we need streamflow data for some site 
 
 3. On the map, visually follow the stream flowing out of Falls Lake dam until you find a gage site. Click on it, and it should reveal Site #: `02087500`, `NEUSE RIVER NEAR CLAYTON, NC`. This is the site we'll use for our analysis. 
 
-   [img]
+   ![Data Analytics Process Streamflow](media/image2.png)
 
 4. Click on the [Access Data](https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&site_no=02087500) link. This brings up the interface for selecting which data you want to grab. 
 
@@ -108,17 +108,15 @@ As mentioned above, we've determined that we need streamflow data for some site 
 
    \- And finally hit `Go`. This will call up a page with all the data you just requested. 
 
-   [img]
+   ​     *\*  (If needed, this [LINK](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) will take you directly to the data...)*
 
-​     *\*  (If needed, this [LINK](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) will take you directly to the data...)*
-
-Pause and have a look at what's provided. The first several lines begin with a '#' and display the dataset's *metadata*, i.e. data about the data. Then, the first line without the '#' appears to be column headers, but the line after that looks different than the actual data values below that. (As it happens, this line indicates the data *length* and *type*: `5s` indicates a `s`tring that is `5` characters long. The other data types include `d` for *date*, and `n` for *numeric*.) 
+Pause and look at what's provided. The first several lines begin with a '#' and display the dataset's *metadata*, i.e. data about the data. The first line without the '#' appears to be column headers, but the line after that looks different than the actual data values below that. (As it happens, this line indicates the data *length* and *type*: `5s` indicates a `s`tring that is `5` characters long. The other data types include `d` for *date*, and `n` for *numeric*.) 
 
 #### <u>Getting the data into Excel</u>
 
-\**Before embarking on our work with Excel, be sure you are clear what each of the following refers to with respect to Excel:* `workbook`, `worksheet`, `row`, `column`, `cell`.
+\**Before embarking on our work with Excel, be sure you are clear what each of the following refers to with respect to Excel:* `workbook`, `worksheet`, `row`, `column`, `cell`, `menu options`.
 
-Now that we have obtained the data in digital form, we need to get it into *Excel* so that each value is in its own cell. We'll discuss two, somewhat imperfect, methods to do this, each requiring a bit of manual editing. We also present a third, more automated method. However, while this third method may seem easier, it is less transparent to what is going on an also seems a bit unstable with the current release of *Excel*.   
+Now that we have found the data, we need to get it into *Excel* so that each value is in its own cell. We'll discuss two, somewhat imperfect, methods to do this, each requiring a bit of manual editing. We also present a third, more automated method. However, while this third method may seem easier, it is less transparent and a bit unstable with the current release of *Excel*.   
 
 ##### Method 1 -
 
@@ -175,7 +173,11 @@ We'll begin by creating a tidier version of the raw data, but keeping the raw wo
 - **As we are only interested in *mean* discharge, we can remove the other columns:** 
 
   * Delete all columns but `site_no`, `datetime`, and mean discharge, currently labeled `85235_00060_00003`. 
+
   * Rename the `85235_00060_00003` as `Mean flow (cfs)`
+
+    * How did we know the units are cfs? The metadata. Can you find this information?
+
     *\*Note: It's always good to include the units in a field name!*
 
 
@@ -245,7 +247,7 @@ We'll begin by creating a tidier version of the raw data, but keeping the raw wo
 
 ### ►  Exercise - Plot data in mgal/day
 
-Your project manager looks at the chart but she doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. Make a new plot and show side by side to the CFS plot. (1 CFS = 0.53817 MGD)
+Your project manager looks at the chart but doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. Make a new plot and show side by side to the CFS plot. (1 CFS = 0.53817 MGD)
 
 ---
 
@@ -296,29 +298,30 @@ With this table you can interpret the results. What proportion of the data is re
 
 ##### Examine Summary Statistics of our Data
 
-Summary statistics provide another quick way to examine our data for peculiarities. Here, we'll outline the process for computing min, max, mean, and percentiles from our data in Excel. We'll simplify this procedure by creating a name for the range of `Mean flow (cfs)` data cell. 
+Summary statistics provide another quick way to examine our data for peculiarities. Here, we'll outline the process for computing min, max, mean, and percentiles from our data in Excel. We'll simplify this procedure by creating a name for the range of `Mean flow (cms)` data cell. 
 
-* Assign `CFS` as the name of the range of `Mean flow (cfs)` cells:
-  * Select all the data cells under the `Mean flow (cfs)` header
+* Assign `CMS` as the name of the range of `Mean flow (cms)` cells:
+  * Select all the data cells under the `Mean flow (cms)` header
   * Type `ctrl`-`F3` to open the Name Manager and click `New` to add a new named range of cells.
-  * Enter CFS as the Name. Note the range is set to what we highlighted as we open the Name Manger. Click `OK`.
+  * Enter CMS as the Name. Note the range is set to what we highlighted as we open the Name Manger. Click `OK`.
   * Close the Name Manger. Now we can just type `CFS` in any formula and it will refer to that range of cells. We'll see below how this works. 
 * Create a skeleton table with labels: `Min`, `P10`, `P25`, `P75`, `P90`, `Median`, `Average`, and `Max`
 * Insert the appropriate formula for each, using the range of `Mean flow (cms)` cells for each. 
-  * min: `=MIN(CFS)`
-  * P10:  `=PERCENTILE.INC(CFS,0.1)`
+  * min: `=MIN(CMS)`
+  * P10:  `=PERCENTILE.INC(CMS,0.1)`
     * `INC` means inclusive: where the percentile value must be between 0 and 1
     * Alternatively, `EXC` requires the percentile to be between 1/n and 1-1/n, where n is the number of elements 
-  * median: `=MEDIAN(CFS)`
-  * average: `=AVERAGE(CFS)`
-  * max: `=MAX(CFS)`
+    * Calculate P25, P75, P90 following the same format
+  * median: `=MEDIAN(CMS)`
+  * average: `=AVERAGE(CMS)`
+  * max: `=MAX(CMS)`
 
-Now that we know how to compute summary statistics, let's examine whether building Falls lake had a noticeable impact on these values. We can do this by computing summary statistics for subsets of the discharge data, with one subset containing the discharge before 1980, when construction of the lake started, and after 1984, after the dam was completed. 
+Now that we know how to compute summary statistics, let's examine whether building Falls Lake had a noticeable impact on these values. We can do this by computing summary statistics for subsets of the discharge data, with one subset containing the discharge before 1980, when construction of the lake started, and after 1984, after the dam was completed. 
 
 * Create named ranges for discharge data before 1980 and after 1984
   * A quick way to do this is search for 1980 and select 12/31/1979 and up with `shift`+`ctrl`+`↑`. With these records selected, assign a name as we did above. 
   * Then search for 1984 and select from 1/1/1984 and down (`shift`+`ctrl`+`↓`), and name that range. 
-* Compute summary stats for these new ranges as you did above. (Tip: you can use `ctrl`+`H` to replace the named range `CFS` with the new names you created for easy update.)
+* Compute summary stats for these new ranges as you did above. (Tip: you can use `ctrl`+`H` to replace the named range `CMS` with the new names you created for easy update.)
 
 What do you notice? Particularly with regards to min and max streamflow. Does that make sense given what you know about reservoirs?
 
@@ -328,7 +331,7 @@ To examine seasonal (or monthly) variation in streamflow, we need to extract the
 
 * Parse out the Date to include Year and Month
   * Insert three new columns in your EDA worksheet by right-clicking on Column C and selecting `Insert` three times.
-  * Name these columns `year` and `month`
+  * Name these columns `year`, `month`, and `water year`
   * In the Year column, use the `=Year()` function to extract the year from the corresponding cell in the `datetime` column.
   * Repeat for the month column. 
   * Change the format of these cells from *General* to *Number* by highlighting the columns and selecting `Number` from the dropdown list in the `Number` panel in the `Home` menu. 
@@ -338,7 +341,7 @@ To examine seasonal (or monthly) variation in streamflow, we need to extract the
   * Use the `IF` function to assign the value to the cell in the `year` column if the month value is `>= 10`, otherwise, set the value of the year column minus 1:  `=IF(D2>=10,C2,C2-1)`.
   * Change the format of the cell from General to Number, if necessary. 
   * Extend the formula to the cells below, examining to ensure the calculations are correct. 
-* Create a table skeleton of average streamflow by month (1-12) over the different time periods (pre1980, post1984).
+* Create a table skeleton of average streamflow by month (1-12) over the different time periods (period of record, pre1980, and post1984).
 * Use the `AVERAGEIF()` function to compute the average discharge of records where the month equals the specified month. Here, the *range* will be the range of cells in the month column, the criteria will be the month (e.g. '1'), and the average range will be the range of discharge values.
 
 What do you observe? Would a plot of the results facilitate interpretation? 
@@ -355,7 +358,7 @@ Repeat the above using `SUMIF` for annual streamflow based on the water year.
 
 ### Background: Calculating return intervals
 
-Our team hydrologist suggested that one method for evaluating the impacts of dam construction is to monitor changes in flood return intervals. 
+Our team hydrologist suggested that one method for evaluating the impacts of dam construction is to monitor changes in flood return intervals. Falls Lake is a flood control reservoir, so it should decrease the amount of downstream flooding.
 
  ![image3](media/image3.png)
 
@@ -363,7 +366,7 @@ Our team hydrologist suggested that one method for evaluating the impacts of dam
 
 
 
-Flood insurance policy is built around the concept of the 100-year flood event. The housing industry has been working to explain what that risk actually means to homeowners with 30 year mortgages.
+Flood insurance policy is built around the concept of the 100-year flood event. The housing industry has been working to explain what that risk actually means to homeowners with 30 year mortgages. Understanding the flood risk relative to mortage's is helpful for insurance companies to know. Has Falls Lake decreased the flood risk for downstream homes?
 
 ![image4](media/image4.png)
 
@@ -373,7 +376,9 @@ Reservoirs decrease the likelihood of downstream flooding, but that often means 
 
 ### Framing and executing the analysis
 
-We will use Leopold’s (1994) flood frequency curve and the Weibull equation to calculate the recurrence interval. Here the return interval is computed as $\frac{n+1}{m}$ where `n` is the number of years of data and `m` is the rank of the year from largest to smallest (see this [link](https://en.wikipedia.org/wiki/Return_period) for more info). i.	*\*\*\*NOTE: The accuracy of a return interval is highly impacted by the length of the time series.*
+We will use Leopold’s (1994) flood frequency curve and the Weibull equation to calculate the recurrence interval. Here the return interval is computed as $\frac{n+1}{m}$ where `n` is the number of years of data and `m` is the rank of the year from largest to smallest (see this [link](https://en.wikipedia.org/wiki/Return_period) for more info). 	
+
+*\* NOTE: The accuracy of a return interval is highly impacted by the length of the time series.*
 
 So, for us to do this analysis, we need to first compute maximum annual discharge, i.e., extract the largest discharge observed from each water year. The we sort and rank our data on max annual discharge and then compute a regression line from which we can determine the discharge of a 100 and 500 year flood. 
 
@@ -403,8 +408,12 @@ We now have the data we want. Next we'll compute rankings and then sort the data
   * Sort data by discharge values from largest to smallest. 
 * Compute rankings in a new column named `rank`
   * Type in a few numbers, e.g., 1, 2, 3.
+
   * Select these numbers and double click the lower right hand corner of the selected range.
+
   * *Alternatively, you can use the* `RANK.EQ` *function*
+
+    **Note: How do these methods differ for those years with the same maximum values (ties)?*
 * Calculate return interval in a new column named `RI`
   * Determine how many years of data you have (e.g. count of year rows or max of rank).
   * Compute  $\frac{n+1}{m}$ where `n` is the number of years of data and `m` is the rank.
@@ -422,8 +431,8 @@ We now have the data we want. Next we'll compute rankings and then sort the data
 * Place the x-axis on a log scale and add minor tick marks
 * Add a regression line to your plot
   * Select the points in your plot; right-click and select `Add Trendline`.
-  * Select the trendline; set to logarithmic.
-  * Check the box to display the equation on the chart.
+  * Try out different trendlines to see which has the best fit. In our case, logarithmic.
+  * Check the box to display the equation on the chart and r2 values.
 
 #### Apply the regression to compute 100, 500, and 1000-year flood discharges
 
@@ -459,7 +468,7 @@ Repeat the above analysis only using data prior to 1980 to calculate the return 
 
 #### Background & Framing the Analysis: 7Q10 
 
-The passing of the Clean Water Act in 1972 and the Endangered Species Act in 1973 has resulted in many reservoirs having downstream flow requirements they need to meet for either water quality purposes or to protect downstream species. For example, at the Clayton gauge, minimum flow requirements have ranged from 184 to 404 cfs since 1983. *Here we want to see if Falls Lake has raised minimum flows.*
+The passing of the Clean Water Act in 1972 and the Endangered Species Act in 1973 has resulted in many reservoirs having to meet downstream flow requirements for either water quality purposes or species protection. For example, at the Clayton gauge, minimum flow requirements have ranged from 184 to 404 cfs since 1983. *Here we want to see if Falls Lake has raised minimum flows.*
 
 There are many ways to approach low flow to understand how minimum streamflow has changed since Falls Lake was constructed. We will look at a common metric known as 7Q10. <u>**7Q10** is the lowest average discharge over a one [week/month/year] period with a recurrence interval of 10 years.</u> This means there is only a 10% probability that there will be lower flows than the 7Q10 threshold in any given year. 
 
@@ -467,7 +476,7 @@ To get more practice with pivot tables and if statements, we will calculate this
 
 The first pivot table aggregates our daily discharge data into total monthly discharge values for each year. From this we table, we can compute a *7-month rolling average of minimum-flows* from the given month's total discharge and those from 6 months preceding it. 
 
-Next, we construct a second Pivot Table from the above data. This one aggregates the monthly data by year, extracting the minimum of the 7-month average for each year. This will enable us to compute a regression similar the one we constructed for the flood return interval, but this regression is to reveal recurrence interval of low flows so that we can determine the stream flow of a 10% low flow event. 
+Next, we construct a second Pivot Table from the above data. This one aggregates the monthly data by year, extracting the minimum of the 7-month average for each year. This will enable us to compute a regression similar the one we constructed for the flood return interval, but this regression is to reveal the recurrence interval of low flows so that we can determine the streamflow of a 10% low flow event. 
 
 We then sort and rank these annual monthly-minimum values, similar to how we computed flood return intervals to compute *7 month minimum-flow (7Q) return interval* and then the *low flow probability of recurrence (POR)* of these flows, again using the same methods used for calculating flood return intervals and probabilities of recurrence. From this we can compute a regression between our yearly 7Q flows and POR, and use that regression equation to determine 7Q10, or the expected minimum flow across a span of 10 years. 
 
@@ -478,10 +487,10 @@ We then sort and rank these annual monthly-minimum values, similar to how we com
   * Rename the new worksheet "7Q10"
   * Set `year` and `month` as the Pivot Table *rows*. We use year instead of Water Year to ensure the data are being read in the correct order. If we use water year, the wrong September and Octobers are matched together.
   * In the field settings for both `year` and `month`, change the `Subtotals & Filters` to `None`
-  * Set `Mean Flow (cfs)` as your Pivot Table *value*. Keep as the sum of the monthly flows (since taking lowest 7 month average, small variability in the number of days in each month is ok.
+  * Set `Mean Flow (cms)` as your Pivot Table *value*. Keep as the sum of the monthly flows (since taking lowest 7 month average, small variability in the number of days in each month is ok.
   * Right click the top left `Row Labels` cell, and select PivotTable Options. 
     * On the `Totals & Filters` tab, un-check the two Grand Totals options. 
-    * On the `Display` tab, check "Classif PivotTable layout..." This "flattens" your table to that year is shown in one column and month in another.
+    * On the `Display` tab, check "Classify PivotTable layout..." This "flattens" your table to that year is shown in one column and month in another.
 
 * ##### Create a static copy of the Pivot Table values
 
@@ -581,3 +590,19 @@ If there are not annual trends, are there seasonal ones? What about February and
 
   - *What do you observe?*
 
+
+
+
+# EXCEL Limitations
+
+Excel is a wonderful tool; however, it also has several limitations.
+
+1. Very limited analytical pack. Indeed, many of the statistical methods used for water resources rely are non-parametric, meaning they do not assume linear relationships between x and y variables. 
+
+2. It is time consuming to repeat analyses over multiple sites. What if we wanted to look at all downstream gauges from Falls Lake?
+
+3. It is difficult to replicate results in Excel. Sometimes data are copied and pasted as values rather than formulas. Sometimes errors are hand corrected and not marked. 
+
+   ​
+
+Statistical programs and coding are valuable tools that readily address these three limitations in excel: (1) diverse statistical packages, (2) batch capable, and (3) reproducible.
