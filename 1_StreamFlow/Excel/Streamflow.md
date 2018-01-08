@@ -8,19 +8,27 @@ Date: Spring 2018
 
 [TOC]
 
-## Background: How has Falls Lake affected streamflow?
+## ♦ Background: How has Falls Lake affected streamflow?
 
 Prior to 1978, flooding of the Neuse River caused extensive damage to public and private properties including roadways, railroads, industrial sites and farmlands. The Falls Lake Project was developed by the US Army Corps of Engineers to control damaging floods and to supply a source of water for surrounding communities. Construction of the dam began in 1978 and was completed in 1981. In addition to recreation opportunities, Falls Lake now provides flood and water-quality control, water supply, and fish and wildlife conservation ([source](https://www.ncparks.gov/falls-lake-state-recreation-area/history)).
 
 Now, some 3 dozen years after Falls Lake was constructed, we want to evaluate its impact on downstream streamflow, using this as an opportunity to examine some data analytic techniques, specifically ones using Microsoft Excel. These techniques will cover ways to get data into Excel and how to manage, wrangle, and analyze those data. 
 
-This document begins with a review of the analytical workflow of most data projects. Then we apply this workflow to the question posed above. Here, we focus on using Excel to tackle the assignment, but companion documents will examine how R and Python can accomplish the same set of tasks
+This document begins with a review of the **analytical workflow** of most data projects. Then we apply this workflow to the question posed above. In doing so, we focus on using *Excel* to tackle the assignment, but companion documents will examine how *R* and *Python* can accomplish the same set of tasks in a scripting environment.
 
 ---
 
-## Analytical workflow - a preview
+## ♦ Analytical workflow: A Preview
 
-#### 1. Clarifying the central question
+Data analysis projects follow a similar workflow, one that begins with a general question or objective that guides our process of turning data into actionable information. Let's begin by examining our workflow, depicted in the diagram below. 
+
+
+
+![Data Analytics Process Streamflow](media/Data Analytics Process Streamflow.png)
+
+
+
+### 1. Clarifying the central question
 
 Data analysis has a workflow that often begins with clarifying the central question. For example, our initial question is *"How has Falls Lake affected streamflow?"* This question has some useful specifics: We know where we'll be working (Falls Lake) and what to core dataset will be (streamflow). However, the question is vague on how precisely we might evaluate effects of the dam on streamflow. As a data analyst your first job is often to <u>clarify a basic question into one that is *actionable*</u>, that is one that has a clear route to an answer or at least that allows you to present data to a way that facilitates effective decision making. 
 
@@ -34,23 +42,23 @@ While these are still a touch vague, our expert hydrologists will provide more s
 
 
 
-#### 2. What data do I need to answer the question? Do those data exist?
+### 2. What data do I need to answer the question? Do those data exist?
 
 With our objectives clarified, our next step is to <u>identify the data needed drive our analyses</u>. In our case, it's fairly obvious: we need long-term streamflow data at some point downstream (and not too far downstream) from the Falls Lake dam. In other cases, it may not be as obvious and may require another conference with the project team to figure out what that ideal dataset may be. 
 
 When a target dataset is identified, the following question is <u>whether those data exist</u>? Knowing where to look or whom to ask whether a certain dataset exists comes with experience (though web-search skills can be quite useful too). In other words, it's not really something one can teach in a broad sense. However, if you've exhausted your search and still can't find the proper dataset for your analysis, your fallback is to look for **proxies**, or similar (existing) data that can be used in place of your [missing] data without making too crazy of assumption. In some cases, **models** can be used to derive suitable data to run your analysis. 
 
-Again, we are fortunate in our case. The data we want are provided by the USGS' *National Water Information System* (NWIS). Instructions on how to grab the data we want are provided in this document. 
+Again, we are fortunate in our case. The data we want are provided by the USGS' *National Water Information System* (NWIS). Instructions on how to grab the data we want are provided in this document.
 
 
 
-#### 3. Obtaining, exploring, and cleaning the data
+### 3. Obtaining, exploring, and cleaning the data
 
 Data come in a variety of forms and formats. Some datasets lend themselves to easy import and immediate analysis; others may not be digital-ready (e.g. hard-copies or PDFs) or have an inconsistent format rendering them essentially useless. As they saying goes, "your mileage may vary" with the dataset you find. While there are techniques, technologies, and some tricks in getting messy, seemingly irretrievable data into a workable format, we will not focus deeply on that. Rather, we'll cover some reliable techniques for <u>getting data into a workable, or **tidy** format</u> in Excel. Comparable, actually more powerful techniques exist for obtaining and cleaning data exist in *R* and *Python* scripting languages that we'll examine  a bit later.
 
 
 
-#### 4. Conducting the analysis and communicating the results
+### 4. Conducting the analysis and communicating the results
 
 With the proper data in your analytical environment (e.g. *Excel*, *R*, *Python*), the remaining steps in the data analysis workflow involve answering your question(s). How this goes ultimately depends on your particular objectives, but in this exercise we will examine a few basic strategies for working with data. These include:
 
@@ -62,7 +70,8 @@ With the proper data in your analytical environment (e.g. *Excel*, *R*, *Python*
 
 
 
-#### 5. Post-mortem: evaluation and documentation
+
+### 5. Post-mortem: evaluation and documentation
 
 Often overlooked by the data analyst is the step of reviewing your analysis and documenting your work. When you've completed your analysis, you'll often reconvene with the team and assess whether you answered your central question effectively. If not, you'll need to tweak things until you do and perhaps cycle through the workflow again. This is where **documentation** can be hugely helpful. Documentation includes notes to yourself and to others covering in enough detail as to facilitate repeating the entire process. Documentation should include any non-obvious assumption or decision made in doing your analysis. This can be a bit cumbersome with Excel, but is done quite easily through comments in R or Python scripts. 
 
@@ -70,9 +79,9 @@ Often overlooked by the data analyst is the step of reviewing your analysis and 
 
 ---
 
-## Applying the Analytical Workflow
+## ♦ Applying the Analytical Workflow: Falls Lake
 
-### ♦ Obtaining the data
+### • Obtaining the data
 
 As mentioned above, we've determined that we need streamflow data for some site below Falls Lake dam, and those data are provided via the USGS' National Water Information System. The following steps outline the process of finding the appropriate gaging site and then the data we need to run our analysis. 
 
@@ -111,39 +120,36 @@ Pause and have a look at what's provided. The first several lines begin with a '
 
 Now that we have obtained the data in digital form, we need to get it into *Excel* so that each value is in its own cell. We'll discuss two, somewhat imperfect, methods to do this, each requiring a bit of manual editing. We also present a third, more automated method. However, while this third method may seem easier, it is less transparent to what is going on an also seems a bit unstable with the current release of *Excel*.   
 
-###### Method 1:
+##### Method 1 -
 
-1. Select the entire contents of the web page containing the discharge data. (Tip: use `ctrl`-`a` )
-
-2. Copy (`ctrl`-`c`) the contents from the browser and paste (`ctrl`-`v`) them into a new *Excel* worksheet. 
-
-   *Notice that the contents are lumped into a single column, which prevents us from properly working with the data. To fix this, you can use the `Text to Columns` command.*
-
-  3. To convert text to data, first select the cells containing text you want to convert into columns. For us, its the entire first column, which you can select by click the header of Column `A`.
-  4. From the `Data` menu, click the `Text to Columns` command in the `Data Tools` panel. 
-  5. In the wizard, specify that your data are `delimited` by a `space`, and then click `Finish`. 
+- Select the entire contents of the web page containing the discharge data. (Tip: use `ctrl`-`a` )
+- Copy (`ctrl`-`c`) the contents from the browser and paste (`ctrl`-`v`) them into a new *Excel* worksheet. 
+- *Notice that the contents are lumped into a single column, which prevents us from properly working with the data. To fix this, you can use the `Text to Columns` command.*
+- To convert text to data, first select the cells containing text you want to convert into columns. For us, its the entire first column, which you can select by click the header of Column `A`.
+- From the `Data` menu, click the `Text to Columns` command in the `Data Tools` panel. 
+- In the wizard, specify that your data are `delimited` by a `space`, and then click `Finish`. 
 
 *This works, but not perfectly. Notice the data (starting in row 34) are in columns now, but the column headers don’t match the data fields until 2004 when minimum and maximum discharge were collected. We, need to be careful for these types of errors using this method. Let's look at an alternative method and see whether it works better...*
 
-###### Method 2: 
+##### Method 2 - 
 
-1. Clear the contents of your Excel spreadsheet and copy the contents of the NWIS data web page again, if necessary.
-2. In your blank worksheet, right-click cell A1 and select `Paste Special...` from the context menu.
-3. In the Paste Special wizard, select `text` and hit `OK`. Notice that the data are in the correct columns!
-4. Rename the worksheet "`Raw`" and save your workbook. 
+- Clear the contents of your Excel spreadsheet and copy the contents of the NWIS data web page again, if necessary.
+- In your blank worksheet, right-click cell A1 and select `Paste Special...` from the context menu.
+- In the Paste Special wizard, select `text` and hit `OK`. Notice that the data are in the correct columns!
+- Rename the worksheet "`Raw`" and save your workbook. 
 
-###### Method 3: 
+##### Method 3 - 
 
 *(Note, this method is somewhat buggy and may take a bit longer to run...)*
 
-1. From the `Data` menu, select `From Web`. 
-2. In the `New Web Query` window, copy and paste the NWIS data web page's [URL](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) into the `Address:` box and click `Go`.
-3. You'll see the data appear in this window; Click the orange arrow to select the data to import.
-4. Click the `import` button. 
+- From the `Data` menu, select `From Web`. 
+- In the `New Web Query` window, copy and paste the NWIS data web page's [URL](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) into the `Address:` box and click `Go`.
+- You'll see the data appear in this window; Click the orange arrow to select the data to import.
+- Click the `import` button. 
 
 ---
 
-### ♦ Exploring the data
+### • Exploring the data
 
 While we now have our data in Excel, we should explore and inspect the data before we dive into our analysis. This may expose irregularities in the data, stemming either from our import process or in the dataset itself. **Plots** and **summary statistics** are a quick way to reveal any data gaps or outliers. 
 
@@ -237,13 +243,13 @@ We'll begin by creating a tidier version of the raw data, but keeping the raw wo
 
 ---
 
-#### Exercise - Plot data in mgal/day
+### ►  Exercise - Plot data in mgal/day
 
 Your project manager looks at the chart but she doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. Make a new plot and show side by side to the CFS plot. (1 CFS = 0.53817 MGD)
 
 ---
 
-#### Summarize and plot data
+### ♦ Summarize and plot data
 
 <u>Know your data.</u> Whenever you get data, it’s good practice to look at and understand the raw data to make sure it looks reasonable and you understand something about its quality and content. One of the first things to assess in the metadata is how confident you are in the quality of the data being used in your analysis. Is the data fit for purpose?
 
@@ -337,11 +343,13 @@ To examine seasonal (or monthly) variation in streamflow, we need to extract the
 
 What do you observe? Would a plot of the results facilitate interpretation? 
 
-#### Exercise: Compute total streamflow by water year
+### ♦ Exercise: Compute total streamflow by water year
 
 Repeat the above using `SUMIF` for annual streamflow based on the water year.
 
 ---
+
+## 
 
 ## Q1: Evaluating 100-year flood frequency
 
@@ -533,36 +541,36 @@ We then sort and rank these annual monthly-minimum values, similar to how we com
 
 ---
 
-
+## 
 
 ## Q3: Exploring trends in streamflow over time
 
-- #### Background
+### Background
 
-  Water security is becoming increasingly important as population and water demand continue to grow. This is especially true with changing climate conditions that introduce new variability into our expectations of water supply. Briefly, we want to know whether the average annual streamflow has changed over time. 
+Water security is becoming increasingly important as population and water demand continue to grow. This is especially true with changing climate conditions that introduce new variability into our expectations of water supply. Briefly, we want to know whether the average annual streamflow has changed over time. 
 
-- #### Set up
+### Set up
 
-  - Create a new spreadsheet and name it `Trends`.
-  - Create a table of `Year`, `Total Streamflow`, and `Count`.
-    - Copy and Paste the entire Water Year column from the EDA tab in the `Year` column. 
-      - Remove duplicate values: `Data menu`>`Data Tools`>`Remove Duplicates`
-    - Use `SUMIF` and `COUNTIF` to calculate the number of observations per year and the annual streamflow
-    - Remove those years with < 90% of data (i.e., fewer than 329 records in a year) , 
-      - Use `IF` to calculate and flag rows.
-  - Plot streamflow over time and add a linear trend line
-  - Go to `File` > `Options` >`Add-ins` > `Analysis Toolpack`
-    - `Data Menu` > `Data Analysis` > `Regression`
-    - Run the regression analysis on the data
-      - Turn on all the plots
-      - Is the trend significant?
-  - Repeat for 1930-1980 and for 1984-2017
-    - What to you observe? 
-    - Are the trends obvious? 
+- Create a new spreadsheet and name it `Trends`.
+- Create a table of `Year`, `Total Streamflow`, and `Count`.
+  - Copy and Paste the entire Water Year column from the EDA tab in the `Year` column. 
+    - Remove duplicate values: `Data menu`>`Data Tools`>`Remove Duplicates`
+  - Use `SUMIF` and `COUNTIF` to calculate the number of observations per year and the annual streamflow
+  - Remove those years with < 90% of data (i.e., fewer than 329 records in a year) , 
+    - Use `IF` to calculate and flag rows.
+- Plot streamflow over time and add a linear trend line
+- Go to `File` > `Options` >`Add-ins` > `Analysis Toolpack`
+  - `Data Menu` > `Data Analysis` > `Regression`
+  - Run the regression analysis on the data
+    - Turn on all the plots
+    - Is the trend significant?
+- Repeat for 1930-1980 and for 1984-2017
+  - What to you observe? 
+  - Are the trends obvious? 
 
-- #### More Practice
+### More Practice
 
-  If there are not annual trends, are there seasonal ones? What about February and August?
+If there are not annual trends, are there seasonal ones? What about February and August?
 
 - ##### Grab all *February* values:
 
