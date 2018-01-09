@@ -10,26 +10,34 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-## Prep the workspace
+## Prep the workspace by installing (if needed) and loading libraries
 
 ```{r libs, message=FALSE, warning=FALSE}
-
 #install.packages("dataRetrieval", repos=c("http://owi.usgs.gov/R", getOption("repos")))
 library(dataRetrieval)
 library(EGRET)
 library (ggplot2)
 
+#library for pipes
+library(dplyr)
+library(magrittr)
+
+#used for dates
+library(lubridate)
+
+#used for mapping
+library(leaflet)
 #access vignette if needed
 #vignette("dataRetrieval", package="dataRetrieval")
 
 ```
 
-## Download data
+## Download data from NWIS
 
 ```{r downloaddata}
 #Identify gauge to download
 siteNo <- '02087500' #Clayton, don't forget to add the zero if it is missing
-siteNo <- '02089000' #Goldsboro, don't forget to add the zero if it is missing
+#siteNo <- '02089000' #Goldsboro, don't forget to add the zero if it is missing
 
 #Identify parameter of interest: https://help.waterdata.usgs.gov/code/parameter_cd_query?fmt=rdb&inline=true&group_cd=%
 pcode = '00060' #discharge (cfs)
@@ -60,19 +68,18 @@ neuse <- readNWISdata(siteNumbers = siteNo, parameterCd = pcode, statCd = scode,
 
 #see attributes
 #attributes(neuse)
-
-  #to access attributes in future: attr(neuse, "name of interest)
+#to access attributes in future: attr(neuse, "name of interest)
 names(attributes(neuse))
   parameterInfo = attr(neuse, "variableInfo")
   siteInfo <- attr(neuse, "siteInfo")
 ```
 
-## Plot data
+## Exploratory Data Analysis: Plot data
 
 ```{r plotdata}
 #Create cms column to plot cubic meters per second
 neuse$Flow_cms <- neuse$Flow*0.028316847
-  summary(neuse)
+  summary(neuse$Flow_cms)
   
 #Basic plot
 par(mar = c(3,5,2,5)) #set plot margins
@@ -94,7 +101,7 @@ ts
 ```
 
 
-### SUMMARY STATISTICS  
+### Exploratory Data Analysis: Summary Statistics
 
 ```{r sumstats}
 #How confident are we in the data?
@@ -122,9 +129,9 @@ sum.stats <- as.data.frame(matrix(nrow=8, ncol=4))
   #data.frame[row number, column number]
 gen_stats = function(data, column.no){
   sum.stats[1,column.no] <- min(data$Flow_cms);               
-  sum.stats[2,column.no] <- quantile(data$Flow_cms, 0.10);             sum.stats[3,column.no] <- quantile(data$Flow_cms, 0.25);
-  sum.stats[4,column.no] <- median(data$Flow_cms);                     sum.stats[5,column.no] <- mean(data$Flow_cms);
-  sum.stats[6,column.no] <- quantile(data$Flow_cms, 0.75);             sum.stats[7,column.no] <- quantile(data$Flow_cms, 0.90);
+  sum.stats[2,column.no] <- quantile(data$Flow_cms, 0.10);    sum.stats[3,column.no] <- quantile(data$Flow_cms, 0.25);
+  sum.stats[4,column.no] <- median(data$Flow_cms);            sum.stats[5,column.no] <- mean(data$Flow_cms);
+  sum.stats[6,column.no] <- quantile(data$Flow_cms, 0.75);    sum.stats[7,column.no] <- quantile(data$Flow_cms, 0.90);
   sum.stats[8,column.no] <- max(data$Flow_cms);               
   
   return(sum.stats)
@@ -146,12 +153,9 @@ sum.stats[,c(2:4)]<- round(sum.stats[,c(2:4)],3)
   sum.stats
 ```
 
-### Using `dplyr` and `pipes`
+### Using `dplyr` and `pipes`. Pipes create a chain of commands building on the previous command.
   
 ```{r}
-library(dplyr)
-library(magrittr)
-
 #create data frame
 sum.stats2 <- as.data.frame(matrix(nrow=8, ncol=4))
 colnames(sum.stats2) <- c("Statistics","p1930-2017","p1930-1980","p1984-2017")
@@ -203,15 +207,14 @@ colnames(final.stats) <- c("Statistics","p1930-2017","p1930-1980","p1984-2017")
   final.stats  
 ```  
   
-### Seasonal Variation?  
+### Looking at Seasonal Variation?  
 ```{r seasonalvar}
 #add year and month values
-library(lubridate)
 neuse$Year <- year(neuse$Date);  neuse$Month <- month(neuse$Date)
   summary(neuse)  
 ```
 
-### Mean monthly flow  --> dplyr example
+## Calculate mean monthly flow with dplyr and pipes
 ```{r mean-dplyr}
 month.flow1 <- neuse %>%
   group_by(Month) %>%
@@ -231,7 +234,7 @@ month.flow3 <- neuse %>%
 month.flow <- as.data.frame(cbind(month.flow1, month.flow2[,2], month.flow3[,2])) 
 ```  
 
-### Mean monthly flow  --> for loop example
+## Calculate mean monthly flow  --> for loop example
 ```{r mean-loop}
 #set up data frame
 month.flow <- as.data.frame(matrix(nrow=0,ncol=4));                 colnames(month.flow) <- c("Month","p1930to2017","p1930to1980","p1984to2017")
@@ -243,13 +246,12 @@ for (j in 1:length(unique.month)){
   zt.early <- subset(zt, Year<=1979);             zt.late <- subset(zt, Year>=1984)
   
   #fill in dataframe
-  month.flow[j,1]<-unique.month[j];                                      month.flow[j,2] <- round(mean(zt$Flow_cms, na.rm=TRUE),3)
-  month.flow[j,3] <- round(mean(zt.early$Flow_cms, na.rm=TRUE),3);       month.flow[j,4] <- round(mean(zt.late$Flow_cms, na.rm=TRUE),3)     
+  month.flow[j,1]<-unique.month[j];                                 month.flow[j,2] <- round(mean(zt$Flow_cms, na.rm=TRUE),3)
+  month.flow[j,3] <- round(mean(zt.early$Flow_cms, na.rm=TRUE),3);  month.flow[j,4] <- round(mean(zt.late$Flow_cms, na.rm=TRUE),3)     
 }
 month.flow
-#May need to reorder
+#Reorder from water year to calendar year
 month.flow <- arrange(month.flow,Month) #automatically sorts ascending. If want to descend: arrange(month.flow,desc(Month))
-
 
 #Plot results
 #Basic plot
@@ -266,7 +268,7 @@ plot(month.flow$Month, month.flow$p1930to2017, type='n', yaxt="n", xaxt="n", yli
 legend("topright",c("Period of Record", "1930 to 1980", "1984 to 2017"), col=c(rgb(0,0,0,0.5), rgb(0.8,0,0,1), rgb(0,0,0.8,1)), lwd=c(2,3,3))
 ```
 
-### Load multiple sites for analysis
+### Load multiple sites for analysis and plot on Leaflet
 ```{r multsites}
 #What sites are available in NC?
 nc.sites <- readNWISdata(stateCd="NC", parameterCd = pcode, service = "site", seriesCatalogOutput=TRUE)
@@ -281,7 +283,6 @@ nc.sites2 <- filter(nc.sites, parm_cd %in% pcode) %>%
 length(unique(nc.sites2$site_no))
 
 #where are sites located?
-library(leaflet)
 leaflet(data=nc.sites2) %>% 
   addProviderTiles("CartoDB.Positron") %>%
   addCircleMarkers(~dec_long_va,~dec_lat_va,
@@ -290,7 +291,7 @@ leaflet(data=nc.sites2) %>%
                    popup=~station_nm)
 
 
-#let's read in streams in the upper nuese
+#let's focus on the upper Neuse upstream of Falls Lake
 upper.neuse <- subset(nc.sites2, huc_cd=="03020201")
 unique.sites <- unique(upper.neuse$site_no); length(unique.sites)   #how many unique sites are there?
 
@@ -301,6 +302,7 @@ par(mar = c(2,2.5,2,2)) #set plot margins (bottom, left, top, right)
 stream.col <- c(rgb(0,0,0,0.5),rgb(1,0,0,0.5),rgb(0,0,1,0.5),rgb(0,0.7,0,0.5),rgb(0.7,0.2,0,0.5), rgb(0.7,0,1,0.5))
 legend.names <- upper.neuse[1:6,]$station_nm
 
+#set up a for loop to read in and plot streamflow over time
 for (i in 1:length(unique.sites)){
   zt <- readNWISdv(siteNumbers = unique.sites[i], parameterCd = pcode, statCd = scode)
   zt <- renameNWISColumns(zt);
