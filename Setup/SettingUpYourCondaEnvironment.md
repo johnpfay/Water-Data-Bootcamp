@@ -46,5 +46,12 @@ After it's done, you'll have your own sandbox to play in. It will have a few def
 * Toggle the dropdown from `Installed` to `Not installed`
 * Search for `pandas` and install it by selecting it and clicking `Apply`. You'll see that it will also install a number of dependencies. 
 * Install the following:
+  * SciPy
   * jupyter
-
+  * matplotlib
+  * basemap
+  * seaborn
+  * bokeh
+  * scikit-learn
+  * R essentials
+  * Requests
