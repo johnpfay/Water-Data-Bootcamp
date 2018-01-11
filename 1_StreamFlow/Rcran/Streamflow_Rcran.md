@@ -132,140 +132,124 @@ Libraries are now installed on your screen, but they aren't loaded into your cur
 We will use the USGS packages to download data directly from the USGS. To do this we need to identify what we want to download. We need to define:
 
 - `siteNumbers` - this is the USGS gauge containing the data we want to download
+
   - We will define the variable `siteNo` and assign it to Clayton gauge: `02087500`
     - `siteNo <- '02087500'`
+
 - `parametercd` -  this is the parameter code... what we want to download from the gauge.
 
-##### Method 1 -
+  - Parameter codes can be found here: https://help.waterdata.usgs.gov/code/parameter_cd_query?fmt=rdb&inline=true&group_cd=%
+  - We will define the variable `pcode` and set it equal to `'00060'` which is the code for discharge.
+    - `pcode = '00060'`
 
-- Select the entire contents of the web page containing the discharge data. (Tip: use `ctrl`-`a` )
-- Copy (`ctrl`-`c`) the contents from the browser and paste (`ctrl`-`v`) them into a new *Excel* worksheet. 
-- *Notice that the contents are lumped into a single column, which prevents us from properly working with the data. To fix this, you can use the `Text to Columns` command.*
-- To convert text to data, first select the cells containing text you want to convert into columns. For us, its the entire first column, which you can select by click the header of Column `A`.
-- From the `Data` menu, click the `Text to Columns` command in the `Data Tools` panel. 
-- In the wizard, specify that your data are `delimited` by a `space`, and then click `Finish`. 
+- `statCd` is the statistical code for daily values. We are interested in the mean.
 
-*This works, but not perfectly. Notice the data (starting in row 34) are in columns now, but the column headers don’t match the data fields until 2004 when minimum and maximum discharge were collected. We, need to be careful for these types of errors using this method. Let's look at an alternative method and see whether it works better...*
+  - Statistical codes can be found here:  https://help.waterdata.usgs.gov/code/stat_cd_nm_query?stat_nm_cd=%25&fmt=html
+  - We will define the variable `scode` and set it equal to `'00003'`
+    - `scode = '00003'`
 
-##### Method 2 - 
+- We also can identify the start and the end date. In this case we will define the following:
 
-- Clear the contents of your Excel spreadsheet and copy the contents of the NWIS data web page again, if necessary.
-- In your blank worksheet, right-click cell A1 and select `Paste Special...` from the context menu.
-- In the Paste Special wizard, select `text` and hit `OK`. Notice that the data are in the correct columns!
-- Rename the worksheet "`Raw`" and save your workbook. 
+  - `start.date = "1930-10-01"`
 
-##### Method 3 - 
+  - `end.date = "2017-09-30"`
 
-*(Note, this method is somewhat buggy and may take a bit longer to run...)*
+    ​
 
-- From the `Data` menu, select `From Web`. 
-- In the `New Web Query` window, copy and paste the NWIS data web page's [URL](https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30) into the `Address:` box and click `Go`.
-- You'll see the data appear in this window; Click the orange arrow to select the data to import.
-- Click the `import` button. 
+- We can now put all this information to call the data from the USGS NWIS website. There are a couple of ways we can do this, but we will focus on the following: `readNWISdv`.  The `dv` stands for 'daily value'.
+
+  - We will put the data into the variable `'neuse'`
+
+    - `neuse <- readNWISdv(siteNumbers = siteNo, parameterCd = pcode, statCd = scode, startDate=start.date, endDate=end.date)`
+
+  - It is a good idea to look at a summary of the data as well as the dimensions of the data:
+
+    - `summary(neuse)` provides summary statistics of each column
+
+    - `dim(neuse)` provides the dimensions in [rows columns]
+
+      ​
+
+- The `dataRetreival`package has an additional commands
+
+  - `neuse <- renameNWISColumns(neuse)` provides meaningful column names to the data
+    - You can see what the column names are by: `colnames(neuse)` 
+  - You can access different attributes associated with this stream gauge. To know what that list is:
+    - `names(attributes(neuse))`
+  - From that list you can look at:
+    - `parameterInfo <- attr(neuse, "variableInfo")` provides information on variables
+    - `siteInfo <- attr(neuse, "siteInfo")`
+
+
 
 ---
 
-### • Exploring the data
+### • Exploring the data`
 
-While we now have our data in Excel, we should explore and inspect the data before we dive into our analysis. This may expose irregularities in the data, stemming either from our import process or in the dataset itself. **Plots** and **summary statistics** are a quick way to reveal any data gaps or outliers. 
+Now that we have our data, we should explore and inspect the data before we dive into our analysis. This may expose irregularities in the data, stemming either from our import process or in the dataset itself. **Plots** and **summary statistics** are a quick way to reveal any data gaps or outliers. 
 
-#### Create a copy of the raw data and clean it up
+- **First, compute cms values from your cfs ones:**
 
-We'll begin by creating a tidier version of the raw data, but keeping the raw worksheet intact in case we make a mistake and need to revert to it. And with this copy, we'll remove the metadata and other extraneous items so that we have a clean, efficient dataset, ready for quick analysis. 
+  - Create a new column use `$`
 
-- **Create a copy your `Raw` worksheet and rename it `EDA` (for exploratory data analysis):** 
-  - Right click the `Raw` worksheet tab, and select `Move or Copy...`
+    - ```R
+      neuse$Flow_cms = neuse$Flow * 0.028316847
+      	summary(neuse$Flow_cms)    #check to make sure works
+      ```
 
-  - Be sure, `create a copy` is checked and click `OK`. 
-
-  - Right click on the `Raw (2)` worksheet tab and select `Rename`
-
-  - Type in `EDA` as the new name
-
-    ​		**---All further work will be done in this EDA worksheet ---**
-
-- **Delete the metadata rows and the data type specification row (rows 1-31 and 33):**
-  * Select the entire row by selecting the row number. Use `shift-click` to make continuous selections and `ctrl`-`click` to make disjunct selections.
-  * Right-click and select `Delete`. 
-
-- **As we are only interested in *mean* discharge, we can remove the other columns:** 
-
-  * Delete all columns but `site_no`, `datetime`, and mean discharge, currently labeled `85235_00060_00003`. 
-
-  * Rename the `85235_00060_00003` as `Mean flow (cfs)`
-
-    * How did we know the units are cfs? The metadata. Can you find this information?
-
-    *\*Note: It's always good to include the units in a field name!*
+      ​
 
 
 #### Plot streamflow data to look for gaps/outliers
 
-* **Create a scatterplot of discharge over time**:
+* **Basic Plots in R**:
 
-  * Choose the data you want to plot:
+  * Create the margins of your plot using `par`
 
-    * Highlight cells B1 and C1.
-    * Press `ctrl`+`shift`+`↓` to select all data cells beneath your initial selection.
+    * `par(mar) = c(3,5,2,5))` where the margin is set for (bottom, left, top, right)
 
-  * Create a scatter plot with straight lines from your selected data:
+  * Plot the data... there are a lot of additions you can add to the plot with a `,`
+    * Basic plot: `plot(xaxis, yaxis)`, so in this case 
 
-    * From the `Insert` menu, over in the `Charts` panel, select the scatterplot dropdown, and chose an appropriate chart type given the data. (Straight lines makes sense since our data are based on measurements.)
+      ```R
+      plot(neuse$Date, nesue$Flow_cms)
+      ```
 
-    *Notice that the X-axis contains an odd sampling of dates and lots of dead space on either side. Different plot types behave differently in Excel, and scatterplots are finicky with dates, so we need to either manually adjust the x axis or chose a different plot type. We'll examine both ways...* 
+    * `type`  tells the plot what type of plot you want. `n` tells the plot not to show points
 
-  * Format the X-axis to eliminate empty data space:
+    * `yaxt` and `xaxt` tell the plot what to do with the y and x axis
 
-    * Double-click the x-axis to open the *Format Axis* menu.
-    * In the *Format Axis* panel, click the *Axis Options* icon (looks like a bar chart). 
-    * Notice that the axis bounds are currently set from 0 to 50,000. To set these to our data's minimum and maximum values, just type them in as dates, e.g., `1930-10-01` and `2017-09-30`. 
+    * `ylim` and `xlim` tell the plot the min and max of the respective axes
 
-  * <u>Or</u>, you can convert your scatterplot to a 2-d line plot.
+    * `ylab` and  `xlab` set the labels for the respective axes. `main` sets the title for the plot.
 
-    * With the chart selected, and the `Design` tab active, select `Change Chart Type` to switch your scatterplot to a line plot. *Notice you can preview the design of a chart before committing to it.*
-    * Notice that the date format is much tidier with a line plot...
+      ```R
+      plot(neuse$Date, neuse$Flow_cms, type='n', yaxt="n", xlim=c(min(neuse$Date),max(neuse$Date)),
+             ylab="Streamflow (cms)", xlab = '', main=siteInfo$station_nm)                 
+      ```
 
-* **Adjust the aesthetics of your plot**
+      ​
 
-  * Change the title to something meaningful, such as “Neuse Streamflow near Clayton, NC”
+      * notice this creates an empty plot
 
-  * Add a y-axis label: `Design` -> `Add Chart Element` -> `Axis Titles` -> `Primary Vertical`
+      * `axes` lets you set up with more control the axis of interest. `1` is the x-axis. `2` is the y-axis.
 
-  * Change the y-axis bounds:
+      * `points()` and `lines()`  allow you to overlay data onto the plot as points or lines. Because there are so many points we want to plot the data as lines. There are many ways to stylize points and lines.
 
-    * Set the maximum to 23,000; note the minimum drops to -2000. Change the minimum to 0
+        * `col` sets the color, `lwd` sets the width,  `lty` sets the type of line
 
-    * Set the display units to *Thousands*. 
+      * `abline` allows you to draw straight lines in the plot. `v` for vertical lines, `h` for horizontal lines. Here we can draw a vertical line around the time falls lake was constructed.
 
-    * Delete the gridlines
+        ```R
+         axis(2, las=2, cex.axis=0.9)
+          lines(neuse$Date, neuse$Flow_cms, col="blue", lty=1, lwd=1)
+          abline(v=as.Date("1984-01-01"), lty=3, col="black", lwd=2)
+        ```
 
-    * Play with the colors, font sizes, borders, etc. Try setting your plot to use narrower lines to show more detail. 
+        ​
 
-* **Save your workbook...**
+    ​
 
-*You remembered that scientists like the metric system and you need to convert the data from cubic feet per second to cubic meters per second. You'll need to create a new column with the discharge values in these units and re-create a new plot. Here are the steps:*
-
-* **Add a header in column `D`: "Mean flow (cms)"**
-* **Compute cms values from your cfs ones:**
-  * In cell `D2`, enter the formula `=C2*0.028316847` (0.028316847 is the conversion rate from cfs to cms). 
-  * To carry this formula down to all records, double click on the bottom right corner of the `D2` cell.
-* **Check that the new values appear correct:**
-  * First, lock the header row so it doesn't disappear when scrolling
-    * Click `ctrl`-`home` to set the active cell as the top left cell `A1`.
-    * Highlight Row 1
-    * From the View menu, select `Freeze Top Row`
-    * Scroll down and examine the Discharge (cms) data. Note the header row stays put!
-* **Re-plot the data in cubic meters per second.** 
-  * Select your existing plot and click on the data line. That will indicate the columns of data on which the plot was based. 
-  * Click on the side of the blue rectangle and drag it so that it covers the column D, not C. 
-  * Change the y-axis label and bounds. 
-  * Reformat other aesthetics as needed...
-
----
-
-### ►  Exercise - Plot data in mgal/day
-
-Your project manager looks at the chart but doesn’t like the metric system. Add a new column to convert discharge to millions of gallons per day. Make a new plot and show side by side to the CFS plot. (1 CFS = 0.53817 MGD)
 
 ---
 
@@ -275,42 +259,19 @@ Your project manager looks at the chart but doesn’t like the metric system. Ad
 
 ##### How confident are we in the data?
 
-Our data included data-value qualification codes, and indication of the confidence we can have in the values reported. Let's examine our data in terms of those codes. We deleted these data from the table, so we'll have to add them back in to the data in our EDA worksheet. 
+* If you noticed in the summary of the data there was a column with confidence codes on the quality of the data. 
+* `table` creates a table that counts the number of occurrences for each category of confidence code.
+  * notice the table is in an array. We want to put it into a data frame (similar to the nuese data) so we can manipulate the columns. The command `as.data.frame` puts the table into a format we can use.
 
-* **Add a new column header to the table in the EDA worksheet; name it `Confidence`.**
 
-  *We could copy and paste the data back into our table, as we haven't moved things around. However, it's useful to know how the vertical lookup, or* `VLOOKUP` *function works to join data from on table to another using a common joining field.*
 
-* **Under the `Confidence` header you just created, enter the formula: `=VLOOKUP(B2,Raw!$C$34:$I$31810,7,FALSE)`**
 
-*There's a lot going on in that VLOOKUP formula, so lets explain it.* 
 
-*First, the VLOOKUP function looks up a value by matching a given value in one table to a given value in another table, specified by a range of cells. In our example, this matching value is in cell `B2`, i.e. the date `10/1/1930`. VLOOKUP searches the range of cells specified in the second argument, `Raw!$C$34:$I$31810` for that value, and returns the value in the `7`th column of that range.* 
 
-*What still may be confusing is how the range of cells is defined by `Raw!$C$34:$I$31810`. Here, `Raw!` tells Excel that the range of values is in the worksheet named "Raw", not the current worksheet. The range of cells in the "Raw" worksheet is `C34` to `I31801`, but the `$` indicates that, as we copy this formula to other cells, this range should remain static. Otherwise, if we copied the formula to the cell below it the range would dynamical update  from `C34:I31810` to `C35:I31811`, but in our case, we want the lookup range to be locked in.* 
 
-* **Double click the bottom corner to copy this function down to all records in our table.** Now we have re-added the confidence values back to our data table!
 
-Now, let's add into our worksheet a table listing how many records are associated with each confidence value. A look at the metadata indicate three data-value qualification codes: *A*, *P*, and *e*. Let's first confirm what values are contained in our dataset. We can do this quickly by setting up a data filter:
 
-* **Create a Filter for the `Confidence` column to reveal a list of unique values**
-  * Select the entire Confidence column.
-  * With the `Home` menu active, select `Sort & Filter`>`Filter` (from the `Editing` panel)
 
-You'll now see that the header cell has a dropdown arrow. Click this arrow and it will list all the unique values, and you'll see that our data indeed has three values, but they are slightly different than what was listed in the metadata. They are: A, A:e, and P. 
-
-Now to create the table listing how many records are associated with these three values. The `countif` tool is useful here.
-
-* **Create a table listing the number of records associated with each Confidence code using COUNTIF** 
-  * Somewhere in your EDA worksheet, create two header cells: `Confidence code` and `Count`.
-  * Under the `Confidence Code` header cell, enter three label cells, one for each confidence code: `A`, `A:e`, and `P`,
-  * To the left of each label cell, start typing the formula `=countif(` 
-  * To specify the *range* portion of this formula, select the top data cell in the Confidence column (E2), and then press `shift`+ `ctrl`+`↓`. (It should result in `E2:E31778`)
-  * To specify the *criteria* portion of the formula, select the label cell containing the confidence code you want to count. This should be immediately to the left of the cell into which you are typing the formula. The value for `A` should be `31601`.
-  * Before copying this formula down, you need to add `$` to your range so that it remains locked in: Edit the range in your formula from  `E2:E31778` to  `E$2:E$31778`.
-  * Now, double-click the lower right corner of the cell to copy the formula down for the other two confidence codes. 
-
-With this table you can interpret the results. What proportion of the data is reliable? Would a plot be helpful?
 
 
 
