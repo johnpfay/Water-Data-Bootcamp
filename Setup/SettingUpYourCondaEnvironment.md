@@ -55,3 +55,4 @@ After it's done, you'll have your own sandbox to play in. It will have a few def
   * scikit-learn
   * R essentials
   * Requests
+  * Plotly
