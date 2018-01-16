@@ -38,21 +38,34 @@ Now that we have the background, let's get started creating our own Python envir
 
 * Open Anaconda Navigator.
 * Select the `Environments` tab on the left.
-* Click `Create` at the bottom to create a new environment; name it whatever you wish.
+* Click `Create` at the bottom to create a new environment; name it whatever you wish, and select the **Python 3.6** package. 
+
+### Adding packages to your environment
 
 After it's done, you'll have your own sandbox to play in. It will have a few default packages installed, but we'll add a few more. 
 
 * Select your environment in the lists of environments.
 * Toggle the dropdown from `Installed` to `Not installed`
 * Search for `pandas` and install it by selecting it and clicking `Apply`. You'll see that it will also install a number of dependencies. 
-* Install the following:
-  * SciPy
+* Search for and install the following:
   * jupyter
   * matplotlib
-  * basemap
   * seaborn
+  * requests
   * bokeh
-  * scikit-learn
-  * R essentials
-  * Requests
-  * Plotly
+
+Some packages are served on separate Conda channels, or sub-repositories. Two examples are `ggplot` which is on the `bokeh` channel and `arcgis` which is on the `esri` channel. Here is the process to install those:
+
+* Click the `Channels` button, near where you search for packages to install. 
+
+* Click `Add...`  and add "bokeh" and then "esri".
+
+* Click `Update channels`
+
+* Now search for and install the  `ggplot` package.
+
+* Then search for and install the `arcgis` package.
+
+  ​
+
+**OK, we now have plenty of packages to get us going!**
