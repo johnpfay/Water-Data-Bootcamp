@@ -415,18 +415,18 @@ We now have the data we want. Next we'll compute rankings and then sort the data
 
     **Note: How do these methods differ for those years with the same maximum values (ties)?*
 
-##### Computing Return Interval (RI) and Annual Exceedence Probability (Pe) from ranked discharge values
+##### Computing Return Interval (RI) and Annual Exceedance Probability (Pe) from ranked discharge values
 
 Recall that the return interval is computed from the sorted and ranked time series data. Now that we have our data sorted and ranked, we compute RI from the number of years of data we have (plus 1), divided by the ranking of a given year's discharge. 
 
-* Calculate return interval in a new column named `RI`
+* Calculate return intervals in a new column named `RI`
   * Determine how many years of data you have (e.g. count of year rows or max of rank).
   * Compute  $\frac{n+1}{m}$ where `n` is the number of years of data and `m` is the rank.
 
 
 * Calculate the Annual Exceedance Probability (just the inverse of RI) in a new column named `Pe`
   * $Pe = 1/RI$
-* Compute the the probability of the 100, 500, and 100 year flood occurring over the next 30 years as a binomial distribution: $Pe =1 - [1-(1/T)]^n$ where `T` is the return period (e.g. 100 years) and number of years of interest (30 years in our case).
+* Compute the the probability of the 100, 500, and 100 year flood occurring over the next 30 years as a binomial distribution: $Pe =1 - [1-(1/T)]^n$ where `T` is the return period (e.g. 100 years) and `n` is the number of years of interest (30 years in our case).
   * Add three label cells: 100, 500, 1000 in a new location in your worksheet
   * Next to them add the formula `=1-(1-(1/XX))^30` where xx is the reference to your label cell. 
 
