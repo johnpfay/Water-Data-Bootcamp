@@ -103,3 +103,5 @@ ENV/
 ~$*.*
 .Rproj.user
 1_StreamFlow/Python/GageData.csv
+Ex_Files_Python_Data_Science_EssT/*
+Ex_Files_Python_Data_Science_EssT.zip
