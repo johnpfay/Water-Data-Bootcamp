@@ -8,11 +8,13 @@ Date: Spring 2018
 
 ## Some Background...
 
-### What are Conda and Anaconda?
+### What are Conda, MiniConda, and *Anaconda*?
 
 Python, like R, is a base language for which programmers have written and published countless add-ons, or packages. These packages can be simple - a single stand-alone Python script defining a few functions - or quite complex, requiring the installation of C++ libraries and dependent on the installation of several other packages. 
 
 Put simply, **Conda** is a package manager, developed to streamline the installation and update of Python packages. It's a tad more complex that that, but this will do for now. (See https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/ for a more complete explanation. )
+
+***Miniconda*** is a base install of Python and a few basic Python packages, including Conda. By installing it, we avoid the catch-22 of trying to install the Conda package without having Conda installed (to install itself...). 
 
 **Anaconda** is a custom distribution of Python, one that already includes Conda as well as a number of other widely used Python packages. It's an alternative to installing Python from scratch, e.g. from https://www.python.org/downloads/, and then installing each package - including Conda which itself is a package - manually. 
 

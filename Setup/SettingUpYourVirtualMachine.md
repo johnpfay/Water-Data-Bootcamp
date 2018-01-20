@@ -51,10 +51,9 @@ The Software Center allows you to bulk-install several applications. Double-clic
 * Enter your name and email
 * Finish! That's it, for now...
 
-#### ♦ Anaconda
+#### ♦ Miniconda
 
-* In Chrome, navigate to https://anaconda.org/ and click the download [link](https://anaconda.org/).
-* Download the Python 3.6 version, selecting the 64-bit option.
-* Run the installer with all the default options. 
+* In Chrome, navigate to https://conda.io/miniconda.html and download the [64-bin Python 3.6 installer](https://repo.continuum.io/miniconda/Miniconda3-latest-Windows-x86_64.exe) .
+* Run the installer, selecting all the default options when asked.
 
 
