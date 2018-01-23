@@ -1,5 +1,5 @@
 ---
-Title: Analysis of Streamflow Data using Excel
+Title: Analysis of Streamflow Data Using Rcran
 Author: Lauren Patterson and John Fay
 Date: Spring 2018
 ---
@@ -7,6 +7,8 @@ Date: Spring 2018
 # Unit 1: Analysis of Streamflow Data using Rcran
 
 [TOC]
+
+
 
 ## ♦ Background: How has Falls Lake affected streamflow?
 

@@ -1,5 +1,5 @@
 ---
-title: "Flood Return Internval"
+title: "Flood Return Interval"
 author: "L. Patterson and J. Fay"
 date: "Spring, 2018"
 output: html_document
@@ -44,9 +44,6 @@ scode = "00003"  #mean
 #Identify start and end dates
 start.date = "1930-10-01"
 end.date = "2017-09-30"
-
-#pick service
-serv <- "dv"
 
 #Load in Ndata using the site ID
 neuse <- readNWISdv(siteNumbers = siteNo, parameterCd = pcode, statCd = scode, startDate=start.date, endDate=end.date)
@@ -169,10 +166,10 @@ RI.log.early = lm(Peak_cms ~ log(ReturnInterval), data=peak.flow.early)
   x.est <- as.data.frame(c(100,200,500,1000)); colnames(x.est)<-"ReturnInterval"
   y.est.pre <- predict(RI.log.early,x.est, interval="confidence")
   y.est.pre <- as.data.frame(y.est.pre)
-  points(x.est$ReturnInterval, y.est.pre$fit, col="black", pch=5, lwd=2);
 
 #plot original return intervals  
 points(peak.flow$ReturnInterval, peak.flow$Peak_cms, col=rgb(0,0,1,0.5), cex=0.8, pch=19)  
+points(x.est$ReturnInterval, y.est$fit, col="black", pch=5, lwd=2);
   points(x.est$ReturnInterval, y.est.pre$fit, col="blue", pch=2, lwd=2);
     abline(h=y.est.pre$fit[1], col="black", lty=3); abline(v=100, col="red", lty=3)
     abline(h=y100, col="blue", lty=3)
@@ -209,7 +206,7 @@ points(x.est$ReturnInterval, y.est.post$fit, col="goldenrod3", pch=12, lwd=2);
 
 #plot original return intervals  
 points(peak.flow$ReturnInterval, peak.flow$Peak_cms, col=rgb(0,0,1,0.5), cex=0.8, pch=19)  
-points(x.est$ReturnInterval, y.est.pre$fit, col="blue", pch=2, lwd=2);
+points(x.est$ReturnInterval, y.est$fit, col="blue", pch=2, lwd=2);
 
 #plot early return interval
 points(x.est$ReturnInterval, y.est.pre$fit, col="black", pch=5, lwd=2);
