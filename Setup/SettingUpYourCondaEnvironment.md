@@ -28,9 +28,9 @@ Why would you want multiple installations of the same software on a machine? Wel
 
 **Conda** provides capability of creating multiple virtual environments.
 
+---
 
-
-## Creating your personal Python environment with Conda
+## ►Creating your personal Python environment with Conda◄
 
 Now that we have the background, let's get started creating our own Python environment on our virtual machine. We'll do this with a set of Conda commands run at the Anaconda prompt. The process we are about to do is well documented on the Conda User Guide: https://conda.io/docs/user-guide/tasks/manage-environments.html. You can also download a Conda cheat sheet here: https://conda.io/docs/_downloads/conda-cheatsheet.pdf, for when you're more comfortable with the process...
 
@@ -59,9 +59,9 @@ Now that we have the background, let's get started creating our own Python envir
 * Just as you installed pandas, install the following Python packages: <u>jupyter</u>, <u>matplotlib</u>, <u>seaborn</u>, <u>requests</u>, and <u>spyder</u>. 
 
 * Save your configuration to a file:
-  `conda list --explicit > 'datadevils.yml`
+  `conda list --explicit > datadevils.yml`
 
-With this text file, you - or others - can rebuild your environment easily with the following command:
+\*With this text file, you - or others - can rebuild your environment easily with the following command:
 `conda create --name <env> --file datadevils.yml`
 
 

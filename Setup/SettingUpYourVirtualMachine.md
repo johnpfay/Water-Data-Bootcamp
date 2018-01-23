@@ -12,7 +12,7 @@ All Duke students are allowed to create one virtual machine. For all intents and
 
 * Open https://vcm.duke.edu in a browser and log in. 
 * Select `Reserve a VM`.
-* From the "Application and Operating System" dropdown, select `Windows 10` and click `Reserve`.
+* From the "Application and Operating System" dropdown, select `Windows Office 2016` and click `Reserve`.
 * When your VM is ready:
   * Make a note of your machine's Hostname.
   * Optionally, create an easy to remember alias for your machine.
@@ -57,3 +57,4 @@ The Software Center allows you to bulk-install several applications. Double-clic
 * Run the installer, selecting all the default options when asked.
 
 
+<END>
