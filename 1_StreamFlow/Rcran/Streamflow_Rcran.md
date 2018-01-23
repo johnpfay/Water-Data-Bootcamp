@@ -260,328 +260,294 @@ Now that we have our data, we should explore and inspect the data before we dive
 ##### How confident are we in the data?
 
 * If you noticed in the summary of the data there was a column with confidence codes on the quality of the data. 
+
 * `table` creates a table that counts the number of occurrences for each category of confidence code.
-  * notice the table is in an array. We want to put it into a data frame (similar to the nuese data) so we can manipulate the columns. The command `as.data.frame` puts the table into a format we can use.
 
+  * notice the table is in an array. We want to put it into a data frame (similar to the `neuse` data) so we can manipulate the columns. The command `as.data.frame` puts the table into a format we can use.
 
+    * ```R
+      confidence <- as.data.frame(table(neuse$Flow_cd))
+      	colnames(confidence)<-c("Category","Number")
+      ```
 
+      ​
 
+  * `colnames` allows you to rename the columns.
 
+  * To perform operations on the data you must call the column name. You do this by first listing the name of your data: `confidence` and then calling on the column of interest by using `$` and then the `column name`
 
+    * ```R
+      confidence$Percent <- confidence$Number/total.n*100
+            confidence$Percent <- round(confidence$Percent,2)
+      ```
 
+- You can create a pie chart and set the color of the pie using the following command:
 
+- ```R
+  pie(confidence$Percent, labels=confidence$Category, col=c("cornflowerblue","lightblue","darkorange","orange"), cex=0.7)
+  ```
 
-
+  - You are creating the pie chart using the `percent` column and labeling the chart using the `category` column. 	`cex` refers to the size of the label.
 
 
 
 ##### Examine Summary Statistics of our Data
 
-Summary statistics provide another quick way to examine our data for peculiarities. Here, we'll outline the process for computing min, max, mean, and percentiles from our data in Excel. We'll simplify this procedure by creating a name for the range of `Mean flow (cms)` data cell. 
+Summary statistics provide another quick way to examine our data for peculiarities. Here, we'll outline the process for computing min, max, mean, and percentiles from our data. There are many ways to accomplish this task. We will explore 2 methods: functions and piping (dplyr).
 
-* Assign `CMS` as the name of the range of `Mean flow (cms)` cells:
-  * Select all the data cells under the `Mean flow (cms)` header
-  * Type `ctrl`-`F3` to open the Name Manager and click `New` to add a new named range of cells.
-  * Enter CMS as the Name. Note the range is set to what we highlighted as we open the Name Manger. Click `OK`.
-  * Close the Name Manger. Now we can just type `CFS` in any formula and it will refer to that range of cells. We'll see below how this works. 
-* Create a skeleton table with labels: `Min`, `P10`, `P25`, `P75`, `P90`, `Median`, `Average`, and `Max`
-* Insert the appropriate formula for each, using the range of `Mean flow (cms)` cells for each. 
-  * min: `=MIN(CMS)`
-  * P10:  `=PERCENTILE.INC(CMS,0.1)`
-    * `INC` means inclusive: where the percentile value must be between 0 and 1
-    * Alternatively, `EXC` requires the percentile to be between 1/n and 1-1/n, where n is the number of elements 
-    * Calculate P25, P75, P90 following the same format
-  * median: `=MEDIAN(CMS)`
-  * average: `=AVERAGE(CMS)`
-  * max: `=MAX(CMS)`
+* Functions allow you to program a process you wish to repeat many times. Typically you call on this function to perform some task on some data. 
 
-Now that we know how to compute summary statistics, let's examine whether building Falls Lake had a noticeable impact on these values. We can do this by computing summary statistics for subsets of the discharge data, with one subset containing the discharge before 1980, when construction of the lake started, and after 1984, after the dam was completed. 
+  * First we want to create a data frame to store the output from our function once it runs. A data frame is a matrix of rows and columns. Here will create a data frame with 8 rows and 4 columns.
 
-* Create named ranges for discharge data before 1980 and after 1984
-  * A quick way to do this is search for 1980 and select 12/31/1979 and up with `shift`+`ctrl`+`↑`. With these records selected, assign a name as we did above. 
-  * Then search for 1984 and select from 1/1/1984 and down (`shift`+`ctrl`+`↓`), and name that range. 
-* Compute summary stats for these new ranges as you did above. (Tip: you can use `ctrl`+`H` to replace the named range `CMS` with the new names you created for easy update.)
+  * We will then give the data frame meaningful column headers using `colnames`
 
-What do you notice? Particularly with regards to min and max streamflow. Does that make sense given what you know about reservoirs?
+  * And we will fill in the first column of data with the names of the statistics we wish to run.
+
+    ```R
+    #Create data frame
+    sum.stats <- as.data.frame(matrix(nrow=8, ncol=4))
+      colnames(sum.stats) <- c("Statistics","p1930-2017","p1930-1979","p1984-2017")
+    #Fill in first column
+    sum.stats$Statistics <- c("Min","10th percentile","25th percentile","Median","Mean","75th percentile", "90th percentile","Max")
+    ```
+
+  * Next we will right our function. The form of a function is: `function name` = `function(parameter1, parameter2, ...) {the tasks to perform}`
+
+    ```R
+    #Function to fill in second column
+    gen_stats = function(data, column.no){   #we are calling our function with 2 parameters.
+      #The first parameter is the data we want to go into the function. The second is the column we want to fill in our data frame.
+      
+      #Now we perform the task. We want to fill the sum.stats dataframe. To do this we run a stat and place that value into a specific row and column. 
+        #data.frame[row number, column number]
+      sum.stats[1,column.no] <- min(data$Flow_cms);               
+      sum.stats[2,column.no] <- quantile(data$Flow_cms, 0.10);    
+      sum.stats[3,column.no] <- quantile(data$Flow_cms, 0.25);
+      sum.stats[4,column.no] <- median(data$Flow_cms);            
+      sum.stats[5,column.no] <- mean(data$Flow_cms);
+      sum.stats[6,column.no] <- quantile(data$Flow_cms, 0.75);    
+      sum.stats[7,column.no] <- quantile(data$Flow_cms, 0.90);
+      sum.stats[8,column.no] <- max(data$Flow_cms);               
+      
+      return(sum.stats);       #we return the dataframe. This gives us access to the data frame outside of the function
+    }
+    #call the function to run using the following parameters
+    sum.stats <- gen_stats(neuse, 2)
+    sum.stats$`p1930-2017` <- round(sum.stats$`p1930-2017`,3) #round the data to look pretty
+    sum.stats #make sure numbers match excel
+    ```
+
+  * Now we can re-run the function for different subsets of the data. 
+
+    * ```R
+      #Subset data and rerun function
+      neuse.pre1980 <- subset(neuse, Date<="1979-12-31");
+      neuse.post1984 <- subset(neuse, Date>="1984-01-01");
+
+      #call the function to calculate summary statistics
+      sum.stats <- gen_stats(neuse.pre1980,3)
+      sum.stats <- gen_stats(neuse.post1984,4)
+      ```
+
+      ​
+
+- dplyr and pipes. Pipes create a chain of commands that build on the previous command. There are two libraries you need to do this: `dplyr` and `magrittr`. The symbol `%>%` is the pipe that connects a chain of commands together.
+
+  - In this example we will create a new data frame, `sum.stats2` to hold the summary statistics. We will then perform a series of commands on the `neuse` data. Essentially we are saying to grab the neuse data and then calculate the following variables in the sum.stats2 frame.
+
+    ```R
+    sum.stats2 <- neuse %>%
+        summarize(min = min(Flow_cms, na.rm=TRUE),
+                  p10 = quantile(Flow_cms, 0.10, na.rm=TRUE),
+                  p25 = quantile(Flow_cms, 0.25, na.rm=TRUE),
+                  median = median(Flow_cms, na.rm=TRUE),
+                  mean = mean(Flow_cms, na.rm=TRUE),
+                  p75 = quantile(Flow_cms, 0.75, na.rm=TRUE),
+                  p90 = quantile(Flow_cms, 0.90, na.rm=TRUE),
+                  max = max(Flow_cms, na.rm=TRUE)
+                  )
+
+    #repeat for the other time periods. Use the 'filter' command:
+    sum.stats2[2,] <- neuse %>%
+      filter(Date<="1979-12-31") %>%
+      summarize(min = min(Flow_cms, na.rm=TRUE),
+                p10 = quantile(Flow_cms, 0.10, na.rm=TRUE),
+                p25 = quantile(Flow_cms, 0.25, na.rm=TRUE),
+                median = median(Flow_cms, na.rm=TRUE),
+                mean = mean(Flow_cms, na.rm=TRUE),
+                p75 = quantile(Flow_cms, 0.75, na.rm=TRUE),
+                p90 = quantile(Flow_cms, 0.90, na.rm=TRUE),
+                max = max(Flow_cms, na.rm=TRUE)
+      )
+
+    sum.stats2[3,] <- neuse %>%
+      filter(Date>="1984-01-01") %>%
+      summarize(min = min(Flow_cms, na.rm=TRUE),
+                p10 = quantile(Flow_cms, 0.10, na.rm=TRUE),
+                p25 = quantile(Flow_cms, 0.25, na.rm=TRUE),
+                median = median(Flow_cms, na.rm=TRUE),
+                mean = mean(Flow_cms, na.rm=TRUE),
+                p75 = quantile(Flow_cms, 0.75, na.rm=TRUE),
+                p90 = quantile(Flow_cms, 0.90, na.rm=TRUE),
+                max = max(Flow_cms, na.rm=TRUE)
+      )
+
+    #reshape and round tables
+    final.stats <- as.data.frame(t(round(sum.stats2,3))); #t transposes the matrix
+      final.stats$Statistics <- row.names(final.stats);   # change rownames to column
+    final.stats <- final.stats[,c(4,1,2,3)]; #reorder data frame
+    colnames(final.stats) <- c("Statistics","p1930-2017","p1930-1980","p1984-2017")
+      final.stats  
+    ```
+
+    ​
 
 ##### Is there seasonal variation in streamflow?
 
-To examine seasonal (or monthly) variation in streamflow, we need to extract the months from our date values. We'll also convert calendar years into water years, which run from October thru September. 
+Here we will look at the seasonal variation in streamflow using two methods: pipes and the for loop. For loops are great when you need to repeat a process multiple times.
 
-* Parse out the Date to include Year and Month
-  * Insert three new columns in your EDA worksheet by right-clicking on Column C and selecting `Insert` three times.
-  * Name these columns `year`, `month`, and `water year`
-  * In the Year column, use the `=Year()` function to extract the year from the corresponding cell in the `datetime` column.
-  * Repeat for the month column. 
-  * Change the format of these cells from *General* to *Number* by highlighting the columns and selecting `Number` from the dropdown list in the `Number` panel in the `Home` menu. 
-  * Extend these formulas to the cells below. 
-* Water year runs from October to September. We adjust the year column to account for this information using `IF`
-  * Create a new column for water year. 
-  * Use the `IF` function to assign the value to the cell in the `year` column if the month value is `>= 10`, otherwise, set the value of the year column minus 1:  `=IF(D2>=10,C2,C2-1)`.
-  * Change the format of the cell from General to Number, if necessary. 
-  * Extend the formula to the cells below, examining to ensure the calculations are correct. 
-* Create a table skeleton of average streamflow by month (1-12) over the different time periods (period of record, pre1980, and post1984).
-* Use the `AVERAGEIF()` function to compute the average discharge of records where the month equals the specified month. Here, the *range* will be the range of cells in the month column, the criteria will be the month (e.g. '1'), and the average range will be the range of discharge values.
+- dplyr and pipes. Here we will use the new command `group_by`. This command allows us to run our summary statistics based on particular groups of data, in this case by months.
 
-What do you observe? Would a plot of the results facilitate interpretation? 
+  ```R
+  #add year and month values
+  neuse$Year <- year(neuse$Date);  neuse$Month <- month(neuse$Date)
 
-### ♦ Exercise: Compute total streamflow by water year
+  #run dplyr
+  month.flow1 <- neuse %>%
+    group_by(Month) %>%
+    summarise(p1930to2017 = mean(Flow_cms, na.rm=T)) %>%  round(3)
+    
+  month.flow2 <- neuse %>%
+    filter(Date<="1979-12-31") %>%
+    group_by(Month) %>%
+    summarise(p1930to1980 = mean(Flow_cms, na.rm=T)) %>%  round(3)
 
-Repeat the above using `SUMIF` for annual streamflow based on the water year.
+  month.flow3 <- neuse %>%
+    filter(Date>="1984-01-01") %>%
+    group_by(Month) %>%
+    summarise(p1984to2017 = mean(Flow_cms, na.rm=T)) %>%  round(3)
 
----
+  #create dataframe and bind 3 tables together
+  month.flow <- as.data.frame(cbind(month.flow1, month.flow2[,2], month.flow3[,2])) 
+  ```
 
-## 
-
-## Q1: Evaluating 100-year flood frequency
-
-### Background: Calculating return intervals
-
-Our team hydrologist suggested that one method for evaluating the impacts of dam construction is to monitor changes in flood return intervals. Falls Lake is a flood control reservoir, so it should decrease the amount of downstream flooding.
-
- ![image3](media/image3.png)
-
-**Figure**: Reservoirs should moderate downstream flows. There is a flood control pool to hold flood waters that can be released slowly over time. There is also a conservation pool that holds water that can be released downstream during drier conditions to meet minimum streamflow requirements.
+  ​
 
 
+- For loop example. Here we want to loop through each month and calculate the summary statistics. The format for the for loop is: 
 
-Flood insurance policy is built around the concept of the 100-year flood event. The housing industry has been working to explain what that risk actually means to homeowners with 30 year mortgages. Understanding the flood risk relative to mortage's is helpful for insurance companies to know. Has Falls Lake decreased the flood risk for downstream homes?
+  ```R
+  for (j in 1:n){ do something ... }
+  ```
 
-![image4](media/image4.png)
+  where j is a count variable. It will be 1 the first time the loop runs, 2 the second time, etc. n is the number of times you want to run the loop. The task to perform is in between the {}.
 
-Reservoirs decrease the likelihood of downstream flooding, but that often means development occurs in areas that would have been frequently flooded prior to the reservoir. We’ve seen examples of this just his year with Hurricane Harvey.
+  ```R
+  #set up data frame
+  month.flow <- as.data.frame(matrix(nrow=0,ncol=4));                 
+  colnames(month.flow) <- c("Month","p1930to2017","p1930to1980","p1984to2017")
+  #unique() <- pulls out the unique values in a column.
+  unique.month <- unique(neuse$Month)
 
+  for (j in 1:length(unique.month)){      #you are telling the loop to run for as many unique variables as you have
+    #subset data to month of interest
+    zt <- subset(neuse, Month==unique.month[j])    #subset data for month 'j'
+    #further subset data based on year
+    zt.early <- subset(zt, Year<=1979);             zt.late <- subset(zt, Year>=1984)
+    
+    #fill in dataframe
+    month.flow[j,1]<-unique.month[j];              # month                      
+    month.flow[j,2] <- round(mean(zt$Flow_cms, na.rm=TRUE),3)    #period of record
+    month.flow[j,3] <- round(mean(zt.early$Flow_cms, na.rm=TRUE),3);  #pre 1979 data
+    month.flow[j,4] <- round(mean(zt.late$Flow_cms, na.rm=TRUE),3)    #post 1984 data
+  }
+  month.flow      #check your results
+  ```
 
+  - You will notice the months are ordered based on water year. Reorder the months and plot the results on a line chart.
 
-### Framing and executing the analysis
+    ```R
+    #Reorder from water year to calendar year
+    month.flow <- arrange(month.flow,Month) #automatically sorts ascending. If want to descend: arrange(month.flow,desc(Month))
 
-We will use Leopold’s (1994) flood frequency curve and the Weibull equation to calculate the recurrence interval. Here the return interval is computed as $\frac{n+1}{m}$ where `n` is the number of years of data and `m` is the rank of the year from largest to smallest (see this [link](https://en.wikipedia.org/wiki/Return_period) for more info). 	
-
-*\* NOTE: The accuracy of a return interval is highly impacted by the length of the time series.*
-
-So, for us to do this analysis, we need to first compute maximum annual discharge, i.e., extract the largest discharge observed from each water year. The we sort and rank our data on max annual discharge and then compute a regression line from which we can determine the discharge of a 100 and 500 year flood. 
-
-#### Compute maximum annual streamflow using <u>pivot tables</u>
-
-Excel's pivot tables are one of it's more powerful features, allowing you to easily extract and cross tabulate various summaries from your data. We'll use to sift through discharge records on a per-year basis and identify the largest one. 
-
-* Highlight your entire EDA table, headers and all.
-* From the `Insert` menu, select `Pivot Table`, choosing to place the report in a `New Worksheet`.
-* Rename this worksheet "Flood".
-* In the new worksheet created, click on the Pivot Table if the `Pivot Table Fields` dialog is not shown. 
-* In the Pivot Table Fields dialog:
-  * Drag the `Water year` field into the `Rows` section
-  * Drag the `Mean discharge (cms)` field into the `Values` section
-  * Using the dropdown menu next to the `the Mean discharge (cms)` item now in the `Values` section, change the `Value Fields Settings` to summarize the field by the `Max` value.  
-
-#### Rank & sort the pivot table data; compute return intervals 
-
-We now have the data we want. Next we'll compute rankings and then sort the data. However, to do this we need to copy the data from the dynamic Pivot Table.
-
-* Copy contents of your pivot table
-* Paste *the values* of the contents `right click`+`s`+`v`.
-* Delete the last row in the pasted values (the grand total).
-* Sort the data from largest to smallest: 
-  * Select both columns of data
-  * From the Home menu, select Sort & Filter->Custom Sort 
-  * Sort data by discharge values from largest to smallest. 
-* Compute rankings in a new column named `rank`
-  * Type in a few numbers, e.g., 1, 2, 3.
-
-  * Select these numbers and double click the lower right hand corner of the selected range.
-
-  * *Alternatively, you can use the* `RANK.EQ` *function*
-
-    **Note: How do these methods differ for those years with the same maximum values (ties)?*
-* Calculate return interval in a new column named `RI`
-  * Determine how many years of data you have (e.g. count of year rows or max of rank).
-  * Compute  $\frac{n+1}{m}$ where `n` is the number of years of data and `m` is the rank.
-* Calculate the Annual Exceedance Probability in a new column named `Pe`
-  * $Pe = 1/RI$
-* Compute the the probability of the 100, 500, and 100 year flood occurring over the next 30 years as a binomial distribution: $Pe =1 - [1-(1/T)]^n$ where `T` is the return period (e.g. 100 years) and number of years of interest (30 years in our case).
-  * Add three label cells: 100, 500, 1000 in a new location in your worksheet
-  * Next to them add the formula `=1-(1-(1/XX))^30` where xx is the reference to your label cell. 
-
-#### Plot the data and compute a regression equation
-
-* Create a scatterplot of max discharge (y-axis) vs. recurrence interval (x-axis)
-  * Note: Excel will default to setting the left most column in your table to the X-axis and the other as the Y-axis, meaning your scatterplot will default to setting the X-axis to Max Discharge and the Y-axis to Recurrence Interval. You'll have to manually switch this using the `Select Data` tool. 
-    * In the Select Data Source dialog, Edit the `RI` category and swap the `Series X values` and `Series Y values`.
-* Place the x-axis on a log scale and add minor tick marks
-* Add a regression line to your plot
-  * Select the points in your plot; right-click and select `Add Trendline`.
-  * Try out different trendlines to see which has the best fit. In our case, logarithmic.
-  * Check the box to display the equation on the chart and r2 values.
-
-#### Apply the regression to compute 100, 500, and 1000-year flood discharges
-
-* Using the regression equation you just calculated and added to your chart, estimate the discharge for the 100, 500, and 1000 year events, i.e., compute `y` for `x` = 100, 500, and 1000, respectively, somewhere in your Excel worksheet. *These are the estimated discharge at 100, 500, and 1000 year flood events.* 
-* Add those estimated discharge values to your chart. 
-  * `Select Data` > `Add` > *RI Year* goes to `X Values`, `Y Values` are the values computed from the regression.
-
-### ♦ Exercise: Calculate the return interval from the pre-1980 data
-
-Repeat the above analysis only using data prior to 1980 to calculate the return interval.
-
-* How many fewer years of data are used?
+    #Plot results
+    par(mar = c(3,5,2,5)) #set plot margins
+    plot(month.flow$Month, month.flow$p1930to2017, type='n', yaxt="n", xaxt="n", ylim=c(0,max(month.flow$p1930to2017)+10),
+         ylab="Mean Streamflow (cms)", xlab = '', main=siteInfo$station_nm,
+         yaxs="i", xaxs="i") #gets rid of spaces inside plot
+      axis(2, las=2, cex.axis=0.9)  #adds the y-axis labels
+      axis(1, at=seq(1,12,1), labels=c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"), cex.axis=0.9)      #add x-axis labels
+    #plot monthly lines
+      lines(month.flow$Month, month.flow$p1930to2017, col=rgb(0,0,0,0.5), lty=1, lwd=2)
+      lines(month.flow$Month, month.flow$p1930to1980, col=rgb(0.8,0,0,1), lty=1, lwd=3)
+      lines(month.flow$Month, month.flow$p1984to2017, col=rgb(0,0,0.8,1), lty=1, lwd=3)
+    #add a legend
+    legend("topright",c("Period of Record", "1930 to 1980", "1984 to 2017"), col=c(rgb(0,0,0,0.5), rgb(0.8,0,0,1), rgb(0,0,0.8,1)), lwd=c(2,3,3))
+    ```
 
 
-* Plot the new dataset on top of the original plot.
-  * `Design` > `Select Data` > `Add`
-  * Add the estimated 100 and 500 year points for each plot based on the regression.
-* How big is the difference between the 100 and 500 year estimates?
-  * Percent is calculated relative to the smaller record (my choice)
-* Calculate the discharge for different return periods and exceedance probabilities
-* Plot annual discharge and calculate the number of times the 100 year flood was surpassed for both the POR and prior to 1980
-  * Plot the estimates on the same chart. How much do they differ? Are you surprised by the results?
-
-*Look at the first plot you did of streamflow on the EDA spreadsheet to look at the distribution of peak events. These events are all hurricanes. How does it change your understanding of why Falls Lake doesn’t seem to impact flood frequency?* 
-
-*What happens to your answer if you remove those three points?*
-
-### 
 
 ---
 
-## Q2: Evaluating impact on minimum flows
+### Loading Sites on Leaflet
 
-#### Background & Framing the Analysis: 7Q10 
+Let's say you want to know where all stream gauges are in North Carolina. You can use the USGS NWIS website or you can plot the sites in R. Here, we call on all site data in North Carolina.
 
-The passing of the Clean Water Act in 1972 and the Endangered Species Act in 1973 has resulted in many reservoirs having to meet downstream flow requirements for either water quality purposes or species protection. For example, at the Clayton gauge, minimum flow requirements have ranged from 184 to 404 cfs since 1983. *Here we want to see if Falls Lake has raised minimum flows.*
-
-There are many ways to approach low flow to understand how minimum streamflow has changed since Falls Lake was constructed. We will look at a common metric known as 7Q10. <u>**7Q10** is the lowest average discharge over a one [week/month/year] period with a recurrence interval of 10 years.</u> This means there is only a 10% probability that there will be lower flows than the 7Q10 threshold in any given year. 
-
-To get more practice with pivot tables and if statements, we will calculate this metric using the 7 month period. To do this we need to construct a rolling average of monthly discharges spanning 7 month, which we can do using a series of pivot tables. 
-
-The first pivot table aggregates our daily discharge data into total monthly discharge values for each year. From this we table, we can compute a *7-month rolling average of minimum-flows* from the given month's total discharge and those from 6 months preceding it. 
-
-Next, we construct a second Pivot Table from the above data. This one aggregates the monthly data by year, extracting the minimum of the 7-month average for each year. This will enable us to compute a regression similar the one we constructed for the flood return interval, but this regression is to reveal the recurrence interval of low flows so that we can determine the streamflow of a 10% low flow event. 
-
-We then sort and rank these annual monthly-minimum values, similar to how we computed flood return intervals to compute *7 month minimum-flow (7Q) return interval* and then the *low flow probability of recurrence (POR)* of these flows, again using the same methods used for calculating flood return intervals and probabilities of recurrence. From this we can compute a regression between our yearly 7Q flows and POR, and use that regression equation to determine 7Q10, or the expected minimum flow across a span of 10 years. 
-
-#### The analysis
-
-* ##### Create a new Pivot Table to get the average daily discharge by year and month:
-
-  * Rename the new worksheet "7Q10"
-  * Set `year` and `month` as the Pivot Table *rows*. We use year instead of Water Year to ensure the data are being read in the correct order. If we use water year, the wrong September and Octobers are matched together.
-  * In the field settings for both `year` and `month`, change the `Subtotals & Filters` to `None`
-  * Set `Mean Flow (cms)` as your Pivot Table *value*. Keep as the sum of the monthly flows (since taking lowest 7 month average, small variability in the number of days in each month is ok.
-  * Right click the top left `Row Labels` cell, and select PivotTable Options. 
-    * On the `Totals & Filters` tab, un-check the two Grand Totals options. 
-    * On the `Display` tab, check "Classify PivotTable layout..." This "flattens" your table to that year is shown in one column and month in another.
-
-* ##### Create a static copy of the Pivot Table values
-
-  * Copy the the entire Pivot Table data and paste - as *values* - into cell `F2`. (It can go anywhere, but this will make the subsequent steps easier to follow)
-
-* ##### Fill all the blanks in the year column with the appropriate year. 
-
-  * Select all the cells in the newly pasted Year column
-  * Click `Home` > `Find & Select` > `Go To Special…`, and a `Go To Special` dialog box will appear.
-  * Check the  `Blanks` option, and click `OK`. All of the blank cells have been selected. 
-  * Then input the formula “=F2” into active cell F3 without changing the selection. 
-  * Press `Ctrl` + `Enter`, Excel will copy the respective formula to all blank cells.
-  * At this point, the filled contents are formulas, and we need to convert the formals to values. Now select the whole range, copy, and paste as values.
-
-* ##### Calculate the 7-month minimum flow averages (i.e., "7Q")
-
-  * Add a new column next to the records you just pasted. Give it the header `7Q`.
-  * Go to the 7th cell down and set it to compute the average of the streamflow of that row and the preceding 6 rows.
-  * Double-click the bottom corner to copy this formula down to the cells below. 
-
-* ##### Create a new table listing the minimum flow for each year, using the above table as its source. 
-
-  * Hint: Use your pivot table skills. But you may want to create the table in the same worksheet.
-
-* ##### Compute the rank, return interval, and probability of recurrence of these minimum flows
-
-  * Hint: Use the methods from the flood lesson, but remember to sort in the opposite direction!
-
-* ##### Plot the 7Q flow (Y) against the Probability of Recurrence (X)
-
-  * Try different regression types and stick with the one with the highest R2 (but avoid *quadratic* or *moving averages*).
-
-* ##### Use the equation to estimate the 7Q10, i.e., the threshold where the 10% of the observed flows are smaller:
-
-  * Set `x` in the regression equation to 0.10 and find `y`. This is your 7Q10. 
-  * Add the 7Q10 point to the graph using `Select Data...` with your plot active. 
-
-* ##### Apply your results: How many months in the monthly Pivot Table fell below the estimated 7Q10?
-
-  Here we want to produce a plot that shows when and how frequently low flows have occurred. We do this by first created a new column of just the monthly discharges falling below our 7Q10 threshold, and then creating a plot where these are highlighted against all monthly discharge values. 
-
-  * Insert a new column to the left of your copied and pasted monthly Pivot Table results. Label it `Below 7Q10`. 
-  * Use the `IF` formula to set values in this column to the monthly discharge value if the monthly discharge was below your computed 7Q10, otherwise set to an empty string (`""`). 
-  * Label the empty column to the right of this table (Column E) "Date" and set it cells to the 15th of the year and month of the record, using the formula `=Date(year,month,day)`
-  * Plot the monthly discharge. Then add a new series to your plot of just the ones falling under the 7Q10 (column J).
-  * Add labels and a legend.
-
-* ##### Count the number of Q710 events per year:
-
-  * Either use the `COUNTIF` function, or
-  * Expand your Pivot table to include the `Below 7Q10` column and count the number of occurrences. (`PivotTableTools` > `Change Data Source...`).
+```R
+#load in all sites in 'NC' that have discharge data (pcode).
+nc.sites <- readNWISdata(stateCd="NC", parameterCd = pcode, service = "site", seriesCatalogOutput=TRUE)
+#how many sites are in NC?
+length(unique(nc.sites$site_no))
+```
 
 
-#### Continued practice
 
-* On your own - calculate the 7Q10 prior to Falls Lake and after Falls Lake
+Next we use the `leaflet` library in r to plot the sites.
 
----
+```R
+leaflet(data=nc.sites2) %>%                        #on this data
+  addProviderTiles("CartoDB.Positron") %>%         #add the background map (can change)
+  addCircleMarkers(~dec_long_va,~dec_lat_va,       #plot circles using these columns
+                   color = "red", radius=3, stroke=FALSE,   
+                   fillOpacity = 0.8, opacity = 0.8,
+                   popup=~station_nm)             #when moused over provide station name
+```
 
-## 
 
-## Q3: Exploring trends in streamflow over time
 
-### Background
+That's a lot of data. Let's look at discharge over time for all stations in the the Upper Neuse River basin upstream of Falls Lake. You know the HUC code is `03020201`
 
-Water security is becoming increasingly important as population and water demand continue to grow. This is especially true with changing climate conditions that introduce new variability into our expectations of water supply. Briefly, we want to know whether the average annual streamflow has changed over time. 
+```R
+#let's focus on the upper Neuse upstream of Falls Lake
+upper.neuse <- subset(nc.sites2, huc_cd=="03020201")
+unique.sites <- unique(upper.neuse$site_no); length(unique.sites)   
 
-### Set up
+#let's plot all the site data on the same graph to compare.
+par(mfrow=c(2,3))    #there are 6 sites so create a matrix with 2 rows and 3 columns
+par(mar = c(2,2.5,2,2)) #set plot margins (bottom, left, top, right)
+#set up the color for each plot
+stream.col <- c(rgb(0,0,0,0.5),rgb(1,0,0,0.5),rgb(0,0,1,0.5),rgb(0,0.7,0,0.5),rgb(0.7,0.2,0,0.5), rgb(0.7,0,1,0.5))
+#provide the name of each station
+legend.names <- upper.neuse[1:6,]$station_nm
 
-- Create a new spreadsheet and name it `Trends`.
-- Create a table of `Year`, `Total Streamflow`, and `Count`.
-  - Copy and Paste the entire Water Year column from the EDA tab in the `Year` column. 
-    - Remove duplicate values: `Data menu`>`Data Tools`>`Remove Duplicates`
-  - Use `SUMIF` and `COUNTIF` to calculate the number of observations per year and the annual streamflow
-  - Remove those years with < 90% of data (i.e., fewer than 329 records in a year) , 
-    - Use `IF` to calculate and flag rows.
-- Plot streamflow over time and add a linear trend line
-- Go to `File` > `Options` >`Add-ins` > `Analysis Toolpack`
-  - `Data Menu` > `Data Analysis` > `Regression`
-  - Run the regression analysis on the data
-    - Turn on all the plots
-    - Is the trend significant?
-- Repeat for 1930-1980 and for 1984-2017
-  - What to you observe? 
-  - Are the trends obvious? 
+#set up a for loop to read in and plot streamflow over time
+for (i in 1:length(unique.sites)){
+  #read in the site data
+  zt <- readNWISdv(siteNumbers = unique.sites[i], parameterCd = pcode, statCd = scode)
+  	zt <- renameNWISColumns(zt);
+  	zt$Flow_cms <- zt$Flow*0.028316847
 
-### More Practice
-
-If there are not annual trends, are there seasonal ones? What about February and August?
-
-- ##### Grab all *February* values:
-
-  - Go to the working spreadsheet and `filter` by month
-  - `AVERAGEIF` the filtered data...
-
-- ##### Repeat the above analysis
-
-  - *What do you observe?*
+  #plot the data
+  plot(neuse$Date, neuse$Flow_cms, type='n', yaxt="n", xlim=c(as.Date("1920-01-01"),as.Date("2017-12-31")), ylim=c(0,300),
+       ylab="Streamflow (cms)", xlab = '', main=legend.names[i])
+  axis(2, las=2, cex.axis=0.9)
+  lines(zt$Date,zt$Flow_cms,col=stream.col[i])  
+  print(legend.names[i])
+ } #end for loop
+dev.off() #turns off the plot
+```
 
 
 
 
-# EXCEL Limitations
 
-Excel is a wonderful tool; however, it also has several limitations.
-
-1. Very limited analytical pack. Indeed, many of the statistical methods used for water resources rely are non-parametric, meaning they do not assume linear relationships between x and y variables. 
-
-2. It is time consuming to repeat analyses over multiple sites. What if we wanted to look at all downstream gauges from Falls Lake?
-
-3. It is difficult to replicate results in Excel. Sometimes data are copied and pasted as values rather than formulas. Sometimes errors are hand corrected and not marked. 
-
-   ​
-
-Statistical programs and coding are valuable tools that readily address these three limitations in excel: (1) diverse statistical packages, (2) batch capable, and (3) reproducible.
