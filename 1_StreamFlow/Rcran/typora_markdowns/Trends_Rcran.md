@@ -8,7 +8,7 @@ Date: Spring 2018
 
 [TOC]
 
-## Q4: Exploring trends in streamflow over time
+## Q3: Exploring trends in streamflow over time
 
 ### Background
 

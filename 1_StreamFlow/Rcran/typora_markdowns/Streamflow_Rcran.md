@@ -183,7 +183,6 @@ We will use the USGS packages to download data directly from the USGS. To do thi
     - `siteInfo <- attr(neuse, "siteInfo")`
 
 
-
 ---
 
 ### • Exploring the data`
@@ -234,7 +233,7 @@ Now that we have our data, we should explore and inspect the data before we dive
 
       * notice this creates an empty plot
 
-      * `axes` lets you set up with more control the axis of interest. `1` is the x-axis. `2` is the y-axis.
+      * `axis` lets you set up with more control the axis of interest. `1` is the x-axis. `2` is the y-axis.
 
       * `points()` and `lines()`  allow you to overlay data onto the plot as points or lines. Because there are so many points we want to plot the data as lines. There are many ways to stylize points and lines.
 
@@ -313,7 +312,7 @@ Summary statistics provide another quick way to examine our data for peculiariti
     sum.stats$Statistics <- c("Min","10th percentile","25th percentile","Median","Mean","75th percentile", "90th percentile","Max")
     ```
 
-  * Next we will right our function. The form of a function is: `function name` = `function(parameter1, parameter2, ...) {the tasks to perform}`
+  * Next we will write our function. The form of a function is: `function name` = `function(parameter1, parameter2, ...) {the tasks to perform}`
 
     ```R
     #Function to fill in second column
@@ -486,7 +485,6 @@ Here we will look at the seasonal variation in streamflow using two methods: pip
     #add a legend
     legend("topright",c("Period of Record", "1930 to 1980", "1984 to 2017"), col=c(rgb(0,0,0,0.5), rgb(0.8,0,0,1), rgb(0,0,0.8,1)), lwd=c(2,3,3))
     ```
-
 
 
 ---
