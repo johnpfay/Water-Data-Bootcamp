@@ -1,0 +1,515 @@
+---
+title: "Total Nitrogen"
+author: "L. Patterson and J. Fay"
+date: "Spring, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<style type="text/css">
+
+body{ /* Normal  */
+      font-size: 18px;
+  }
+</style>
+
+#Exploratory Data Analysis
+
+## Prep the workspace by installing (if needed) and loading libraries
+The method for installing and loading libraries, as well as downloading data from the USGS, are explained in the `LoadStreamflowDescription.Rmd` file. `LoadStreamflowDescriptions.Rmd` file. 
+
+```{r libs, message=FALSE, warning=FALSE}
+library(dataRetrieval); library(EGRET)
+library (ggplot2);  library(trend); library(lubridate)
+library(dplyr); library(magrittr); library(leaflet)
+```
+
+<br />
+
+## Load in the water quality *site* data
+
+```{r downloaddata, message=FALSE, warning=FALSE}
+#set working directlry
+swd <- "c:/Users/lap19/Documents/Class/Data Boot Camp/Unit3 Water Quality/"
+
+#read in the csv files  
+sites <- read.csv(paste0(swd,"station.csv"), sep=',',header=TRUE); dim(sites)
+  sites[1:3,]
+  dim(sites)
+```
+<br />
+
+##Plot the sites
+
+Load in the site data and plot a map to see where water quality data were present from this portal. 
+
+
+Let's play with the data and see what it looks like to subset the data by removing small streams with a drainage area of less than 25 mi2.
+```{r plotSites}
+#plot sites
+map <-  leaflet(data=sites) %>% 
+    addProviderTiles("CartoDB.Positron") %>%
+    addCircleMarkers(~LongitudeMeasure,~LatitudeMeasure,
+                     color = "red", radius=3, stroke=FALSE,
+                     fillOpacity = 0.8, opacity = 0.8,
+                     popup=~MonitoringLocationName)  
+map
+```
+
+<br />
+
+When we do this, we find there are only 10 sites remaining. This seems really small, so we plot these new sites on the map (blue), overlaying the orginal sites in red.
+
+```{r sites2}
+# subset to only include those with a drainage area exceeding 25 square miles
+sites2 <- subset(sites, DrainageAreaMeasure.MeasureValue >= 25); dim(sites2)
+
+#where are sites located?
+leaflet(data=sites) %>%  
+    addProviderTiles("CartoDB.Positron") %>%
+    addCircleMarkers(~LongitudeMeasure,~LatitudeMeasure,
+                   color = "red", radius=3, stroke=FALSE,
+                   fillOpacity = 0.8, opacity = 0.8,
+                   popup=~MonitoringLocationName) %>%
+    addCircleMarkers(~sites2$LongitudeMeasure,~sites2$LatitudeMeasure,
+                 color = "blue", radius=3, stroke=FALSE,
+                 fillOpacity = 0.8, opacity = 0.8,
+                 popup=~MonitoringLocationName)
+#Notice for Jordan Lake... the two values we will be most interested in are: Haw River at SR 1943 and 
+#All the names on Jordan Lake are "Jordan Lake"... change popup name to see options
+```
+
+<br />
+
+We take a closer look at the drainage measurement values and see there are numerous NA values. Clearly, filtering by drainage area will not look. The main point I want to make here is **don't be afraid to *play* with the data**.
+
+Let's replot the site map but now change the popup name to see which site names are located within each branch of Jordan Lake.
+
+``` {r changePopup}
+leaflet(data=sites) %>%  
+  addProviderTiles("CartoDB.Positron") %>%
+  addCircleMarkers(~LongitudeMeasure,~LatitudeMeasure,
+                   color = "red", radius=3, stroke=FALSE,
+                   fillOpacity = 0.8, opacity = 0.8,
+                   popup=~MonitoringLocationIdentifier)
+
+#reduce columns to those needed
+sites <- sites[,c(1,3:4,8:9,12:13)]
+``` 
+
+
+## Load in the water quality *measurement* data
+
+Once we load in the measurements data, we need to do some cleaning. The first step is to filter the data to what we want to use. For example, 
+
+* We want to make sure we are using routine samples and not extreme event sampling (biased for specific occasions and not for estimating annual average load).
+* We determine what type of Nitrogen we want to use. From the literature we found that regulations for Nitrogen include: nitrate, nitrite, ammonia and organic forms. Doing some reading about the WQX standards, you learn that Nitrogen, mixed froms incorporates all of the above forms of nitrogen. 
+* We also want to make sure we are looking at total Nitrogen, so make sure the Results Sample Fraction Text only includes those with Total.
+
+
+```{r downloadresultsdata, message=FALSE, warning=FALSE}
+results <- read.csv(paste0(swd,"result.csv"), sep=',',header=TRUE); dim(results)
+  names(results)
+
+#find out what options are present for the Hydrologic Events and Characteristic Name
+unique(results$HydrologicEvent);
+unique(results$CharacteristicName);
+
+#filter data
+nitrogen <-results %>% 
+          filter(ActivityMediaSubdivisionName=="Surface Water") %>% 
+          filter(HydrologicEvent != "Storm" & HydrologicEvent != "Flood" & HydrologicEvent != "Spring breakup" & HydrologicEvent != "Drought") %>%
+          filter(CharacteristicName=="Nitrogen, mixed forms (NH3), (NH4), organic, (NO2) and (NO3)") %>%
+          filter(ResultSampleFractionText=="Total")
+dim(nitrogen)
+
+#check that filters worked
+unique(nitrogen$HydrologicEvent); unique(nitrogen$ActivityMediaSubdivisionName)
+unique(nitrogen$CharacteristicName);  unique(nitrogen$ResultSampleFractionText)
+
+#reduce to needed columns
+nitrogen <- nitrogen[,c(1,7,22,31:35,59:61)]
+```
+
+###Detection Limits and Unit Conversion
+
+You may have noticed that many sample sites state "not detected". This is important data that are not currently being represented. Create a new column and set the value equal to the results, unless it is below the detection limit - in which case set it equal to ½ of the detection limit.
+
+You may also have noted that the total nitrogen was sometimes reported as mg/l or mg/l NO3. We want mg/l. To convert to mg/l, we know the atomic weight of nitrogen is 14.0067 and the molar mass of nitrate anion (NO3) is 62.0049 g/mole. Therefore, to convert between units:
+
+* Nitrate-N (mg/L) = 0.2259 x Nitrate-NO3 (mg/L)
+* Nitrate-NO3 (mg/L) = 4.4268 x Nitrate-N (mg/L) 
+
+
+``` {r detection}
+#set data below detection limits equal to 1/2 the detection limit
+nitrogen$TotalN <- ifelse(nitrogen$ResultDetectionConditionText=="Not Detected", nitrogen$DetectionQuantitationLimitMeasure.MeasureValue/2, nitrogen$ResultMeasureValue)
+
+#convert mg/l as No3 to mg/l as N
+nitrogen$TotalN <- ifelse(nitrogen$ResultMeasure.MeasureUnitCode=="mg/l NO3", nitrogen$TotalN*0.2259, nitrogen$TotalN)
+nitrogen$TotalN <- ifelse(nitrogen$DetectionQuantitationLimitMeasure.MeasureUnitCode=="mg/l NO3", nitrogen$TotalN*0.2259, nitrogen$TotalN)
+```
+
+
+## Exploratory Data Analysis
+###Merge sites and measurement data together
+Currently, site and measurement data are not connected together. However, we may want to show the nitrate values on a map. To do this, we merge the data together based on a unique identifier shared between the two data sets. In this case, it is the *MonitoringLocationIdentifier* column.
+
+```{r merge}
+nitrogen.data <- merge(sites, nitrogen, by.x="MonitoringLocationIdentifier", by.y="MonitoringLocationIdentifier"); dim(nitrogen.data)
+
+#create year and month categories. Make a table to see how many samples were collected each year/month
+  nitrogen.data$Year <- year(nitrogen.data$ActivityStartDate);                    table(nitrogen.data$Year)
+  nitrogen.data$Month <- month(nitrogen.data$ActivityStartDate);                  table(nitrogen.data$Month)
+```
+
+###Filter merged data
+
+First we want to know how many sites are collecting data of interest. We find there are 22 sites. Of those sites, we want to know which were collecting data after the Jordan Lake Rules were passed and how much data are being collected at this site.
+
+Based on this, we see several sites stopped collecting data prior to 2009, when the first iteration of Jordan Rules were passed. We also see that some of these sites collected only a few years of data. Remove those sites and plot the remaining sites on the map. 
+
+```{r filterSitesMore}
+#ED to know which sites to keep or remove
+unique.sites <- unique(nitrogen.data$MonitoringLocationIdentifier)
+  n.sites <- length(unique.sites)
+
+#Create dataframe of information on: n samples, start year, end year
+site.info <- nitrogen.data %>%
+  group_by(MonitoringLocationIdentifier) %>%
+  summarise(n=n(), StartYear=min(Year), EndYear=max(Year))
+site.info <- as.data.frame(site.info) 
+site.info$Range <- site.info$EndYear-site.info$StartYear
+site.info
+
+#Limit data to those with more than 10 years data and still operating
+site.info <- filter(site.info, Range>=10 & EndYear>=2017); site.info
+df <- nitrogen.data[nitrogen.data$MonitoringLocationIdentifier %in% unique(site.info$MonitoringLocationIdentifier), ]; dim(df)
+
+#Where are they located
+leaflet(data=df) %>%  addProviderTiles("CartoDB.Positron") %>%
+  addCircleMarkers(~LongitudeMeasure,~LatitudeMeasure,
+                   color = "red", radius=5, stroke=FALSE,
+                   fillOpacity = 0.8, opacity = 0.8,
+                   popup=~MonitoringLocationIdentifier)
+```
+
+###Plot total nitorgen over time, by month and by year for each site.
+
+```{r NoverTime, message=FALSE, warning=FALSE}
+####Plot nitrogen over time at each site
+unique.site <- unique(df$MonitoringLocationIdentifier)
+
+#convert activity date into a data
+df$Date <- as.Date(df$ActivityStartDate, "%Y-%m-%d")
+df$Year <- year(df$Date);   df$Month <- month(df$Date)
+
+
+i=1
+for (i in 1:length(unique.site)){
+  zt <- filter(df, MonitoringLocationIdentifier == unique.site[i])
+  
+  #group by date - take average of a day
+  foo <- zt %>% group_by(Date) %>% 
+    summarise(AverageN = mean(TotalN, na.rm=TRUE), Year=mean(Year), Month=mean(Month))
+  foo <- as.data.frame(foo)
+  
+  foo$color <- rgb(0.596,0.961,1,0.5)
+  foo$color <- ifelse(foo$Month==1, rgb(0.478,0.772,0.804,0.8), foo$color)
+  foo$color <- ifelse(foo$Month==2, rgb(0.325,0.525,0.545,0.8), foo$color)  
+  foo$color <- ifelse(foo$Month==3, rgb(0.792,1,0.439,0.8), foo$color)    
+  foo$color <- ifelse(foo$Month==4, rgb(0.635,0.804,0.352,0.8), foo$color)    
+  foo$color <- ifelse(foo$Month==5, rgb(0.333,0.420,0.184,0.8), foo$color)  
+  foo$color <- ifelse(foo$Month==6, rgb(1,0.447,0.337,0.8), foo$color)
+  foo$color <- ifelse(foo$Month==7, rgb(0.804,0.357,0.114,0.8), foo$color)  
+  foo$color <- ifelse(foo$Month==8, rgb(0.545,0,0,0.8), foo$color)  
+  foo$color <- ifelse(foo$Month==9, rgb(1,0.765,0.059,0.8), foo$color)  
+  foo$color <- ifelse(foo$Month==10, rgb(0.804,0.584,0.047,0.8), foo$color)  
+  foo$color <- ifelse(foo$Month==11, rgb(0.545,0.396,0.031,0.8), foo$color)  
+  
+  #create a plot
+  par(mfrow=c(1,1))
+  layout(matrix(c(1,1,2,3), 2, 2, byrow = TRUE), widths=c(2,2), heights=c(1.5,1.5))
+  par(mar = c(2,5,2,2)) #set plot margins
+  
+  #Plot single graph on top row
+  plot(foo$Date, foo$AverageN, type='n', yaxt="n", main=zt$MonitoringLocationIdentifier[i], ylab="Total Nitrogen (mg/l)", xlab = '', cex.lab=0.9, ylim=c(0,6))
+    axis(2, las=2, cex.axis=0.8)
+  lines(foo$Date, foo$AverageN, col=rgb(0,0,0,0.4))  
+  points(foo$Date, foo$AverageN, col=foo$color, cex=0.8, pch=19)  
+  
+  legend_order <- matrix(1:12,ncol=4,byrow = TRUE)
+  legend("topright", c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"),
+         pch=19, col=c(rgb(0.478,0.772,0.804,0.8),rgb(0.325,0.525,0.545,0.8),rgb(0.792,1,0.439,0.8),rgb(0.635,0.804,0.352,0.8),rgb(0.333,0.420,0.184,0.8),
+                       rgb(1,0.447,0.337,0.8),rgb(0.804,0.357,0.114,0.8),rgb(0.545,0,0,0.8),rgb(1,0.765,0.059,0.8),rgb(0.804,0.584,0.047,0.8),
+                       rgb(0.545,0.396,0.031,0.8), rgb(0.596,0.961,1,0.5)), ncol=4)
+
+#Add blank months to foo in case
+  blank.months <- as.data.frame(matrix(nrow=12,ncol=5)); colnames(blank.months) <- colnames(foo)
+  months.tab <- as.data.frame(table(foo$Month)); colnames(months.tab)<-c("Month","Freq");
+  k=1
+  for (j in 1:12){
+    check <- j; 
+    check.zt <- subset(months.tab, Month==j)
+  
+    if(dim(check.zt)[1]==0){
+      blank.months$Month[k]=check;   blank.months$AverageN[k]=0
+      k=k+1    
+    }
+  }
+  blank.months <- blank.months[!is.na(blank.months$Month),]
+  blank.months
+  foo.mo <- rbind(foo, blank.months)
+  
+  boxplot(foo.mo$AverageN~foo.mo$Month, yaxt="n", ylab="Total Nitrogen (mg/l)", ylim=c(0,10), yaxs='i',
+          col=c(rgb(0.478,0.772,0.804,0.8),rgb(0.325,0.525,0.545,0.8),rgb(0.792,1,0.439,0.8),rgb(0.635,0.804,0.352,0.8),rgb(0.333,0.420,0.184,0.8),
+                rgb(1,0.447,0.337,0.8),rgb(0.804,0.357,0.114,0.8),rgb(0.545,0,0,0.8),rgb(1,0.765,0.059,0.8),rgb(0.804,0.584,0.047,0.8)), pch=19, cex=0.7)
+  axis(2, las=2)
+  mtext("Nitrogen by Month", side=3, line=-2)
+  abline(h=0.01, col="black", lwd=1)
+  
+  
+  #Add blank years to foo in case
+  year.tab <- as.data.frame(table(foo$Year)); colnames(year.tab)<-c("Year","Freq");
+  year.tab$Year <- as.numeric(as.character(year.tab$Year))
+  row.no <- max(year.tab$Year)-min(year.tab$Year)
+  
+  blank.years <- as.data.frame(matrix(nrow=row.no,ncol=5)); colnames(blank.years) <- colnames(foo)
+  
+  k=1
+  
+  for (j in min(year.tab$Year):max(year.tab$Year)){
+    check <- j; 
+    check.zt <- subset(year.tab, Year==check)
+    
+    if(dim(check.zt)[1]==0){
+      blank.years$Year[k]=check;   blank.years$AverageN[k]=0
+      k=k+1    
+    }
+  #print(check)
+  }
+  blank.years <- blank.years[!is.na(blank.years$Year),]
+  blank.years
+  
+  foo.yr <- rbind(foo, blank.years)
+  
+  boxplot(foo.yr$AverageN~foo.yr$Year, yaxt="n", ylab="Total Nitrogen (mg/l)", ylim=c(0,6), col="grey", pch=19, cex=0.7)
+  axis(2, las=2)
+  mtext("Nitrogen by Year", side=3, line=-2)
+  abline(h=10, col="red", lwd=2, lty=4)
+  
+  #print(i)
+}
+
+```
+
+### Plot the 2017 Nitrogen year on leaflet
+
+Let's show the amount of Nitrogen coming from each site based on the size of the circle.
+
+``` {r sizeLeaflet}
+nitrogen.data$Year <- year(nitrogen.data$ActivityStartDate)
+last.year <- filter(nitrogen.data, Year==2017)
+last.year.n <- last.year %>%
+  group_by(MonitoringLocationIdentifier) %>%
+  summarize(AveN = mean(TotalN, na.rm=T), LongitudeMeasure = mean(LongitudeMeasure), LatitudeMeasure = mean(LatitudeMeasure))
+last.year.n <- as.data.frame(last.year.n)
+
+last.year.n$AveN <- round(last.year.n$AveN,3)
+
+leaflet(data=last.year.n) %>%  
+  addProviderTiles("Esri.WorldTopoMap") %>%
+  addCircleMarkers(~LongitudeMeasure,~LatitudeMeasure,
+                   color = "red", radius=~AveN*5, stroke=FALSE,
+                   fillOpacity = 0.6, opacity = 0.8,
+                   popup=~paste0(MonitoringLocationIdentifier, "<br>",
+                          "Average 2017 N: ", AveN, " mg/l"))
+```
+
+<br />
+
+## Compare the Nitrogen Load with Thresholds
+
+The water quality data reports Nitrogen as mg/l. In order to convert to an annual load (lbs/yr), we need to know the volume of water flowing through each site. Go to the NWIS Mapper to find which USGS gauges are closest to the Haw River Arm (1 site) and the New Hope Arm (3 sites).
+
+### Load NWIS data for Haw River
+``` {r NWISHaw}
+#USGS-0209699999 is the arm of the Haw River and there is a USGS stream gauge site nearby: USGS 02096960
+#Identify gauge to download
+siteNo <- '02096960' 
+#Identify parameter of interest: https://help.waterdata.usgs.gov/code/parameter_cd_query?fmt=rdb&inline=true&group_cd=%
+pcode = '00060' #discharge (cfs)
+#Identify statistic code for daily values: https://help.waterdata.usgs.gov/code/stat_cd_nm_query?stat_nm_cd=%25&fmt=html
+scode = "00003"  #mean
+#Identify start and end dates
+start.date = "1970-10-01"
+end.date = "2017-12-31"
+
+#Load in data using the site ID
+q <- readNWISdv(siteNumbers = siteNo, parameterCd = pcode, statCd = scode, startDate=start.date, endDate=end.date)
+  q <- renameNWISColumns(q); colnames(q)
+q.siteInfo <- attr(q, "siteInfo")
+q$Year <- year(q$Date);  q$Month <- month(q$Date)
+
+haw.n <- filter(df, MonitoringLocationIdentifier == "USGS-0209699999")
+
+#where are sites located?
+leaflet(data=q.siteInfo) %>%  
+  addProviderTiles("Esri.WorldTopoMap") %>%
+  addCircleMarkers(~dec_lon_va,~dec_lat_va,
+                   color = "blue", radius=3, stroke=FALSE,
+                   fillOpacity = 0.8, opacity = 0.8,
+                   popup=~station_nm) %>%
+  addCircleMarkers(~haw.n$LongitudeMeasure[1],~haw.n$LatitudeMeasure[2],
+                   color = "red", radius=3, stroke=FALSE,
+                   fillOpacity = 0.8, opacity = 0.8,
+                   popup=~haw.n$MonitoringLocationName[1])
+```
+
+### Calculate Annual Load for Haw River
+
+To calculate the annual load we need to convert cfs to MGD. Then we use pipes and dplyr to calculate the total annual flow at Haw River. Next, we calculate the average Nitrogen load for samples taken during each year. This is a rough proxy. A finer analysis can be undertaken by summarizing monthly flow and water quality, aggregating to the year as the last step.
+The annual load is then the: **Total Flow * average Nitrogen * 8.34 lbs per gallon**
+
+We can then plot the annual load with the threshold of 2.567 Million pounds per year.
+
+```{r HawLoad}
+#Calculate total volume of water each year
+q$Flow_MGD <- 646317*q$Flow/1000000
+q.year <- q %>% 
+  group_by(Year) %>%  
+  summarise(Total_MGD = sum(Flow_MGD, na.rm=T), n=n())
+q.year <- as.data.frame(q.year)
+q.year <- filter(q.year, n>=350)
+
+
+#calculate the average Nitrate concentration
+n.year <- haw.n %>% 
+  group_by(Year) %>%  
+  summarise(AveN = mean(TotalN, na.rm=T), n=n())
+n.year <- as.data.frame(n.year)
+
+
+
+#For days with a water quality measurement - what was the daily flow?
+haw.n <- merge(n.year, q.year, by.x="Year", by.y="Year")
+lbspergal <- 8.34
+haw.n$Pounds <- haw.n$Total_MGD*haw.n$AveN*lbspergal
+#convert to million pounds
+haw.n$MPounds <- haw.n$Pounds/1000000
+
+par(mfrow=c(1,1))
+par(mar = c(2,5,2,2)) #set plot margins
+
+#Plot single graph on top row. 
+plot(haw.n$Year, haw.n$MPounds, type='n', yaxt="n", main="Haw River Branch", ylab="Annual Nitrogen Load (million lbs)", xlab = '', cex.lab=0.9)
+  axis(2, las=2, cex.axis=0.8)
+  lines(haw.n$Year, haw.n$MPounds, col=rgb(0,0,0,0.4))  
+  points(haw.n$Year, haw.n$MPounds, col=rgb(0,0,0,0.6), cex=1, pch=19)  
+abline(h=2567000/1000000, col="red", lty=4, lwd=2)
+
+```
+
+### Calculate Annual Load for New Hope Creek
+Here there are 3 upstream gauges for New Hope Creek. We will download that information into a single file. We repeat the above analyis with the New Hope stream gauges. 
+
+```{r NewHopeLoad}
+#USGS-0209768310 is the arm of the Haw River and there are three usgs gauges upstream on different tributaries
+#Identify gauges to download
+siteNo <- c('02097314', '02097517','0209741955')
+pcode = '00060' #discharge (cfs)
+scode = "00003"  #mean
+start.date = "1970-10-01"
+end.date = "2017-12-31"
+
+#Load in data using the site ID
+q <- readNWISdv(siteNumbers = siteNo, parameterCd = pcode, statCd = scode, startDate=start.date, endDate=end.date)
+q <- renameNWISColumns(q); colnames(q)
+q.siteInfo <- attr(q, "siteInfo")
+q$Year <- year(q$Date);  q$Month <- month(q$Date)
+#If flow is unknown set to NA
+q$Flow <- ifelse(q$Flow <0,NA, q$Flow)
+
+#grab new hope monitoring station
+newhope.n <- filter(df, MonitoringLocationIdentifier == "USGS-0209768310")
+
+#where are sites located?
+leaflet(data=q.siteInfo) %>%  
+  addProviderTiles("Esri.WorldTopoMap") %>%
+  addCircleMarkers(~dec_lon_va,~dec_lat_va,
+                   color = "blue", radius=3, stroke=FALSE,
+                   fillOpacity = 0.8, opacity = 0.8,
+                   popup=~station_nm) %>%
+  addCircleMarkers(~newhope.n$LongitudeMeasure[1],~newhope.n$LatitudeMeasure[2],
+                   color = "red", radius=3, stroke=FALSE,
+                   fillOpacity = 0.8, opacity = 0.8,
+                   popup=~newhope.n$MonitoringLocationName[1])
+
+#Calculate total volume of water each year
+q$Flow_MGD <- 646317*q$Flow/1000000
+q.year <- q %>% 
+  group_by(Year) %>%  
+  summarise(Total_MGD = sum(Flow_MGD, na.rm=T), n=n())
+q.year <- as.data.frame(q.year)
+q.year <- filter(q.year, n>=350*3)
+
+
+#calculate the average Nitrate concentration
+n.year <- newhope.n %>% 
+  group_by(Year) %>%  
+  summarise(AveN = mean(TotalN, na.rm=T), n=n())
+n.year <- as.data.frame(n.year)
+
+#For days with a water quality measurement - what was the daily flow?
+newhope.n <- merge(n.year, q.year, by.x="Year", by.y="Year")
+lbspergal <- 8.34
+newhope.n$Pounds <- newhope.n$Total_MGD*newhope.n$AveN*lbspergal
+newhope.n$KPounds <- newhope.n$Pounds/1000
+
+par(mfrow=c(1,1))
+par(mar = c(2,5,2,2)) #set plot margins
+
+#Plot single graph on top row
+plot(newhope.n$Year, newhope.n$KPounds, type='n', yaxt="n", main="New Hope Arm", ylab="Annual Nitrogen Load (thousand lbs)", xlab = '', cex.lab=0.9, ylim=c(0,800))
+  axis(2, las=2, cex.axis=0.8)
+  lines(newhope.n$Year, newhope.n$KPounds, col=rgb(0,0,0,0.4))  
+  points(newhope.n$Year, newhope.n$KPounds, col=rgb(0,0,0,0.6), cex=1, pch=19)  
+abline(h=641021/1000, col="red", lty=4, lwd=2)
+```
+
+<br />
+
+Notice that the annual nitrogen load is far below the threshold level. Why or why not is this unexpected? What do you think could be causing this underestimate?
+
+It is likely due to missing several tributary contributions. Jordan Lake has a 1,689 mi2 drainage area. The Haw River Branch is 1,275 mi2. A tributary downstream of newhope.n is 12 mi2. The upstream drainage area of the three sites are 76.9, 21.1, and 41 mi2 (how do you think I found these numbers?). This leaves 402 mi2 unaccounted for. Let's assume 25% of this left overis downstream of the monitoring site. In hydrology, flow is often linked to drainage area. Let's adjust the Nitrogen entering the New Hope Arm by drainage area.
+
+```{r adjustArea}
+site.da <- 76.9+21.2+41
+remaining.da <- 1689-1275-12
+fraction <- 0.75
+
+adjust.da <- remaining.da*fraction
+newhope.n$adj.pounds <- newhope.n$KPounds*adjust.da/site.da
+
+plot(newhope.n$Year, newhope.n$adj.pounds, type='n', yaxt="n", main="New Hope Arm", ylab="Annual Nitrogen Load (thousand lbs)", xlab = '', cex.lab=0.9, ylim=c(0,1000))
+axis(2, las=2, cex.axis=0.8)
+  lines(newhope.n$Year, newhope.n$KPounds, col=rgb(0,0,0,0.4))  
+  points(newhope.n$Year, newhope.n$KPounds, col=rgb(0,0,0,0.6), cex=1, pch=19)  
+
+  lines(newhope.n$Year, newhope.n$adj.pounds, col=rgb(0.5,0,0,0.4), lty=2)  
+  points(newhope.n$Year, newhope.n$adj.pounds, col=rgb(0.5,0,0,0.4), cex=1, pch=19)  
+abline(h=641021/1000, col="red", lty=4, lwd=2)
+mtext(paste0("Adjust by ", fraction, " drainage area fraction"), side=3, line=-2)
+```
+
+##Save out the new files for entry into Tableau
+
+```{r}
+#write csv
+write.csv(df, paste0(swd,'/tableau/nitrogen.csv'),row.names=FALSE)
+write.csv(haw.n, paste0(swd, '/tableau/hawbranch.csv'),row.names=FALSE)
+write.csv(newhope.n, paste0(swd, '/tableau/newhope.csv'),row.names=FALSE)
+```
