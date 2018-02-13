@@ -1,5 +1,5 @@
 ---
-title: "LoadStreamflow"
+title: "Intro and Load Streamflow"
 author: "L. Patterson and J. Fay"
 date: "Spring, 2018"
 output: html_document
@@ -11,12 +11,72 @@ output: html_document
 body{ /* Normal  */
       font-size: 18px;
   }
+
+
 </style>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+#Goal for today
+
+* Learn how to use R for streamflow data
+* Learn how to load data from NWIS
+* Learn how to explore and visualize data
+* Learn how to analyze streamflow data
+
+##**Many roads lead to Rome - learning how to find those roads and what works best for you is key**
+<br /> 
+
+#R Resources
+
+Free online course to learn R, Python, Excel, etc.
+
+*	https://www.datacamp.com/
+*	https://www.codecademy.com/
+*	https://www.lynda.com/ (free through Duke)
+* Jenny Bryans UBC Cource on Stats in R: http://stat545.com/topics
+
+<br /> 
+
+Learning how to problem solve in the moment:
+
+*	Google question and inclue "Rcran" in search term
+*	Stack Overflow: https://stackoverflow.com/
+*	R bloggers: https://www.r-bloggers.com/
+* rseek.org (Google, but focused on R)
+* Quick R - statmethods.net
+
+<br /> 
+
+Within R:
+
+* `help(functionName)` or `?functionName`
+* `??topic` to do a broad search of a topic
+* `vignette("topic")`
+* `appropos("topic")`
+
+<br /> 
+
+<br /> 
+Useful shortcuts in R
+
+* `<-`: `Alt` + `-`
+* `<%<`: `Shift` + `Ctrl` + `M`
+* For a cheat sheet with *most* shortcuts: `alt` + `shift` + `K`
+
+<br /> 
+
+#RStudio
+
+RStudio is a useful interface to using R. When you open R Studio you will notice a menu up top and typically 4 windows that you can reorganize in Tools --> Global Options.
+
+![Rstudio](media/RstudioInterface.png)
+
+
+<br /> 
+<br /> 
 
 #Background: How has Falls Lake affected streamflow?
 
@@ -33,6 +93,7 @@ Data analysis projects follow a similar workflow, one that begins with a general
 
 ![Analytic Workflow](../Excel/media/Data Analytics Process Streamflow.png)
 
+<br /> 
 
 #Applying the Analytical Workflow: Falls Lake
 
@@ -42,7 +103,7 @@ The USGS actively supports Rcran development by building a community of practice
 
 The package we will be using to load data into R is the dataRetrieval library. Information on how to use this library can be found here: https://owi.usgs.gov/R/dataRetrieval.html#2
 
-
+<br /> 
 
 ##Installing packages and loading libraries
 
@@ -78,6 +139,7 @@ In the case of the USGS `dataRetrieval` package, the package is under active dev
 
 Libraries are now installed on your screen, but they aren't loaded into your current session. You have to tell R to load the library for use using `library(XXX)`. 
 
+<br /> 
 
 ### Prep the workspace by installing (if needed) and loading libraries
 
@@ -103,7 +165,11 @@ library(leaflet)
 
 ## Download data directly from NWIS
 
-We will use the USGS packages to download data directly from the USGS. To do this we need to identify what we want to download. We need to define:
+We will use the USGS packages to download data directly from the USGS. To do this we need to identify what we want to download. 
+
+*https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=02087500&referred_module=sw&period=&begin_date=1930-10-01&end_date=2017-09-30*
+
+We need to define:
 
 * `siteNumbers` - this is the USGS gauge containing the data we want to download
     + We will define the variable siteNo and assign it to Clayton gauge: `02087500`
@@ -180,6 +246,17 @@ names(attributes(neuse))
 
 <br />
 
+# <span style="color:red;"> Exercise 1: Load streamflow data for the Neuse River near Goldsboro, NC</span>
+
+1. Find the site number for Goldsboro, NC
+2. Load the data into variable `goldsboro'
+3. Rename columns
+
+---
+
+<br />
+
+
 ## Exploratory Data Analysis: Plot data
 
 Now that we have our data, we should explore and inspect the data before we dive into our analysis. This may expose irregularities in the data, stemming either from our import process or in the dataset itself. Plots and summary statistics are a quick way to reveal any data gaps or outliers. 
@@ -234,7 +311,20 @@ ts <- ts + xlab("") + ylab("Streamflow (cms)") +
 ts
 ```
 
+
 <br />
+
+# <span style="color:red;"> Exercise 2: Plot streamflow for 'goldsboro'</span>
+
+1. Using either plot or ggplot, plot the streamflow for goldsboro
+2. Plot cfs instead of cms and change the label
+3. Change the line color to "red"
+4. Change the title to reflect the correct gauge
+
+---
+
+<br />
+
 
 ## Exploratory Data Analysis: Summary Statistics
 **Know your data**. Whenever you get data, it's good practice to look at and understand the raw data to make sure it looks reasonable and you understand something about its quality and content. One of the first things to assess in the metadata is how confident you are in the quality of the data being used in your analysis. Is the data fit for purpose?
@@ -318,10 +408,22 @@ sum.stats[,c(2:4)]<- round(sum.stats[,c(2:4)],3)
 ```
 
 <br />
+<br />
+
+# <span style="color:red;"> Exercise 3: Use gen_stats to compute stats for 'goldsboro'</span>
+
+1. Create a dataframe called 'gold.stats' and change the number of columns to 5
+2. Call the `gen_stats` function with different parameters and save the results into your new dataframe.
+3. Repeat for 1930-1979, 1980-1983, and 1984-2017
+
+---
+
+<br />
+
 
 ### Using `dplyr` and `pipes`. Pipes create a chain of commands building on the previous command.
 
-**dplyr and pipes**. Pipes create a chain of commands that build on the previous command. There are two libraries you need to do this: `dplyr` and `magrittr`. The symbol `%>%` is the pipe that connects a chain of commands together.
+**dplyr and pipes**. Pipes create a chain of commands that build on the previous command. There are two libraries you need to do this: `dplyr` and `magrittr`. The symbol `%>%` is the pipe that connects a chain of commands together. The `%>%` is like saying `and then`.
 
 * In this example we will create a new data frame, `sum.stats2` to hold the summary statistics. We will then perform a series of commands on the `neuse` data. Essentially we are saying to grab the `neuse` data and then calculate the following variables in the `sum.stats2` frame.
 * Repeat the commands while subsetting the data to different time periods using the `filter()` command.
@@ -451,10 +553,22 @@ plot(month.flow$Month, month.flow$p1930to2017, type='n', yaxt="n", xaxt="n", yli
   lines(month.flow$Month, month.flow$p1930to1980, col=rgb(0.8,0,0,1), lty=1, lwd=3)
   lines(month.flow$Month, month.flow$p1984to2017, col=rgb(0,0,0.8,1), lty=1, lwd=3)
 #add legend
-legend("topright",c("Period of Record", "1930 to 1980", "1984 to 2017"), col=c(rgb(0,0,0,0.5), rgb(0.8,0,0,1), rgb(0,0,0.8,1)), lwd=c(2,3,3))
+legend("topright",c("Period of Record", "1930 to 1979", "1984 to 2017"), col=c(rgb(0,0,0,0.5), rgb(0.8,0,0,1), rgb(0,0,0.8,1)), lwd=c(2,3,3))
 ```
 
 <br />
+<br />
+
+# <span style="color:red;"> Exercise 4: Plot monthly streamflow for 1980-1984</span>
+
+1. Use pipes to calculate the monthly streamflow from 1980-1984
+2. Add the 1980-1984 line onto the plot
+
+---
+
+<br />
+
+
 
 ## Load multiple sites for analysis and plot on Leaflet
 Let's say you want to know where all stream gauges are in North Carolina. You can use the USGS NWIS website or you can plot the sites in R. Here, we call on all site data in North Carolina and use `leaflet()` to map sites.
@@ -483,9 +597,22 @@ leaflet(data=nc.sites2) %>%                                    #on this data
 
 <br /> 
 
+<br />
+
+# <span style="color:red;"> Exercise 5: Load in sites for another state</span>
+
+1. Load in sites for another state and change the name of the variable the data are being saved to
+2. Plot the data on leaflet
+
+---
+
+<br />
+
+
 That's a lot of data. Let's look at discharge over time for all stations in the the Upper Neuse River basin upstream of Falls Lake. You know the HUC code is `03020201`.
 
-```{r upperneuse}
+
+```{r upperneuse, message=FALSE}
 #let's focus on the upper Neuse upstream of Falls Lake
 upper.neuse <- subset(nc.sites2, huc_cd=="03020201")
 unique.sites <- unique(upper.neuse$site_no); length(unique.sites)   #how many unique sites are there?

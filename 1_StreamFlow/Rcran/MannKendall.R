@@ -1,5 +1,5 @@
 #Read in USGS data - monthly streamflow statistics
-install.packages("dataRetrieval", repos=c("http://owi.usgs.gov/R", getOption("repos")))
+#install.packages("dataRetrieval", repos=c("http://owi.usgs.gov/R", getOption("repos")))
 library(dataRetrieval);  library (ggplot2);  library(EGRET)
 library(dplyr); library(magrittr); library(lubridate)
 library(trend)
@@ -250,7 +250,8 @@ for (i in 1:length(unique.sites)){
     
   #summarize annual
     annual.flow <- zt %>%  group_by(Year) %>%
-      summarise(Total_cms = sum(Flow_cms, na.rm=T), n=n()) %>%  round(3)
+      #summarise(Total_cms = sum(Flow_cms, na.rm=T), n=n()) %>%  round(3)
+      summarise(Total_cms = sum(Flow_cms, na.rm=T)) %>%  round(3) 
     annual.flow <- as.data.frame(annual.flow);  
   
   #run trend test
