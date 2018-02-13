@@ -16,7 +16,7 @@ body{ /* Normal  */
   }
 </style>
 
-#Q3: Exploring trends in streamflow over time
+# Exploring trends in streamflow over time
 
 ##Background
 
@@ -24,7 +24,7 @@ Water security is becoming increasingly important as population and water demand
 
 
 ## Prep the workspace by installing (if needed) and loading libraries
-The method for installing and loading libraries, as well as downloading data from the USGS, are explained in the `LoadStreamflowDescription.Rmd` file. `LoadStreamflowDescriptions.Rmd` file. 
+The method for installing and loading libraries, as well as downloading data from the USGS, are explained in the `LoadStreamflowDescription.Rmd` file.
 
 ```{r libs, message=FALSE, warning=FALSE}
 #install.packages("dataRetrieval", repos=c("http://owi.usgs.gov/R", getOption("repos")))
@@ -101,6 +101,17 @@ linear = lm(Total_cms ~ WaterYear , data = annual.flow);  summary(linear)
 ```
 
 <br />
+<br />
+
+# <span style="color:red;"> Exercise 1: Plot points and linear regression</span>
+
+1. Plot the total flow by water year
+2. Add a line with the linear regression
+
+---
+
+<br />
+
 
 Oftentimes, time series data (such as water quantity or water quality) do not meet the assumptions of linear regressions. We won't go into those here, but for a list, see http://r-statistics.co/Assumptions-of-Linear-Regression.html. It is common for streamflow trends to be assessed using non-parametric methods, such as the Mann-Kendall (MK) test.  The MK test is appropriate for identifying where changes show a monotonic increase or decrease over time, and whether that change is significant. The MK test is often paired with Theil-Sen line to estimate the slope of the trend. This method is robust against outliers and essentially calculates the median of the slope between all pairs of sample points within your data. We calculate the MK test to get the significance of the trend and the Theil-Sen test to get the slope, intercept and confidence interval for plotting the data.
 
@@ -133,7 +144,7 @@ temp.ts<-ts(annual.flow$Total_cms, start=min(annual.flow$WaterYear, freq=1));
 
 #Plot Annual Flow over time
 par(mar = c(5,5,3,5)) #set plot margins
-plot(annual.flow$WaterYear, annual.flow$Total_cms, type='n', yaxt="n", 
+plot(annual.flow$WaterYear, annual.flow$Total_cms, type='n', yaxt="n",
      ylab="Total Streamflow (cms)", xlab = '', cex.lab=0.9)
 axis(2, las=2, cex.axis=0.8)
 box()
@@ -163,7 +174,7 @@ Here, we will repeat the MK and Sen tests for subsets of the data (before Falls 
 ```{r}
 #create the plot
 par(mar = c(5,5,3,5)) #set plot margins
-  plot(annual.flow$WaterYear, annual.flow$Total_cms, type='n', yaxt="n", 
+  plot(annual.flow$WaterYear, annual.flow$Total_cms, type='n', yaxt="n", ylim=c(0,max(annual.flow$Total_cms, na.rm=TRUE)),
        ylab="Total Streamflow (cms)", xlab = '', cex.lab=0.9)
   axis(2, las=2, cex.axis=0.8)
   
@@ -229,7 +240,7 @@ colnames(month.stats) <- c("Month", "Pval","Intercept","Slope","Nobs");
 
 #set up plots frame
 par(mfrow=c(3,4))     #3 rows and 4 columns
-par(mar = c(2,3,2,2)) #set plot margins (how much white space around each plot)
+par(mar = c(2,4,2,1)) #set plot margins (how much white space around each plot) (bottom, left, top right)
       
 #loop through each month  
 for (i in 1:12) {
@@ -249,7 +260,7 @@ for (i in 1:12) {
   lowerc1<-round((sen$intercept+sen$b.sen.lo*seq(0,dim(zt)[1]-1,1)),1)
 
   #plot each month
-  plot(zt$Year, zt$Total_cms, type='n', yaxt="n", main=i,
+  plot(zt$Year, zt$Total_cms, type='n', yaxt="n", main=i, ylim=c(0,5000),    #good practice to keep y-axis the same if possible on multiple charts you are comparing
        ylab="", xlab = '', cex.lab=0.9)
   axis(2, las=2, cex.axis=0.8)
   points(zt$Year, zt$Total_cms, col=rgb(0,0,0,0.8), cex=0.8, pch=19)  
@@ -257,11 +268,24 @@ for (i in 1:12) {
   polygon(c(rev(zt$Year), (zt$Year)), c(rev(lowerc1), (upperc1)),  col=rgb(0,0,0.2,0.2), border=NA)
     lines(zt$Year, estimate, lty=2, col=rgb(0,0,.2,1))
 }
+#mtext('Total Flow (cms)', side=2, line=-3, outer=TRUE)
 month.stats
 ```  
 <br />
 
-* When you look at the table, how many months show a positive trend? A negative trend? Are any trends significant at the 0.05 level? the 0.10 level? Which months?
+<br />
+
+# <span style="color:red;"> Exercise 2: Interpreting results</span>
+
+Use filter/subset to answer th following questions:
+
+1. How many months have a positive trend? A negative trend?
+2. How many of those trends are significant at the 0.05 level?, The 0.10 level?
+3. Which months have significant trends?
+
+---
+
+<br />
 
 <br />
 
@@ -280,9 +304,10 @@ nc.sites <- readNWISdata(stateCd="NC", parameterCd = pcode, service = "site", se
 #filter data using pipes!
 nc.sites2 <- filter(nc.sites, parm_cd %in% pcode) %>%                             #only sites with discharge
   filter(stat_cd %in% scode) %>%                                                 #mean daily values
-  filter(begin_date <= "1960_01_01") %>%  filter(end_date >= "2010_01_01") %>%   #in this range
+  filter(begin_date <= "1950_01_01") %>%  filter(end_date >= "2010_01_01") %>%   #in this range
   mutate(period = as.Date(end_date) - as.Date("1970-01-01")) %>%                #how many days of data
-  filter(period > 30*365)                                                       #keep those with 30 years of data 
+  filter(period > 30*365)   #keep those with 30 years of data 
+
 length(unique(nc.sites2$site_no))
 
 #calculate unique sites
@@ -393,8 +418,8 @@ leaflet(data=stats.merge) %>%                                       #data to plo
              ),
             popup=~paste0(Site,": ",StartYr,"-",EndYr)              #data in popup
   ) %>% addLegend("bottomright",                                    #add legend to map
-                  values=c("red","lightpink","lightblue","blue"), color=c("red","lightpink","lightblue","blue"),
-                  labels= c("Significant Decrease","Insignificant Decrease","Insignificant Increase", "Significant Increase"),
+                  values=c("red","lightpink","lightgrey","lightblue","blue"), color=c("red","lightpink","lightgrey", "lightblue","blue"),
+                  labels= c("Significant Decrease","Insignificant Decrease", "No Change", "Insignificant Increase", "Significant Increase"),
                   opacity = 1)
 ```
 
@@ -402,12 +427,18 @@ leaflet(data=stats.merge) %>%                                       #data to plo
 
 Based on the map, what can you say about how annual streamflow volume has changed since 1970? Can you find your site?
 
-<br .>
+<br />
 
-##On your own exercises
+<br />
 
-* Run this analysis for the Neuse River Basin (look at notes from LoadStreamflowDescription.Rmd on how to subset sites to a river basin. You will have to find the HUC for the Neuse).
-* Run this analysis using a different time period (e.g. 1930 to present). How does map change?
-* Run this analysis for a different state.
-  
+# <span style="color:red;"> Exercise 3: Run analysis for other regions</span>
+
+1. Run this analysis for a different time period (e.g. 1930 to present). How did the map change?
+2. Plot mann kendall trends for the Neuse River Basin (looka t notes from LoadStreamflowDescription.Rmd on how to subset sites to a river basins. You will have to find the HUC for the Neuse).
+3. Run this analysis for a different state.
+
+---
+
+<br />
+
 

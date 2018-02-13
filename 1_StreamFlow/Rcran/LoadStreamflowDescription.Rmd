@@ -11,8 +11,6 @@ output: html_document
 body{ /* Normal  */
       font-size: 18px;
   }
-
-
 </style>
 
 ```{r setup, include=FALSE}
