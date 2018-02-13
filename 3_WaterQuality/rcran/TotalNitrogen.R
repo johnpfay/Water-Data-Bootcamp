@@ -284,6 +284,7 @@ leaflet(data=q.siteInfo) %>%
                    fillOpacity = 0.8, opacity = 0.8,
                    popup=~haw.n$MonitoringLocationName[1])
 
+
 #Calculate total volume of water each year
 q$Flow_MGD <- 646317*q$Flow/1000000
 q.year <- q %>% 
