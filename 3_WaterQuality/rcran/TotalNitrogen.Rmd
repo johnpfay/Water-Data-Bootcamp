@@ -16,10 +16,53 @@ body{ /* Normal  */
   }
 </style>
 
-#Exploratory Data Analysis
+# Exploratory Data Analysis
 
 ## Prep the workspace by installing (if needed) and loading libraries
 The method for installing and loading libraries, as well as downloading data from the USGS, are explained in the `LoadStreamflowDescription.Rmd` file. `LoadStreamflowDescriptions.Rmd` file. 
+
+```{r libinstall, message=FALSE, warning=FALSE, include=FALSE}
+#Import 'dataRetrieval' library (to scrape USGS data)
+if (!requireNamespace("dataRetrieval", quietly = TRUE))
+  install.packages("dataRetrieval")
+require(dataRetrieval)
+
+#Import 'EGRET' library (for river data analysis and vis)
+if (!requireNamespace("EGRET", quietly = TRUE))
+  install.packages("EGRET")
+require(EGRET)
+
+#Import 'ggplot2' library (for plotting)
+if (!requireNamespace("ggplot2", quietly = TRUE))
+  install.packages("ggplot2")
+require(ggplot2)
+
+#Import 'trend' library (for trend modeling)
+if (!requireNamespace("trend", quietly = TRUE))
+  install.packages("trend")
+require(trend)
+
+#Import 'lubridate' library (for easy date manipulation)
+if (!requireNamespace("lubridate", quietly = TRUE))
+  install.packages("lubridate")
+require(lubridate)
+
+#Import 'dplyr' library (for data manipulation)
+if (!requireNamespace("dplyr", quietly = TRUE))
+  install.packages("dplyr")
+require(dplyr)
+
+#Import 'magrittr' library (for using pipes in code)
+if (!requireNamespace("magrittr", quietly = TRUE))
+  install.packages("magrittr")
+require(magrittr)
+
+#Import 'leaflet' library (for mapping)
+if (!requireNamespace("leaflet", quietly = TRUE))
+  install.packages("leaflet")
+require(leaflet)
+```
+
 
 ```{r libs, message=FALSE, warning=FALSE}
 library(dataRetrieval); library(EGRET)
@@ -30,10 +73,10 @@ library(dplyr); library(magrittr); library(leaflet)
 <br />
 
 ## Load in the water quality *site* data
-
+(The data should be saved in the data folder one up from the current R script...)
 ```{r downloaddata, message=FALSE, warning=FALSE}
-#set working directlry
-swd <- "c:/Users/lap19/Documents/Class/Data Boot Camp/Unit3 Water Quality/"
+#set working directory
+swd <- "../data/"
 
 #read in the csv files  
 sites <- read.csv(paste0(swd,"station.csv"), sep=',',header=TRUE); dim(sites)
@@ -42,7 +85,7 @@ sites <- read.csv(paste0(swd,"station.csv"), sep=',',header=TRUE); dim(sites)
 ```
 <br />
 
-##Plot the sites
+## Plot the sites
 
 Load in the site data and plot a map to see where water quality data were present from this portal. 
 
@@ -88,7 +131,7 @@ We take a closer look at the drainage measurement values and see there are numer
 
 Let's replot the site map but now change the popup name to see which site names are located within each branch of Jordan Lake.
 
-``` {r changePopup}
+```{r changePopup}
 leaflet(data=sites) %>%  
   addProviderTiles("CartoDB.Positron") %>%
   addCircleMarkers(~LongitudeMeasure,~LatitudeMeasure,
@@ -98,18 +141,20 @@ leaflet(data=sites) %>%
 
 #reduce columns to those needed
 sites <- sites[,c(1,3:4,8:9,12:13)]
-``` 
+```
 
 
 ## Load in the water quality *measurement* data
 
-Once we load in the measurements data, we need to do some cleaning. The first step is to filter the data to what we want to use. For example, 
+Once we load in the measurements data, we need to do some cleaning. The first step is to *filter* the data to what we want to use. For example, 
 
-* We want to make sure we are using routine samples and not extreme event sampling (biased for specific occasions and not for estimating annual average load).
-* We determine what type of Nitrogen we want to use. From the literature we found that regulations for Nitrogen include: nitrate, nitrite, ammonia and organic forms. Doing some reading about the WQX standards, you learn that Nitrogen, mixed froms incorporates all of the above forms of nitrogen. 
-* We also want to make sure we are looking at total Nitrogen, so make sure the Results Sample Fraction Text only includes those with Total.
+* We want to make sure we are using routine samples and **not extreme event sampling** (biased for specific occasions and not for estimating annual average load).<br>
 
+* We specify what **type of nitrogen** we want to use. From the literature we found that regulations for nitrogen include: nitrate, nitrite, ammonia and organic forms. Doing some reading about the WQX standards, you learn that nitrogen, mixed froms incorporates all of the above forms of nitrogen.<br>
 
+* We also want to make sure we are looking at **total Nitrogen**, so make sure the Results Sample Fraction Text only includes those with Total.
+
+A filtered dataset is provided for you as the `results.csv` in the data folder. We'll load this in and resume analysis...
 ```{r downloadresultsdata, message=FALSE, warning=FALSE}
 results <- read.csv(paste0(swd,"result.csv"), sep=',',header=TRUE); dim(results)
   names(results)
@@ -134,7 +179,7 @@ unique(nitrogen$CharacteristicName);  unique(nitrogen$ResultSampleFractionText)
 nitrogen <- nitrogen[,c(1,7,22,31:35,59:61)]
 ```
 
-###Detection Limits and Unit Conversion
+### Detection Limits and Unit Conversion
 
 You may have noticed that many sample sites state "not detected". This is important data that are not currently being represented. Create a new column and set the value equal to the results, unless it is below the detection limit - in which case set it equal to ½ of the detection limit.
 
@@ -155,7 +200,7 @@ nitrogen$TotalN <- ifelse(nitrogen$DetectionQuantitationLimitMeasure.MeasureUnit
 
 
 ## Exploratory Data Analysis
-###Merge sites and measurement data together
+### Merge sites and measurement data together
 Currently, site and measurement data are not connected together. However, we may want to show the nitrate values on a map. To do this, we merge the data together based on a unique identifier shared between the two data sets. In this case, it is the *MonitoringLocationIdentifier* column.
 
 ```{r merge}
@@ -166,7 +211,7 @@ nitrogen.data <- merge(sites, nitrogen, by.x="MonitoringLocationIdentifier", by.
   nitrogen.data$Month <- month(nitrogen.data$ActivityStartDate);                  table(nitrogen.data$Month)
 ```
 
-###Filter merged data
+### Filter merged data
 
 First we want to know how many sites are collecting data of interest. We find there are 22 sites. Of those sites, we want to know which were collecting data after the Jordan Lake Rules were passed and how much data are being collected at this site.
 
@@ -197,7 +242,7 @@ leaflet(data=df) %>%  addProviderTiles("CartoDB.Positron") %>%
                    popup=~MonitoringLocationIdentifier)
 ```
 
-###Plot total nitorgen over time, by month and by year for each site.
+###Plot total nitrogen over time, by month and by year for each site.
 
 ```{r NoverTime, message=FALSE, warning=FALSE}
 ####Plot nitrogen over time at each site
@@ -509,7 +554,7 @@ mtext(paste0("Adjust by ", fraction, " drainage area fraction"), side=3, line=-2
 
 ```{r}
 #write csv
-write.csv(df, paste0(swd,'/tableau/nitrogen.csv'),row.names=FALSE)
-write.csv(haw.n, paste0(swd, '/tableau/hawbranch.csv'),row.names=FALSE)
-write.csv(newhope.n, paste0(swd, '/tableau/newhope.csv'),row.names=FALSE)
+write.csv(df, paste0(swd,'../tableau/nitrogen.csv'),row.names=FALSE)
+write.csv(haw.n, paste0(swd, '../tableau/hawbranch.csv'),row.names=FALSE)
+write.csv(newhope.n, paste0(swd, '../tableau/newhope.csv'),row.names=FALSE)
 ```
