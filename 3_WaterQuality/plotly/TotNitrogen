@@ -1,0 +1,37 @@
+# Import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import folium
+
+# Load in the water quality data
+df = pd.read_csv('../data/station.csv')
+
+# Plot the sites
+#Find center coordinates from medians of lat and long columns
+meanLat = df['LatitudeMeasure'].median()
+meanLng = df['LongitudeMeasure'].median()
+
+#Create the initial map
+m = folium.Map(location=[meanLat,meanLng],
+               zoom_start=7,
+               tiles='stamenterrain')
+
+#Loop through all features and add them to the map as markers
+for row in df.itertuples():
+    #Get info for the record
+    lat = row.LatitudeMeasure
+    lng = row.LongitudeMeasure
+    name = row.MonitoringLocationName
+    #Create the marker object, adding them to the map object
+    folium.CircleMarker(location=[lat,lng],
+                        popup=name,
+                        color='red',
+                        fill=True,
+                        fill_opacity=0.6,
+                        radius=5,
+                        stroke=False).add_to(m)
+#Save the map
+m.save("foo.html")
+
+# Subset to only include sites with a drainage area exceeding 25 sq min
+dfSubset  = df[df[ 'ContributingDrainageAreaMeasure/MeasureValue'] >= 25 ]
