@@ -1,0 +1,56 @@
+State Abbreviation,FIPS Code,State Name
+AK,2,alaska
+AL,1,alabama
+AR,5,arkansas
+AS,60,american samoa
+AZ,4,arizona
+CA,6,california
+CO,8,colorado
+CT,9,connecticut
+DC,11,district of columbia
+DE,10,delaware
+FL,12,florida
+GA,13,georgia
+GU,66,guam
+HI,15,hawaii
+IA,19,iowa
+ID,16,idaho
+IL,17,illinois
+IN,18,indiana
+KS,20,kansas
+KY,21,kentucky
+LA,22,louisiana
+MA,25,massachusetts
+MD,24,maryland
+ME,23,maine
+MI,26,michigan
+MN,27,minnesota
+MO,29,missouri
+MS,28,mississippi
+MT,30,montana
+NC,37,north carolina
+ND,38,north dakota
+NE,31,nebraska
+NH,33,new hampshire
+NJ,34,new jersey
+NM,35,new mexico
+NV,32,nevada
+NY,36,new york
+OH,39,ohio
+OK,40,oklahoma
+OR,41,oregon
+PA,42,pennsylvania
+PR,72,puerto rico
+RI,44,rhode island
+SC,45,south carolina
+SD,46,south dakota
+TN,47,tennessee
+TX,48,texas
+UT,49,utah
+VA,51,virginia
+VI,78,virgin islands
+VT,50,vermont
+WA,53,washington
+WI,55,wisconsin
+WV,54,west virginia
+WY,56,wyoming
