@@ -63,13 +63,11 @@ if (!requireNamespace("leaflet", quietly = TRUE))
 require(leaflet)
 ```
 
-
 ```{r libs, message=FALSE, warning=FALSE}
 library(dataRetrieval); library(EGRET)
 library (ggplot2);  library(trend); library(lubridate)
 library(dplyr); library(magrittr); library(leaflet)
 ```
-
 <br />
 
 ## Load in the water quality *site* data
@@ -200,6 +198,10 @@ nitrogen$TotalN <- ifelse(nitrogen$DetectionQuantitationLimitMeasure.MeasureUnit
 
 
 ## Exploratory Data Analysis
+Now that we have explored and tidied our `sites` and `results` datasets pulled from the Water Quality Data portal, we'll **merge** them together and generate our visualizations. Recalling our objective is to reveal trends in water quality, particularly in repsonse to water quality rules issued in 2009, we'll want to constrain (i.e. **filter**) our analyses to sites with data collected before and after 2009. It's these remaining sites that we'll construct **plots** of total nitrogen: line plots of N over time, box plots by year, and box plots by month. We'll also plot our concentrations on a **map**. 
+
+Additionally, we'll convert our N concentrations to annual load (lbs/year), which will require pulling in discharge data (as we did in previous sessions). We'll do this for a few sites, comparing the findings to allowable levels to answer: ***are these sites in compliance with Total Daily Maximum Loads (TMDLs)?***
+
 ### Merge sites and measurement data together
 Currently, site and measurement data are not connected together. However, we may want to show the nitrate values on a map. To do this, we merge the data together based on a unique identifier shared between the two data sets. In this case, it is the *MonitoringLocationIdentifier* column.
 
@@ -213,7 +215,7 @@ nitrogen.data <- merge(sites, nitrogen, by.x="MonitoringLocationIdentifier", by.
 
 ### Filter merged data
 
-First we want to know how many sites are collecting data of interest. We find there are 22 sites. Of those sites, we want to know which were collecting data after the Jordan Lake Rules were passed and how much data are being collected at this site.
+With the data merged, we now want to know how many sites are collecting data of interest. We find there are 22 sites. Of those sites, we want to know which were collecting data after the Jordan Lake Rules were passed and how much data are being collected at this site.
 
 Based on this, we see several sites stopped collecting data prior to 2009, when the first iteration of Jordan Rules were passed. We also see that some of these sites collected only a few years of data. Remove those sites and plot the remaining sites on the map. 
 
