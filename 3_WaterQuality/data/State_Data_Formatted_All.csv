@@ -1,0 +1,2227 @@
+State,Source,Type,Category,Withdrawal_MGD,Population
+Alabama,Surface,Fresh,Total,9470.0,4780000
+Alaska,Surface,Fresh,Total,391.0,710000
+Arizona,Surface,Fresh,Total,3540.0,6390000
+Arkansas,Surface,Fresh,Total,3540.0,2920000
+California,Surface,Fresh,Total,18800.0,37300000
+Colorado,Surface,Fresh,Total,9440.0,5030000
+Connecticut,Surface,Fresh,Total,600.0,3570000
+Delaware,Surface,Fresh,Total,144.0,898000
+District Of Columbia,Surface,Fresh,Total,0.05,602000
+Florida,Surface,Fresh,Total,2230.0,18800000
+Georgia,Surface,Fresh,Total,3210.0,9690000
+Hawaii,Surface,Fresh,Total,248.0,1360000
+Idaho,Surface,Fresh,Total,13000.0,1570000
+Illinois,Surface,Fresh,Total,12200.0,12800000
+Indiana,Surface,Fresh,Total,7920.0,6480000
+Iowa,Surface,Fresh,Total,2420.0,3050000
+Kansas,Surface,Fresh,Total,800.0,2850000
+Kentucky,Surface,Fresh,Total,4130.0,4340000
+Louisiana,Surface,Fresh,Total,6960.0,4530000
+Maine,Surface,Fresh,Total,309.0,1330000
+Maryland,Surface,Fresh,Total,1210.0,5770000
+Massachusetts,Surface,Fresh,Total,703.0,6550000
+Michigan,Surface,Fresh,Total,10100.0,9880000
+Minnesota,Surface,Fresh,Total,3080.0,5300000
+Mississippi,Surface,Fresh,Total,1240.0,2970000
+Missouri,Surface,Fresh,Total,6750.0,5990000
+Montana,Surface,Fresh,Total,7360.0,989000
+Nebraska,Surface,Fresh,Total,3320.0,1830000
+Nevada,Surface,Fresh,Total,1420.0,2700000
+New Hampshire,Surface,Fresh,Total,277.0,1320000
+New Jersey,Surface,Fresh,Total,1320.0,8790000
+New Mexico,Surface,Fresh,Total,1590.0,2060000
+New York,Surface,Fresh,Total,5020.0,19400000
+North Carolina,Surface,Fresh,Total,10400.0,9540000
+North Dakota,Surface,Fresh,Total,994.0,673000
+Ohio,Surface,Fresh,Total,8510.0,11500000
+Oklahoma,Surface,Fresh,Total,1140.0,3750000
+Oregon,Surface,Fresh,Total,4600.0,3830000
+Pennsylvania,Surface,Fresh,Total,7480.0,12700000
+Rhode Island,Surface,Fresh,Total,98.0,1050000
+South Carolina,Surface,Fresh,Total,6440.0,4630000
+South Dakota,Surface,Fresh,Total,287.0,814000
+Tennessee,Surface,Fresh,Total,7230.0,6350000
+Texas,Surface,Fresh,Total,15800.0,25100000
+Utah,Surface,Fresh,Total,3110.0,2760000
+Vermont,Surface,Fresh,Total,389.0,626000
+Virginia,Surface,Fresh,Total,4140.0,8000000
+Washington,Surface,Fresh,Total,3320.0,6720000
+West Virginia,Surface,Fresh,Total,3410.0,1850000
+Wisconsin,Surface,Fresh,Total,5400.0,5690000
+Wyoming,Surface,Fresh,Total,4080.0,564000
+Puerto Rico,Surface,Fresh,Total,611.0,3730000
+U.S. Virgin Islands,Surface,Fresh,Total,2.85,106000
+Alabama,Groundwater,Fresh,Total,494.0,4780000
+Alaska,Groundwater,Fresh,Total,478.0,710000
+Arizona,Groundwater,Fresh,Total,2550.0,6390000
+Arkansas,Groundwater,Fresh,Total,7780.0,2920000
+California,Groundwater,Fresh,Total,12300.0,37300000
+Colorado,Groundwater,Fresh,Total,1540.0,5030000
+Connecticut,Groundwater,Fresh,Total,216.0,3570000
+Delaware,Groundwater,Fresh,Total,156.0,898000
+District Of Columbia,Groundwater,Fresh,Total,0.05,602000
+Florida,Groundwater,Fresh,Total,3970.0,18800000
+Georgia,Groundwater,Fresh,Total,1230.0,9690000
+Hawaii,Groundwater,Fresh,Total,423.0,1360000
+Idaho,Groundwater,Fresh,Total,4250.0,1570000
+Illinois,Groundwater,Fresh,Total,853.0,12800000
+Indiana,Groundwater,Fresh,Total,720.0,6480000
+Iowa,Groundwater,Fresh,Total,650.0,3050000
+Kansas,Groundwater,Fresh,Total,3200.0,2850000
+Kentucky,Groundwater,Fresh,Total,199.0,4340000
+Louisiana,Groundwater,Fresh,Total,1570.0,4530000
+Maine,Groundwater,Fresh,Total,99.4,1330000
+Maryland,Groundwater,Fresh,Total,260.0,5770000
+Massachusetts,Groundwater,Fresh,Total,361.0,6550000
+Michigan,Groundwater,Fresh,Total,693.0,9880000
+Minnesota,Groundwater,Fresh,Total,736.0,5300000
+Mississippi,Groundwater,Fresh,Total,2610.0,2970000
+Missouri,Groundwater,Fresh,Total,1810.0,5990000
+Montana,Groundwater,Fresh,Total,268.0,989000
+Nebraska,Groundwater,Fresh,Total,4710.0,1830000
+Nevada,Groundwater,Fresh,Total,1190.0,2700000
+New Hampshire,Groundwater,Fresh,Total,89.7,1320000
+New Jersey,Groundwater,Fresh,Total,612.0,8790000
+New Mexico,Groundwater,Fresh,Total,1570.0,2060000
+New York,Groundwater,Fresh,Total,704.0,19400000
+North Carolina,Groundwater,Fresh,Total,694.0,9540000
+North Dakota,Groundwater,Fresh,Total,139.0,673000
+Ohio,Groundwater,Fresh,Total,929.0,11500000
+Oklahoma,Groundwater,Fresh,Total,635.0,3750000
+Oregon,Groundwater,Fresh,Total,2130.0,3830000
+Pennsylvania,Groundwater,Fresh,Total,657.0,12700000
+Rhode Island,Groundwater,Fresh,Total,36.5,1050000
+South Carolina,Groundwater,Fresh,Total,339.0,4630000
+South Dakota,Groundwater,Fresh,Total,339.0,814000
+Tennessee,Groundwater,Fresh,Total,470.0,6350000
+Texas,Groundwater,Fresh,Total,6830.0,25100000
+Utah,Groundwater,Fresh,Total,1030.0,2760000
+Vermont,Groundwater,Fresh,Total,41.6,626000
+Virginia,Groundwater,Fresh,Total,299.0,8000000
+Washington,Groundwater,Fresh,Total,1600.0,6720000
+West Virginia,Groundwater,Fresh,Total,121.0,1850000
+Wisconsin,Groundwater,Fresh,Total,754.0,5690000
+Wyoming,Groundwater,Fresh,Total,550.0,564000
+Puerto Rico,Groundwater,Fresh,Total,125.0,3730000
+U.S. Virgin Islands,Groundwater,Fresh,Total,1.14,106000
+Alabama,Surface,Saline,Total,0.0,4780000
+Alaska,Surface,Saline,Total,80.7,710000
+Arizona,Surface,Saline,Total,0.0,6390000
+Arkansas,Surface,Saline,Total,0.0,2920000
+California,Surface,Saline,Total,6490.0,37300000
+Colorado,Surface,Saline,Total,0.0,5030000
+Connecticut,Surface,Saline,Total,2490.0,3570000
+Delaware,Surface,Saline,Total,417.0,898000
+District Of Columbia,Surface,Saline,Total,0.0,602000
+Florida,Surface,Saline,Total,8580.0,18800000
+Georgia,Surface,Saline,Total,283.0,9690000
+Hawaii,Surface,Saline,Total,552.0,1360000
+Idaho,Surface,Saline,Total,0.0,1570000
+Illinois,Surface,Saline,Total,0.0,12800000
+Indiana,Surface,Saline,Total,0.0,6480000
+Iowa,Surface,Saline,Total,0.0,3050000
+Kansas,Surface,Saline,Total,0.0,2850000
+Kentucky,Surface,Saline,Total,0.0,4340000
+Louisiana,Surface,Saline,Total,1.68,4530000
+Maine,Surface,Saline,Total,40.8,1330000
+Maryland,Surface,Saline,Total,5910.0,5770000
+Massachusetts,Surface,Saline,Total,1930.0,6550000
+Michigan,Surface,Saline,Total,0.0,9880000
+Minnesota,Surface,Saline,Total,0.0,5300000
+Mississippi,Surface,Saline,Total,62.4,2970000
+Missouri,Surface,Saline,Total,0.0,5990000
+Montana,Surface,Saline,Total,0.0,989000
+Nebraska,Surface,Saline,Total,0.0,1830000
+Nevada,Surface,Saline,Total,0.0,2700000
+New Hampshire,Surface,Saline,Total,848.0,1320000
+New Jersey,Surface,Saline,Total,3740.0,8790000
+New Mexico,Surface,Saline,Total,0.0,2060000
+New York,Surface,Saline,Total,4850.0,19400000
+North Carolina,Surface,Saline,Total,1360.0,9540000
+North Dakota,Surface,Saline,Total,0.0,673000
+Ohio,Surface,Saline,Total,0.0,11500000
+Oklahoma,Surface,Saline,Total,0.0,3750000
+Oregon,Surface,Saline,Total,0.0,3830000
+Pennsylvania,Surface,Saline,Total,0.0,12700000
+Rhode Island,Surface,Saline,Total,241.0,1050000
+South Carolina,Surface,Saline,Total,0.0,4630000
+South Dakota,Surface,Saline,Total,0.0,814000
+Tennessee,Surface,Saline,Total,0.0,6350000
+Texas,Surface,Saline,Total,1280.0,25100000
+Utah,Surface,Saline,Total,238.0,2760000
+Vermont,Surface,Saline,Total,0.0,626000
+Virginia,Surface,Saline,Total,3200.0,8000000
+Washington,Surface,Saline,Total,33.1,6720000
+West Virginia,Surface,Saline,Total,0.0,1850000
+Wisconsin,Surface,Saline,Total,0.0,5690000
+Wyoming,Surface,Saline,Total,0.0,564000
+Puerto Rico,Surface,Saline,Total,2270.0,3730000
+U.S. Virgin Islands,Surface,Saline,Total,124.0,106000
+Alabama,Groundwater,Saline,Total,0.0,4780000
+Alaska,Groundwater,Saline,Total,144.0,710000
+Arizona,Groundwater,Saline,Total,0.0,6390000
+Arkansas,Groundwater,Saline,Total,5.05,2920000
+California,Groundwater,Saline,Total,369.0,37300000
+Colorado,Groundwater,Saline,Total,19.4,5030000
+Connecticut,Groundwater,Saline,Total,0.0,3570000
+Delaware,Groundwater,Saline,Total,0.0,898000
+District Of Columbia,Groundwater,Saline,Total,0.0,602000
+Florida,Groundwater,Saline,Total,154.0,18800000
+Georgia,Groundwater,Saline,Total,0.0,9690000
+Hawaii,Groundwater,Saline,Total,50.8,1360000
+Idaho,Groundwater,Saline,Total,0.0,1570000
+Illinois,Groundwater,Saline,Total,25.5,12800000
+Indiana,Groundwater,Saline,Total,0.0,6480000
+Iowa,Groundwater,Saline,Total,0.0,3050000
+Kansas,Groundwater,Saline,Total,0.0,2850000
+Kentucky,Groundwater,Saline,Total,0.0,4340000
+Louisiana,Groundwater,Saline,Total,0.0,4530000
+Maine,Groundwater,Saline,Total,0.0,1330000
+Maryland,Groundwater,Saline,Total,0.0,5770000
+Massachusetts,Groundwater,Saline,Total,0.0,6550000
+Michigan,Groundwater,Saline,Total,0.57,9880000
+Minnesota,Groundwater,Saline,Total,0.0,5300000
+Mississippi,Groundwater,Saline,Total,19.6,2970000
+Missouri,Groundwater,Saline,Total,0.0,5990000
+Montana,Groundwater,Saline,Total,18.6,989000
+Nebraska,Groundwater,Saline,Total,0.13,1830000
+Nevada,Groundwater,Saline,Total,11.9,2700000
+New Hampshire,Groundwater,Saline,Total,0.0,1320000
+New Jersey,Groundwater,Saline,Total,0.0,8790000
+New Mexico,Groundwater,Saline,Total,0.0,2060000
+New York,Groundwater,Saline,Total,0.0,19400000
+North Carolina,Groundwater,Saline,Total,0.0,9540000
+North Dakota,Groundwater,Saline,Total,13.6,673000
+Ohio,Groundwater,Saline,Total,0.0,11500000
+Oklahoma,Groundwater,Saline,Total,1400.0,3750000
+Oregon,Groundwater,Saline,Total,0.0,3830000
+Pennsylvania,Groundwater,Saline,Total,0.0,12700000
+Rhode Island,Groundwater,Saline,Total,0.0,1050000
+South Carolina,Groundwater,Saline,Total,0.0,4630000
+South Dakota,Groundwater,Saline,Total,0.0,814000
+Tennessee,Groundwater,Saline,Total,0.0,6350000
+Texas,Groundwater,Saline,Total,884.0,25100000
+Utah,Groundwater,Saline,Total,92.6,2760000
+Vermont,Groundwater,Saline,Total,0.0,626000
+Virginia,Groundwater,Saline,Total,9.97,8000000
+Washington,Groundwater,Saline,Total,0.0,6720000
+West Virginia,Groundwater,Saline,Total,4.82,1850000
+Wisconsin,Groundwater,Saline,Total,0.0,5690000
+Wyoming,Groundwater,Saline,Total,67.1,564000
+Puerto Rico,Groundwater,Saline,Total,0.32,3730000
+U.S. Virgin Islands,Groundwater,Saline,Total,0.0,106000
+Alabama,Surface,Fresh,Public Supply,551.0,4780000
+Alaska,Surface,Fresh,Public Supply,51.8,710000
+Arizona,Surface,Fresh,Public Supply,628.0,6390000
+Arkansas,Surface,Fresh,Public Supply,295.0,2920000
+California,Surface,Fresh,Public Supply,3470.0,37300000
+Colorado,Surface,Fresh,Public Supply,717.0,5030000
+Connecticut,Surface,Fresh,Public Supply,292.0,3570000
+Delaware,Surface,Fresh,Public Supply,33.3,898000
+District Of Columbia,Surface,Fresh,Public Supply,0.0,602000
+Florida,Surface,Fresh,Public Supply,256.0,18800000
+Georgia,Surface,Fresh,Public Supply,873.0,9690000
+Hawaii,Surface,Fresh,Public Supply,15.8,1360000
+Idaho,Surface,Fresh,Public Supply,27.1,1570000
+Illinois,Surface,Fresh,Public Supply,1140.0,12800000
+Indiana,Surface,Fresh,Public Supply,304.0,6480000
+Iowa,Surface,Fresh,Public Supply,84.3,3050000
+Kansas,Surface,Fresh,Public Supply,231.0,2850000
+Kentucky,Surface,Fresh,Public Supply,501.0,4340000
+Louisiana,Surface,Fresh,Public Supply,368.0,4530000
+Maine,Surface,Fresh,Public Supply,63.6,1330000
+Maryland,Surface,Fresh,Public Supply,701.0,5770000
+Massachusetts,Surface,Fresh,Public Supply,489.0,6550000
+Michigan,Surface,Fresh,Public Supply,883.0,9880000
+Minnesota,Surface,Fresh,Public Supply,188.0,5300000
+Mississippi,Surface,Fresh,Public Supply,46.3,2970000
+Missouri,Surface,Fresh,Public Supply,543.0,5990000
+Montana,Surface,Fresh,Public Supply,72.4,989000
+Nebraska,Surface,Fresh,Public Supply,61.4,1830000
+Nevada,Surface,Fresh,Public Supply,448.0,2700000
+New Hampshire,Surface,Fresh,Public Supply,56.6,1320000
+New Jersey,Surface,Fresh,Public Supply,682.0,8790000
+New Mexico,Surface,Fresh,Public Supply,72.4,2060000
+New York,Surface,Fresh,Public Supply,1810.0,19400000
+North Carolina,Surface,Fresh,Public Supply,766.0,9540000
+North Dakota,Surface,Fresh,Public Supply,38.3,673000
+Ohio,Surface,Fresh,Public Supply,918.0,11500000
+Oklahoma,Surface,Fresh,Public Supply,527.0,3750000
+Oregon,Surface,Fresh,Public Supply,420.0,3830000
+Pennsylvania,Surface,Fresh,Public Supply,1200.0,12700000
+Rhode Island,Surface,Fresh,Public Supply,92.2,1050000
+South Carolina,Surface,Fresh,Public Supply,504.0,4630000
+South Dakota,Surface,Fresh,Public Supply,49.9,814000
+Tennessee,Surface,Fresh,Public Supply,618.0,6350000
+Texas,Surface,Fresh,Public Supply,2860.0,25100000
+Utah,Surface,Fresh,Public Supply,309.0,2760000
+Vermont,Surface,Fresh,Public Supply,29.2,626000
+Virginia,Surface,Fresh,Public Supply,594.0,8000000
+Washington,Surface,Fresh,Public Supply,439.0,6720000
+West Virginia,Surface,Fresh,Public Supply,155.0,1850000
+Wisconsin,Surface,Fresh,Public Supply,221.0,5690000
+Wyoming,Surface,Fresh,Public Supply,47.5,564000
+Puerto Rico,Surface,Fresh,Public Supply,590.0,3730000
+U.S. Virgin Islands,Surface,Fresh,Public Supply,4.95,106000
+Alabama,Surface,Saline,Public Supply,0.0,4780000
+Alaska,Surface,Saline,Public Supply,0.0,710000
+Arizona,Surface,Saline,Public Supply,0.0,6390000
+Arkansas,Surface,Saline,Public Supply,0.0,2920000
+California,Surface,Saline,Public Supply,0.0,37300000
+Colorado,Surface,Saline,Public Supply,0.0,5030000
+Connecticut,Surface,Saline,Public Supply,0.0,3570000
+Delaware,Surface,Saline,Public Supply,0.0,898000
+District Of Columbia,Surface,Saline,Public Supply,0.0,602000
+Florida,Surface,Saline,Public Supply,0.0,18800000
+Georgia,Surface,Saline,Public Supply,0.0,9690000
+Hawaii,Surface,Saline,Public Supply,0.0,1360000
+Idaho,Surface,Saline,Public Supply,0.0,1570000
+Illinois,Surface,Saline,Public Supply,0.0,12800000
+Indiana,Surface,Saline,Public Supply,0.0,6480000
+Iowa,Surface,Saline,Public Supply,0.0,3050000
+Kansas,Surface,Saline,Public Supply,0.0,2850000
+Kentucky,Surface,Saline,Public Supply,0.0,4340000
+Louisiana,Surface,Saline,Public Supply,0.0,4530000
+Maine,Surface,Saline,Public Supply,0.0,1330000
+Maryland,Surface,Saline,Public Supply,0.0,5770000
+Massachusetts,Surface,Saline,Public Supply,0.0,6550000
+Michigan,Surface,Saline,Public Supply,0.0,9880000
+Minnesota,Surface,Saline,Public Supply,0.0,5300000
+Mississippi,Surface,Saline,Public Supply,0.0,2970000
+Missouri,Surface,Saline,Public Supply,0.0,5990000
+Montana,Surface,Saline,Public Supply,0.0,989000
+Nebraska,Surface,Saline,Public Supply,0.0,1830000
+Nevada,Surface,Saline,Public Supply,0.0,2700000
+New Hampshire,Surface,Saline,Public Supply,0.0,1320000
+New Jersey,Surface,Saline,Public Supply,0.0,8790000
+New Mexico,Surface,Saline,Public Supply,0.0,2060000
+New York,Surface,Saline,Public Supply,0.0,19400000
+North Carolina,Surface,Saline,Public Supply,0.0,9540000
+North Dakota,Surface,Saline,Public Supply,0.0,673000
+Ohio,Surface,Saline,Public Supply,0.0,11500000
+Oklahoma,Surface,Saline,Public Supply,0.0,3750000
+Oregon,Surface,Saline,Public Supply,0.0,3830000
+Pennsylvania,Surface,Saline,Public Supply,0.0,12700000
+Rhode Island,Surface,Saline,Public Supply,0.0,1050000
+South Carolina,Surface,Saline,Public Supply,0.0,4630000
+South Dakota,Surface,Saline,Public Supply,0.0,814000
+Tennessee,Surface,Saline,Public Supply,0.0,6350000
+Texas,Surface,Saline,Public Supply,0.0,25100000
+Utah,Surface,Saline,Public Supply,0.0,2760000
+Vermont,Surface,Saline,Public Supply,0.0,626000
+Virginia,Surface,Saline,Public Supply,0.0,8000000
+Washington,Surface,Saline,Public Supply,0.0,6720000
+West Virginia,Surface,Saline,Public Supply,0.0,1850000
+Wisconsin,Surface,Saline,Public Supply,0.0,5690000
+Wyoming,Surface,Saline,Public Supply,0.0,564000
+Puerto Rico,Surface,Saline,Public Supply,0.0,3730000
+U.S. Virgin Islands,Surface,Saline,Public Supply,0.0,106000
+Alabama,Surface,Fresh,Self Supplied,0.0,4780000
+Alaska,Surface,Fresh,Self Supplied,0.66,710000
+Arizona,Surface,Fresh,Self Supplied,0.0,6390000
+Arkansas,Surface,Fresh,Self Supplied,0.0,2920000
+California,Surface,Fresh,Self Supplied,29.4,37300000
+Colorado,Surface,Fresh,Self Supplied,0.0,5030000
+Connecticut,Surface,Fresh,Self Supplied,0.0,3570000
+Delaware,Surface,Fresh,Self Supplied,0.0,898000
+District Of Columbia,Surface,Fresh,Self Supplied,0.0,602000
+Florida,Surface,Fresh,Self Supplied,0.0,18800000
+Georgia,Surface,Fresh,Self Supplied,0.0,9690000
+Hawaii,Surface,Fresh,Self Supplied,6.17,1360000
+Idaho,Surface,Fresh,Self Supplied,0.0,1570000
+Illinois,Surface,Fresh,Self Supplied,0.0,12800000
+Indiana,Surface,Fresh,Self Supplied,0.0,6480000
+Iowa,Surface,Fresh,Self Supplied,0.0,3050000
+Kansas,Surface,Fresh,Self Supplied,0.0,2850000
+Kentucky,Surface,Fresh,Self Supplied,13.5,4340000
+Louisiana,Surface,Fresh,Self Supplied,0.0,4530000
+Maine,Surface,Fresh,Self Supplied,0.0,1330000
+Maryland,Surface,Fresh,Self Supplied,0.0,5770000
+Massachusetts,Surface,Fresh,Self Supplied,0.0,6550000
+Michigan,Surface,Fresh,Self Supplied,0.0,9880000
+Minnesota,Surface,Fresh,Self Supplied,0.0,5300000
+Mississippi,Surface,Fresh,Self Supplied,0.0,2970000
+Missouri,Surface,Fresh,Self Supplied,0.0,5990000
+Montana,Surface,Fresh,Self Supplied,1.04,989000
+Nebraska,Surface,Fresh,Self Supplied,0.0,1830000
+Nevada,Surface,Fresh,Self Supplied,0.0,2700000
+New Hampshire,Surface,Fresh,Self Supplied,0.0,1320000
+New Jersey,Surface,Fresh,Self Supplied,0.0,8790000
+New Mexico,Surface,Fresh,Self Supplied,0.0,2060000
+New York,Surface,Fresh,Self Supplied,0.0,19400000
+North Carolina,Surface,Fresh,Self Supplied,0.0,9540000
+North Dakota,Surface,Fresh,Self Supplied,0.0,673000
+Ohio,Surface,Fresh,Self Supplied,2.75,11500000
+Oklahoma,Surface,Fresh,Self Supplied,0.0,3750000
+Oregon,Surface,Fresh,Self Supplied,7.07,3830000
+Pennsylvania,Surface,Fresh,Self Supplied,0.0,12700000
+Rhode Island,Surface,Fresh,Self Supplied,0.0,1050000
+South Carolina,Surface,Fresh,Self Supplied,0.0,4630000
+South Dakota,Surface,Fresh,Self Supplied,0.0,814000
+Tennessee,Surface,Fresh,Self Supplied,0.0,6350000
+Texas,Surface,Fresh,Self Supplied,0.0,25100000
+Utah,Surface,Fresh,Self Supplied,0.0,2760000
+Vermont,Surface,Fresh,Self Supplied,0.0,626000
+Virginia,Surface,Fresh,Self Supplied,0.0,8000000
+Washington,Surface,Fresh,Self Supplied,0.02,6720000
+West Virginia,Surface,Fresh,Self Supplied,0.63,1850000
+Wisconsin,Surface,Fresh,Self Supplied,0.0,5690000
+Wyoming,Surface,Fresh,Self Supplied,0.0,564000
+Puerto Rico,Surface,Fresh,Self Supplied,0.0,3730000
+U.S. Virgin Islands,Surface,Fresh,Self Supplied,2.67,106000
+Alabama,Surface,Saline,Self Supplied,0.0,4780000
+Alaska,Surface,Saline,Self Supplied,0.0,710000
+Arizona,Surface,Saline,Self Supplied,0.0,6390000
+Arkansas,Surface,Saline,Self Supplied,0.0,2920000
+California,Surface,Saline,Self Supplied,0.0,37300000
+Colorado,Surface,Saline,Self Supplied,0.0,5030000
+Connecticut,Surface,Saline,Self Supplied,0.0,3570000
+Delaware,Surface,Saline,Self Supplied,0.0,898000
+District Of Columbia,Surface,Saline,Self Supplied,0.0,602000
+Florida,Surface,Saline,Self Supplied,0.0,18800000
+Georgia,Surface,Saline,Self Supplied,0.0,9690000
+Hawaii,Surface,Saline,Self Supplied,0.0,1360000
+Idaho,Surface,Saline,Self Supplied,0.0,1570000
+Illinois,Surface,Saline,Self Supplied,0.0,12800000
+Indiana,Surface,Saline,Self Supplied,0.0,6480000
+Iowa,Surface,Saline,Self Supplied,0.0,3050000
+Kansas,Surface,Saline,Self Supplied,0.0,2850000
+Kentucky,Surface,Saline,Self Supplied,0.0,4340000
+Louisiana,Surface,Saline,Self Supplied,0.0,4530000
+Maine,Surface,Saline,Self Supplied,0.0,1330000
+Maryland,Surface,Saline,Self Supplied,0.0,5770000
+Massachusetts,Surface,Saline,Self Supplied,0.0,6550000
+Michigan,Surface,Saline,Self Supplied,0.0,9880000
+Minnesota,Surface,Saline,Self Supplied,0.0,5300000
+Mississippi,Surface,Saline,Self Supplied,0.0,2970000
+Missouri,Surface,Saline,Self Supplied,0.0,5990000
+Montana,Surface,Saline,Self Supplied,0.0,989000
+Nebraska,Surface,Saline,Self Supplied,0.0,1830000
+Nevada,Surface,Saline,Self Supplied,0.0,2700000
+New Hampshire,Surface,Saline,Self Supplied,0.0,1320000
+New Jersey,Surface,Saline,Self Supplied,0.0,8790000
+New Mexico,Surface,Saline,Self Supplied,0.0,2060000
+New York,Surface,Saline,Self Supplied,0.0,19400000
+North Carolina,Surface,Saline,Self Supplied,0.0,9540000
+North Dakota,Surface,Saline,Self Supplied,0.0,673000
+Ohio,Surface,Saline,Self Supplied,0.0,11500000
+Oklahoma,Surface,Saline,Self Supplied,0.0,3750000
+Oregon,Surface,Saline,Self Supplied,0.0,3830000
+Pennsylvania,Surface,Saline,Self Supplied,0.0,12700000
+Rhode Island,Surface,Saline,Self Supplied,0.0,1050000
+South Carolina,Surface,Saline,Self Supplied,0.0,4630000
+South Dakota,Surface,Saline,Self Supplied,0.0,814000
+Tennessee,Surface,Saline,Self Supplied,0.0,6350000
+Texas,Surface,Saline,Self Supplied,0.0,25100000
+Utah,Surface,Saline,Self Supplied,0.0,2760000
+Vermont,Surface,Saline,Self Supplied,0.0,626000
+Virginia,Surface,Saline,Self Supplied,0.0,8000000
+Washington,Surface,Saline,Self Supplied,0.0,6720000
+West Virginia,Surface,Saline,Self Supplied,0.0,1850000
+Wisconsin,Surface,Saline,Self Supplied,0.0,5690000
+Wyoming,Surface,Saline,Self Supplied,0.0,564000
+Puerto Rico,Surface,Saline,Self Supplied,0.0,3730000
+U.S. Virgin Islands,Surface,Saline,Self Supplied,0.0,106000
+Alabama,Surface,Fresh,Irrigation,74.0,4780000
+Alaska,Surface,Fresh,Irrigation,0.02,710000
+Arizona,Surface,Fresh,Irrigation,2880.0,6390000
+Arkansas,Surface,Fresh,Irrigation,1340.0,2920000
+California,Surface,Fresh,Irrigation,14400.0,37300000
+Colorado,Surface,Fresh,Irrigation,8420.0,5030000
+Connecticut,Surface,Fresh,Irrigation,23.1,3570000
+Delaware,Surface,Fresh,Irrigation,15.2,898000
+District Of Columbia,Surface,Fresh,Irrigation,0.05,602000
+Florida,Surface,Fresh,Irrigation,1340.0,18800000
+Georgia,Surface,Fresh,Irrigation,202.0,9690000
+Hawaii,Surface,Fresh,Irrigation,223.0,1360000
+Idaho,Surface,Fresh,Irrigation,10200.0,1570000
+Illinois,Surface,Fresh,Irrigation,17.5,12800000
+Indiana,Surface,Fresh,Irrigation,38.7,6480000
+Iowa,Surface,Fresh,Irrigation,1.18,3050000
+Kansas,Surface,Fresh,Irrigation,160.0,2850000
+Kentucky,Surface,Fresh,Irrigation,27.4,4340000
+Louisiana,Surface,Fresh,Irrigation,258.0,4530000
+Maine,Surface,Fresh,Irrigation,8.77,1330000
+Maryland,Surface,Fresh,Irrigation,18.6,5770000
+Massachusetts,Surface,Fresh,Irrigation,21.4,6550000
+Michigan,Surface,Fresh,Irrigation,62.6,9880000
+Minnesota,Surface,Fresh,Irrigation,26.7,5300000
+Mississippi,Surface,Fresh,Irrigation,133.0,2970000
+Missouri,Surface,Fresh,Irrigation,49.6,5990000
+Montana,Surface,Fresh,Irrigation,7030.0,989000
+Nebraska,Surface,Fresh,Irrigation,1360.0,1830000
+Nevada,Surface,Fresh,Irrigation,921.0,2700000
+New Hampshire,Surface,Fresh,Irrigation,0.67,1320000
+New Jersey,Surface,Fresh,Irrigation,70.1,8790000
+New Mexico,Surface,Fresh,Irrigation,1460.0,2060000
+New York,Surface,Fresh,Irrigation,40.2,19400000
+North Carolina,Surface,Fresh,Irrigation,279.0,9540000
+North Dakota,Surface,Fresh,Irrigation,87.2,673000
+Ohio,Surface,Fresh,Irrigation,35.4,11500000
+Oklahoma,Surface,Fresh,Irrigation,135.0,3750000
+Oregon,Surface,Fresh,Irrigation,3350.0,3830000
+Pennsylvania,Surface,Fresh,Irrigation,19.8,12700000
+Rhode Island,Surface,Fresh,Irrigation,0.39,1050000
+South Carolina,Surface,Fresh,Irrigation,57.4,4630000
+South Dakota,Surface,Fresh,Irrigation,165.0,814000
+Tennessee,Surface,Fresh,Irrigation,27.6,6350000
+Texas,Surface,Fresh,Irrigation,1730.0,25100000
+Utah,Surface,Fresh,Irrigation,2730.0,2760000
+Vermont,Surface,Fresh,Irrigation,1.68,626000
+Virginia,Surface,Fresh,Irrigation,45.4,8000000
+Washington,Surface,Fresh,Irrigation,2350.0,6720000
+West Virginia,Surface,Fresh,Irrigation,0.04,1850000
+Wisconsin,Surface,Fresh,Irrigation,123.0,5690000
+Wyoming,Surface,Fresh,Irrigation,3930.0,564000
+Puerto Rico,Surface,Fresh,Irrigation,15.7,3730000
+U.S. Virgin Islands,Surface,Fresh,Irrigation,0.0,106000
+Alabama,Surface,Saline,Irrigation,0.0,4780000
+Alaska,Surface,Saline,Irrigation,0.0,710000
+Arizona,Surface,Saline,Irrigation,0.0,6390000
+Arkansas,Surface,Saline,Irrigation,0.0,2920000
+California,Surface,Saline,Irrigation,0.0,37300000
+Colorado,Surface,Saline,Irrigation,0.0,5030000
+Connecticut,Surface,Saline,Irrigation,0.0,3570000
+Delaware,Surface,Saline,Irrigation,0.0,898000
+District Of Columbia,Surface,Saline,Irrigation,0.0,602000
+Florida,Surface,Saline,Irrigation,0.0,18800000
+Georgia,Surface,Saline,Irrigation,0.0,9690000
+Hawaii,Surface,Saline,Irrigation,0.0,1360000
+Idaho,Surface,Saline,Irrigation,0.0,1570000
+Illinois,Surface,Saline,Irrigation,0.0,12800000
+Indiana,Surface,Saline,Irrigation,0.0,6480000
+Iowa,Surface,Saline,Irrigation,0.0,3050000
+Kansas,Surface,Saline,Irrigation,0.0,2850000
+Kentucky,Surface,Saline,Irrigation,0.0,4340000
+Louisiana,Surface,Saline,Irrigation,0.0,4530000
+Maine,Surface,Saline,Irrigation,0.0,1330000
+Maryland,Surface,Saline,Irrigation,0.0,5770000
+Massachusetts,Surface,Saline,Irrigation,0.0,6550000
+Michigan,Surface,Saline,Irrigation,0.0,9880000
+Minnesota,Surface,Saline,Irrigation,0.0,5300000
+Mississippi,Surface,Saline,Irrigation,0.0,2970000
+Missouri,Surface,Saline,Irrigation,0.0,5990000
+Montana,Surface,Saline,Irrigation,0.0,989000
+Nebraska,Surface,Saline,Irrigation,0.0,1830000
+Nevada,Surface,Saline,Irrigation,0.0,2700000
+New Hampshire,Surface,Saline,Irrigation,0.0,1320000
+New Jersey,Surface,Saline,Irrigation,0.0,8790000
+New Mexico,Surface,Saline,Irrigation,0.0,2060000
+New York,Surface,Saline,Irrigation,0.0,19400000
+North Carolina,Surface,Saline,Irrigation,0.0,9540000
+North Dakota,Surface,Saline,Irrigation,0.0,673000
+Ohio,Surface,Saline,Irrigation,0.0,11500000
+Oklahoma,Surface,Saline,Irrigation,0.0,3750000
+Oregon,Surface,Saline,Irrigation,0.0,3830000
+Pennsylvania,Surface,Saline,Irrigation,0.0,12700000
+Rhode Island,Surface,Saline,Irrigation,0.0,1050000
+South Carolina,Surface,Saline,Irrigation,0.0,4630000
+South Dakota,Surface,Saline,Irrigation,0.0,814000
+Tennessee,Surface,Saline,Irrigation,0.0,6350000
+Texas,Surface,Saline,Irrigation,0.0,25100000
+Utah,Surface,Saline,Irrigation,0.0,2760000
+Vermont,Surface,Saline,Irrigation,0.0,626000
+Virginia,Surface,Saline,Irrigation,0.0,8000000
+Washington,Surface,Saline,Irrigation,0.0,6720000
+West Virginia,Surface,Saline,Irrigation,0.0,1850000
+Wisconsin,Surface,Saline,Irrigation,0.0,5690000
+Wyoming,Surface,Saline,Irrigation,0.0,564000
+Puerto Rico,Surface,Saline,Irrigation,0.0,3730000
+U.S. Virgin Islands,Surface,Saline,Irrigation,0.0,106000
+Alabama,Surface,Fresh,Livestock,14.8,4780000
+Alaska,Surface,Fresh,Livestock,0.15,710000
+Arizona,Surface,Fresh,Livestock,0.0,6390000
+Arkansas,Surface,Fresh,Livestock,23.4,2920000
+California,Surface,Fresh,Livestock,103.0,37300000
+Colorado,Surface,Fresh,Livestock,11.8,5030000
+Connecticut,Surface,Fresh,Livestock,0.0,3570000
+Delaware,Surface,Fresh,Livestock,0.0,898000
+District Of Columbia,Surface,Fresh,Livestock,0.0,602000
+Florida,Surface,Fresh,Livestock,2.22,18800000
+Georgia,Surface,Fresh,Livestock,26.9,9690000
+Hawaii,Surface,Fresh,Livestock,1.2,1360000
+Idaho,Surface,Fresh,Livestock,9.01,1570000
+Illinois,Surface,Fresh,Livestock,0.03,12800000
+Indiana,Surface,Fresh,Livestock,13.0,6480000
+Iowa,Surface,Fresh,Livestock,33.8,3050000
+Kansas,Surface,Fresh,Livestock,23.0,2850000
+Kentucky,Surface,Fresh,Livestock,41.6,4340000
+Louisiana,Surface,Fresh,Livestock,3.88,4530000
+Maine,Surface,Fresh,Livestock,0.58,1330000
+Maryland,Surface,Fresh,Livestock,2.23,5770000
+Massachusetts,Surface,Fresh,Livestock,0.5,6550000
+Michigan,Surface,Fresh,Livestock,1.9,9880000
+Minnesota,Surface,Fresh,Livestock,0.0,5300000
+Mississippi,Surface,Fresh,Livestock,11.1,2970000
+Missouri,Surface,Fresh,Livestock,54.5,5990000
+Montana,Surface,Fresh,Livestock,29.5,989000
+Nebraska,Surface,Fresh,Livestock,21.2,1830000
+Nevada,Surface,Fresh,Livestock,0.0,2700000
+New Hampshire,Surface,Fresh,Livestock,0.22,1320000
+New Jersey,Surface,Fresh,Livestock,0.0,8790000
+New Mexico,Surface,Fresh,Livestock,3.03,2060000
+New York,Surface,Fresh,Livestock,8.0,19400000
+North Carolina,Surface,Fresh,Livestock,15.0,9540000
+North Dakota,Surface,Fresh,Livestock,8.62,673000
+Ohio,Surface,Fresh,Livestock,16.3,11500000
+Oklahoma,Surface,Fresh,Livestock,56.3,3750000
+Oregon,Surface,Fresh,Livestock,14.0,3830000
+Pennsylvania,Surface,Fresh,Livestock,6.75,12700000
+Rhode Island,Surface,Fresh,Livestock,0.01,1050000
+South Carolina,Surface,Fresh,Livestock,6.79,4630000
+South Dakota,Surface,Fresh,Livestock,28.3,814000
+Tennessee,Surface,Fresh,Livestock,13.4,6350000
+Texas,Surface,Fresh,Livestock,127.0,25100000
+Utah,Surface,Fresh,Livestock,8.76,2760000
+Vermont,Surface,Fresh,Livestock,1.41,626000
+Virginia,Surface,Fresh,Livestock,20.8,8000000
+Washington,Surface,Fresh,Livestock,8.55,6720000
+West Virginia,Surface,Fresh,Livestock,3.42,1850000
+Wisconsin,Surface,Fresh,Livestock,7.3,5690000
+Wyoming,Surface,Fresh,Livestock,10.3,564000
+Puerto Rico,Surface,Fresh,Livestock,2.24,3730000
+U.S. Virgin Islands,Surface,Fresh,Livestock,0.01,106000
+Alabama,Surface,Saline,Livestock,0.0,4780000
+Alaska,Surface,Saline,Livestock,0.0,710000
+Arizona,Surface,Saline,Livestock,0.0,6390000
+Arkansas,Surface,Saline,Livestock,0.0,2920000
+California,Surface,Saline,Livestock,0.0,37300000
+Colorado,Surface,Saline,Livestock,0.0,5030000
+Connecticut,Surface,Saline,Livestock,0.0,3570000
+Delaware,Surface,Saline,Livestock,0.0,898000
+District Of Columbia,Surface,Saline,Livestock,0.0,602000
+Florida,Surface,Saline,Livestock,0.0,18800000
+Georgia,Surface,Saline,Livestock,0.0,9690000
+Hawaii,Surface,Saline,Livestock,0.0,1360000
+Idaho,Surface,Saline,Livestock,0.0,1570000
+Illinois,Surface,Saline,Livestock,0.0,12800000
+Indiana,Surface,Saline,Livestock,0.0,6480000
+Iowa,Surface,Saline,Livestock,0.0,3050000
+Kansas,Surface,Saline,Livestock,0.0,2850000
+Kentucky,Surface,Saline,Livestock,0.0,4340000
+Louisiana,Surface,Saline,Livestock,0.0,4530000
+Maine,Surface,Saline,Livestock,0.0,1330000
+Maryland,Surface,Saline,Livestock,0.0,5770000
+Massachusetts,Surface,Saline,Livestock,0.0,6550000
+Michigan,Surface,Saline,Livestock,0.0,9880000
+Minnesota,Surface,Saline,Livestock,0.0,5300000
+Mississippi,Surface,Saline,Livestock,0.0,2970000
+Missouri,Surface,Saline,Livestock,0.0,5990000
+Montana,Surface,Saline,Livestock,0.0,989000
+Nebraska,Surface,Saline,Livestock,0.0,1830000
+Nevada,Surface,Saline,Livestock,0.0,2700000
+New Hampshire,Surface,Saline,Livestock,0.0,1320000
+New Jersey,Surface,Saline,Livestock,0.0,8790000
+New Mexico,Surface,Saline,Livestock,0.0,2060000
+New York,Surface,Saline,Livestock,0.0,19400000
+North Carolina,Surface,Saline,Livestock,0.0,9540000
+North Dakota,Surface,Saline,Livestock,0.0,673000
+Ohio,Surface,Saline,Livestock,0.0,11500000
+Oklahoma,Surface,Saline,Livestock,0.0,3750000
+Oregon,Surface,Saline,Livestock,0.0,3830000
+Pennsylvania,Surface,Saline,Livestock,0.0,12700000
+Rhode Island,Surface,Saline,Livestock,0.0,1050000
+South Carolina,Surface,Saline,Livestock,0.0,4630000
+South Dakota,Surface,Saline,Livestock,0.0,814000
+Tennessee,Surface,Saline,Livestock,0.0,6350000
+Texas,Surface,Saline,Livestock,0.0,25100000
+Utah,Surface,Saline,Livestock,0.0,2760000
+Vermont,Surface,Saline,Livestock,0.0,626000
+Virginia,Surface,Saline,Livestock,0.0,8000000
+Washington,Surface,Saline,Livestock,0.0,6720000
+West Virginia,Surface,Saline,Livestock,0.0,1850000
+Wisconsin,Surface,Saline,Livestock,0.0,5690000
+Wyoming,Surface,Saline,Livestock,0.0,564000
+Puerto Rico,Surface,Saline,Livestock,0.0,3730000
+U.S. Virgin Islands,Surface,Saline,Livestock,0.0,106000
+Alabama,Surface,Fresh,Aquaculture,26.6,4780000
+Alaska,Surface,Fresh,Aquaculture,255.0,710000
+Arizona,Surface,Fresh,Aquaculture,7.77,6390000
+Arkansas,Surface,Fresh,Aquaculture,86.5,2920000
+California,Surface,Fresh,Aquaculture,802.0,37300000
+Colorado,Surface,Fresh,Aquaculture,99.0,5030000
+Connecticut,Surface,Fresh,Aquaculture,23.0,3570000
+Delaware,Surface,Fresh,Aquaculture,0.0,898000
+District Of Columbia,Surface,Fresh,Aquaculture,0.0,602000
+Florida,Surface,Fresh,Aquaculture,0.0,18800000
+Georgia,Surface,Fresh,Aquaculture,45.9,9690000
+Hawaii,Surface,Fresh,Aquaculture,2.4,1360000
+Idaho,Surface,Fresh,Aquaculture,2690.0,1570000
+Illinois,Surface,Fresh,Aquaculture,27.2,12800000
+Indiana,Surface,Fresh,Aquaculture,1.97,6480000
+Iowa,Surface,Fresh,Aquaculture,4.45,3050000
+Kansas,Surface,Fresh,Aquaculture,8.57,2850000
+Kentucky,Surface,Fresh,Aquaculture,33.5,4340000
+Louisiana,Surface,Fresh,Aquaculture,114.0,4530000
+Maine,Surface,Fresh,Aquaculture,21.2,1330000
+Maryland,Surface,Fresh,Aquaculture,15.7,5770000
+Massachusetts,Surface,Fresh,Aquaculture,42.4,6550000
+Michigan,Surface,Fresh,Aquaculture,78.5,9880000
+Minnesota,Surface,Fresh,Aquaculture,15.2,5300000
+Mississippi,Surface,Fresh,Aquaculture,19.3,2970000
+Missouri,Surface,Fresh,Aquaculture,170.0,5990000
+Montana,Surface,Fresh,Aquaculture,16.4,989000
+Nebraska,Surface,Fresh,Aquaculture,82.2,1830000
+Nevada,Surface,Fresh,Aquaculture,38.8,2700000
+New Hampshire,Surface,Fresh,Aquaculture,8.48,1320000
+New Jersey,Surface,Fresh,Aquaculture,0.0,8790000
+New Mexico,Surface,Fresh,Aquaculture,4.32,2060000
+New York,Surface,Fresh,Aquaculture,36.8,19400000
+North Carolina,Surface,Fresh,Aquaculture,1450.0,9540000
+North Dakota,Surface,Fresh,Aquaculture,5.92,673000
+Ohio,Surface,Fresh,Aquaculture,19.0,11500000
+Oklahoma,Surface,Fresh,Aquaculture,7.43,3750000
+Oregon,Surface,Fresh,Aquaculture,679.0,3830000
+Pennsylvania,Surface,Fresh,Aquaculture,59.7,12700000
+Rhode Island,Surface,Fresh,Aquaculture,8.9,1050000
+South Carolina,Surface,Fresh,Aquaculture,8.97,4630000
+South Dakota,Surface,Fresh,Aquaculture,23.6,814000
+Tennessee,Surface,Fresh,Aquaculture,37.2,6350000
+Texas,Surface,Fresh,Aquaculture,22.2,25100000
+Utah,Surface,Fresh,Aquaculture,0.0,2760000
+Vermont,Surface,Fresh,Aquaculture,4.96,626000
+Virginia,Surface,Fresh,Aquaculture,286.0,8000000
+Washington,Surface,Fresh,Aquaculture,127.0,6720000
+West Virginia,Surface,Fresh,Aquaculture,40.6,1850000
+Wisconsin,Surface,Fresh,Aquaculture,30.2,5690000
+Wyoming,Surface,Fresh,Aquaculture,18.7,564000
+Puerto Rico,Surface,Fresh,Aquaculture,0.4,3730000
+U.S. Virgin Islands,Surface,Fresh,Aquaculture,0.0,106000
+Alabama,Surface,Saline,Aquaculture,0.0,4780000
+Alaska,Surface,Saline,Aquaculture,0.0,710000
+Arizona,Surface,Saline,Aquaculture,0.0,6390000
+Arkansas,Surface,Saline,Aquaculture,0.0,2920000
+California,Surface,Saline,Aquaculture,0.0,37300000
+Colorado,Surface,Saline,Aquaculture,0.0,5030000
+Connecticut,Surface,Saline,Aquaculture,0.0,3570000
+Delaware,Surface,Saline,Aquaculture,0.0,898000
+District Of Columbia,Surface,Saline,Aquaculture,0.0,602000
+Florida,Surface,Saline,Aquaculture,0.0,18800000
+Georgia,Surface,Saline,Aquaculture,0.0,9690000
+Hawaii,Surface,Saline,Aquaculture,0.0,1360000
+Idaho,Surface,Saline,Aquaculture,0.0,1570000
+Illinois,Surface,Saline,Aquaculture,0.0,12800000
+Indiana,Surface,Saline,Aquaculture,0.0,6480000
+Iowa,Surface,Saline,Aquaculture,0.0,3050000
+Kansas,Surface,Saline,Aquaculture,0.0,2850000
+Kentucky,Surface,Saline,Aquaculture,0.0,4340000
+Louisiana,Surface,Saline,Aquaculture,0.0,4530000
+Maine,Surface,Saline,Aquaculture,0.0,1330000
+Maryland,Surface,Saline,Aquaculture,0.0,5770000
+Massachusetts,Surface,Saline,Aquaculture,0.0,6550000
+Michigan,Surface,Saline,Aquaculture,0.0,9880000
+Minnesota,Surface,Saline,Aquaculture,0.0,5300000
+Mississippi,Surface,Saline,Aquaculture,0.0,2970000
+Missouri,Surface,Saline,Aquaculture,0.0,5990000
+Montana,Surface,Saline,Aquaculture,0.0,989000
+Nebraska,Surface,Saline,Aquaculture,0.0,1830000
+Nevada,Surface,Saline,Aquaculture,0.0,2700000
+New Hampshire,Surface,Saline,Aquaculture,0.0,1320000
+New Jersey,Surface,Saline,Aquaculture,0.0,8790000
+New Mexico,Surface,Saline,Aquaculture,0.0,2060000
+New York,Surface,Saline,Aquaculture,0.0,19400000
+North Carolina,Surface,Saline,Aquaculture,0.0,9540000
+North Dakota,Surface,Saline,Aquaculture,0.0,673000
+Ohio,Surface,Saline,Aquaculture,0.0,11500000
+Oklahoma,Surface,Saline,Aquaculture,0.0,3750000
+Oregon,Surface,Saline,Aquaculture,0.0,3830000
+Pennsylvania,Surface,Saline,Aquaculture,0.0,12700000
+Rhode Island,Surface,Saline,Aquaculture,0.0,1050000
+South Carolina,Surface,Saline,Aquaculture,0.0,4630000
+South Dakota,Surface,Saline,Aquaculture,0.0,814000
+Tennessee,Surface,Saline,Aquaculture,0.0,6350000
+Texas,Surface,Saline,Aquaculture,0.0,25100000
+Utah,Surface,Saline,Aquaculture,0.0,2760000
+Vermont,Surface,Saline,Aquaculture,0.0,626000
+Virginia,Surface,Saline,Aquaculture,0.0,8000000
+Washington,Surface,Saline,Aquaculture,0.0,6720000
+West Virginia,Surface,Saline,Aquaculture,0.0,1850000
+Wisconsin,Surface,Saline,Aquaculture,0.0,5690000
+Wyoming,Surface,Saline,Aquaculture,0.0,564000
+Puerto Rico,Surface,Saline,Aquaculture,0.0,3730000
+U.S. Virgin Islands,Surface,Saline,Aquaculture,0.0,106000
+Alabama,Surface,Fresh,Industrial,540.0,4780000
+Alaska,Surface,Fresh,Industrial,4.4,710000
+Arizona,Surface,Fresh,Industrial,0.0,6390000
+Arkansas,Surface,Fresh,Industrial,214.0,2920000
+California,Surface,Fresh,Industrial,1.13,37300000
+Colorado,Surface,Fresh,Industrial,127.0,5030000
+Connecticut,Surface,Fresh,Industrial,60.2,3570000
+Delaware,Surface,Fresh,Industrial,87.5,898000
+District Of Columbia,Surface,Fresh,Industrial,0.0,602000
+Florida,Surface,Fresh,Industrial,47.7,18800000
+Georgia,Surface,Fresh,Industrial,281.0,9690000
+Hawaii,Surface,Fresh,Industrial,0.0,1360000
+Idaho,Surface,Fresh,Industrial,17.2,1570000
+Illinois,Surface,Fresh,Industrial,267.0,12800000
+Indiana,Surface,Fresh,Industrial,2120.0,6480000
+Iowa,Surface,Fresh,Industrial,2.7,3050000
+Kansas,Surface,Fresh,Industrial,6.79,2850000
+Kentucky,Surface,Fresh,Industrial,146.0,4340000
+Louisiana,Surface,Fresh,Industrial,1830.0,4530000
+Maine,Surface,Fresh,Industrial,185.0,1330000
+Maryland,Surface,Fresh,Industrial,38.6,5770000
+Massachusetts,Surface,Fresh,Industrial,12.1,6550000
+Michigan,Surface,Fresh,Industrial,537.0,9880000
+Minnesota,Surface,Fresh,Industrial,71.7,5300000
+Mississippi,Surface,Fresh,Industrial,125.0,2970000
+Missouri,Surface,Fresh,Industrial,34.1,5990000
+Montana,Surface,Fresh,Industrial,29.6,989000
+Nebraska,Surface,Fresh,Industrial,2.33,1830000
+Nevada,Surface,Fresh,Industrial,4.53,2700000
+New Hampshire,Surface,Fresh,Industrial,7.06,1320000
+New Jersey,Surface,Fresh,Industrial,48.5,8790000
+New Mexico,Surface,Fresh,Industrial,0.83,2060000
+New York,Surface,Fresh,Industrial,316.0,19400000
+North Carolina,Surface,Fresh,Industrial,188.0,9540000
+North Dakota,Surface,Fresh,Industrial,12.9,673000
+Ohio,Surface,Fresh,Industrial,293.0,11500000
+Oklahoma,Surface,Fresh,Industrial,14.3,3750000
+Oregon,Surface,Fresh,Industrial,123.0,3830000
+Pennsylvania,Surface,Fresh,Industrial,792.0,12700000
+Rhode Island,Surface,Fresh,Industrial,3.35,1050000
+South Carolina,Surface,Fresh,Industrial,365.0,4630000
+South Dakota,Surface,Fresh,Industrial,2.63,814000
+Tennessee,Surface,Fresh,Industrial,728.0,6350000
+Texas,Surface,Fresh,Industrial,571.0,25100000
+Utah,Surface,Fresh,Industrial,16.4,2760000
+Vermont,Surface,Fresh,Industrial,3.69,626000
+Virginia,Surface,Fresh,Industrial,309.0,8000000
+Washington,Surface,Fresh,Industrial,358.0,6720000
+West Virginia,Surface,Fresh,Industrial,729.0,1850000
+Wisconsin,Surface,Fresh,Industrial,382.0,5690000
+Wyoming,Surface,Fresh,Industrial,1.82,564000
+Puerto Rico,Surface,Fresh,Industrial,0.0,3730000
+U.S. Virgin Islands,Surface,Fresh,Industrial,0.0,106000
+Alabama,Surface,Saline,Industrial,0.0,4780000
+Alaska,Surface,Saline,Industrial,4.3,710000
+Arizona,Surface,Saline,Industrial,0.0,6390000
+Arkansas,Surface,Saline,Industrial,0.0,2920000
+California,Surface,Saline,Industrial,0.0,37300000
+Colorado,Surface,Saline,Industrial,0.0,5030000
+Connecticut,Surface,Saline,Industrial,38.5,3570000
+Delaware,Surface,Saline,Industrial,0.0,898000
+District Of Columbia,Surface,Saline,Industrial,0.0,602000
+Florida,Surface,Saline,Industrial,0.0,18800000
+Georgia,Surface,Saline,Industrial,0.0,9690000
+Hawaii,Surface,Saline,Industrial,0.0,1360000
+Idaho,Surface,Saline,Industrial,0.0,1570000
+Illinois,Surface,Saline,Industrial,0.0,12800000
+Indiana,Surface,Saline,Industrial,0.0,6480000
+Iowa,Surface,Saline,Industrial,0.0,3050000
+Kansas,Surface,Saline,Industrial,0.0,2850000
+Kentucky,Surface,Saline,Industrial,0.0,4340000
+Louisiana,Surface,Saline,Industrial,0.0,4530000
+Maine,Surface,Saline,Industrial,14.8,1330000
+Maryland,Surface,Saline,Industrial,146.0,5770000
+Massachusetts,Surface,Saline,Industrial,0.0,6550000
+Michigan,Surface,Saline,Industrial,0.0,9880000
+Minnesota,Surface,Saline,Industrial,0.0,5300000
+Mississippi,Surface,Saline,Industrial,0.0,2970000
+Missouri,Surface,Saline,Industrial,0.0,5990000
+Montana,Surface,Saline,Industrial,0.0,989000
+Nebraska,Surface,Saline,Industrial,0.0,1830000
+Nevada,Surface,Saline,Industrial,0.0,2700000
+New Hampshire,Surface,Saline,Industrial,0.0,1320000
+New Jersey,Surface,Saline,Industrial,0.0,8790000
+New Mexico,Surface,Saline,Industrial,0.0,2060000
+New York,Surface,Saline,Industrial,0.0,19400000
+North Carolina,Surface,Saline,Industrial,0.0,9540000
+North Dakota,Surface,Saline,Industrial,0.0,673000
+Ohio,Surface,Saline,Industrial,0.0,11500000
+Oklahoma,Surface,Saline,Industrial,0.0,3750000
+Oregon,Surface,Saline,Industrial,0.0,3830000
+Pennsylvania,Surface,Saline,Industrial,0.0,12700000
+Rhode Island,Surface,Saline,Industrial,0.0,1050000
+South Carolina,Surface,Saline,Industrial,0.0,4630000
+South Dakota,Surface,Saline,Industrial,0.0,814000
+Tennessee,Surface,Saline,Industrial,0.0,6350000
+Texas,Surface,Saline,Industrial,608.0,25100000
+Utah,Surface,Saline,Industrial,33.1,2760000
+Vermont,Surface,Saline,Industrial,0.0,626000
+Virginia,Surface,Saline,Industrial,56.1,8000000
+Washington,Surface,Saline,Industrial,33.1,6720000
+West Virginia,Surface,Saline,Industrial,0.0,1850000
+Wisconsin,Surface,Saline,Industrial,0.0,5690000
+Wyoming,Surface,Saline,Industrial,0.0,564000
+Puerto Rico,Surface,Saline,Industrial,0.0,3730000
+U.S. Virgin Islands,Surface,Saline,Industrial,2.62,106000
+Alabama,Surface,Fresh,Mining,7.49,4780000
+Alaska,Surface,Fresh,Mining,24.1,710000
+Arizona,Surface,Fresh,Mining,0.0,6390000
+Arkansas,Surface,Fresh,Mining,44.1,2920000
+California,Surface,Fresh,Mining,12.2,37300000
+Colorado,Surface,Fresh,Mining,3.05,5030000
+Connecticut,Surface,Fresh,Mining,3.8,3570000
+Delaware,Surface,Fresh,Mining,0.41,898000
+District Of Columbia,Surface,Fresh,Mining,0.0,602000
+Florida,Surface,Fresh,Mining,34.1,18800000
+Georgia,Surface,Fresh,Mining,8.41,9690000
+Hawaii,Surface,Fresh,Mining,0.11,1360000
+Idaho,Surface,Fresh,Mining,18.9,1570000
+Illinois,Surface,Fresh,Mining,55.4,12800000
+Indiana,Surface,Fresh,Mining,83.7,6480000
+Iowa,Surface,Fresh,Mining,78.1,3050000
+Kansas,Surface,Fresh,Mining,3.98,2850000
+Kentucky,Surface,Fresh,Mining,23.0,4340000
+Louisiana,Surface,Fresh,Mining,5.94,4530000
+Maine,Surface,Fresh,Mining,3.73,1330000
+Maryland,Surface,Fresh,Mining,2.18,5770000
+Massachusetts,Surface,Fresh,Mining,4.78,6550000
+Michigan,Surface,Fresh,Mining,66.0,9880000
+Minnesota,Surface,Fresh,Mining,276.0,5300000
+Mississippi,Surface,Fresh,Mining,0.55,2970000
+Missouri,Surface,Fresh,Mining,8.41,5990000
+Montana,Surface,Fresh,Mining,26.2,989000
+Nebraska,Surface,Fresh,Mining,8.77,1830000
+Nevada,Surface,Fresh,Mining,4.11,2700000
+New Hampshire,Surface,Fresh,Mining,2.84,1320000
+New Jersey,Surface,Fresh,Mining,6.91,8790000
+New Mexico,Surface,Fresh,Mining,9.68,2060000
+New York,Surface,Fresh,Mining,64.0,19400000
+North Carolina,Surface,Fresh,Mining,4.87,9540000
+North Dakota,Surface,Fresh,Mining,4.63,673000
+Ohio,Surface,Fresh,Mining,35.8,11500000
+Oklahoma,Surface,Fresh,Mining,13.3,3750000
+Oregon,Surface,Fresh,Mining,1.17,3830000
+Pennsylvania,Surface,Fresh,Mining,10.5,12700000
+Rhode Island,Surface,Fresh,Mining,0.49,1050000
+South Carolina,Surface,Fresh,Mining,1.74,4630000
+South Dakota,Surface,Fresh,Mining,11.0,814000
+Tennessee,Surface,Fresh,Mining,7.73,6350000
+Texas,Surface,Fresh,Mining,81.2,25100000
+Utah,Surface,Fresh,Mining,1.6,2760000
+Vermont,Surface,Fresh,Mining,3.53,626000
+Virginia,Surface,Fresh,Mining,28.4,8000000
+Washington,Surface,Fresh,Mining,3.36,6720000
+West Virginia,Surface,Fresh,Mining,9.0,1850000
+Wisconsin,Surface,Fresh,Mining,8.63,5690000
+Wyoming,Surface,Fresh,Mining,13.0,564000
+Puerto Rico,Surface,Fresh,Mining,0.18,3730000
+U.S. Virgin Islands,Surface,Fresh,Mining,0.0,106000
+Alabama,Surface,Saline,Mining,0.0,4780000
+Alaska,Surface,Saline,Mining,76.4,710000
+Arizona,Surface,Saline,Mining,0.0,6390000
+Arkansas,Surface,Saline,Mining,0.0,2920000
+California,Surface,Saline,Mining,0.05,37300000
+Colorado,Surface,Saline,Mining,0.0,5030000
+Connecticut,Surface,Saline,Mining,0.0,3570000
+Delaware,Surface,Saline,Mining,0.0,898000
+District Of Columbia,Surface,Saline,Mining,0.0,602000
+Florida,Surface,Saline,Mining,0.0,18800000
+Georgia,Surface,Saline,Mining,0.0,9690000
+Hawaii,Surface,Saline,Mining,0.0,1360000
+Idaho,Surface,Saline,Mining,0.0,1570000
+Illinois,Surface,Saline,Mining,0.0,12800000
+Indiana,Surface,Saline,Mining,0.0,6480000
+Iowa,Surface,Saline,Mining,0.0,3050000
+Kansas,Surface,Saline,Mining,0.0,2850000
+Kentucky,Surface,Saline,Mining,0.0,4340000
+Louisiana,Surface,Saline,Mining,0.0,4530000
+Maine,Surface,Saline,Mining,0.0,1330000
+Maryland,Surface,Saline,Mining,0.0,5770000
+Massachusetts,Surface,Saline,Mining,0.0,6550000
+Michigan,Surface,Saline,Mining,0.0,9880000
+Minnesota,Surface,Saline,Mining,0.0,5300000
+Mississippi,Surface,Saline,Mining,0.0,2970000
+Missouri,Surface,Saline,Mining,0.0,5990000
+Montana,Surface,Saline,Mining,0.0,989000
+Nebraska,Surface,Saline,Mining,0.0,1830000
+Nevada,Surface,Saline,Mining,0.0,2700000
+New Hampshire,Surface,Saline,Mining,0.0,1320000
+New Jersey,Surface,Saline,Mining,0.0,8790000
+New Mexico,Surface,Saline,Mining,0.0,2060000
+New York,Surface,Saline,Mining,0.0,19400000
+North Carolina,Surface,Saline,Mining,0.0,9540000
+North Dakota,Surface,Saline,Mining,0.0,673000
+Ohio,Surface,Saline,Mining,0.0,11500000
+Oklahoma,Surface,Saline,Mining,0.0,3750000
+Oregon,Surface,Saline,Mining,0.0,3830000
+Pennsylvania,Surface,Saline,Mining,0.0,12700000
+Rhode Island,Surface,Saline,Mining,0.0,1050000
+South Carolina,Surface,Saline,Mining,0.0,4630000
+South Dakota,Surface,Saline,Mining,0.0,814000
+Tennessee,Surface,Saline,Mining,0.0,6350000
+Texas,Surface,Saline,Mining,0.49,25100000
+Utah,Surface,Saline,Mining,205.0,2760000
+Vermont,Surface,Saline,Mining,0.0,626000
+Virginia,Surface,Saline,Mining,0.0,8000000
+Washington,Surface,Saline,Mining,0.0,6720000
+West Virginia,Surface,Saline,Mining,0.0,1850000
+Wisconsin,Surface,Saline,Mining,0.0,5690000
+Wyoming,Surface,Saline,Mining,0.0,564000
+Puerto Rico,Surface,Saline,Mining,0.0,3730000
+U.S. Virgin Islands,Surface,Saline,Mining,0.04,106000
+Alabama,Surface,Fresh,Thermoelectric,8250.0,4780000
+Alaska,Surface,Fresh,Thermoelectric,55.8,710000
+Arizona,Surface,Fresh,Thermoelectric,27.1,6390000
+Arkansas,Surface,Fresh,Thermoelectric,1540.0,2920000
+California,Surface,Fresh,Thermoelectric,32.2,37300000
+Colorado,Surface,Fresh,Thermoelectric,60.2,5030000
+Connecticut,Surface,Fresh,Thermoelectric,198.0,3570000
+Delaware,Surface,Fresh,Thermoelectric,7.45,898000
+District Of Columbia,Surface,Fresh,Thermoelectric,0.0,602000
+Florida,Surface,Fresh,Thermoelectric,570.0,18800000
+Georgia,Surface,Fresh,Thermoelectric,1770.0,9690000
+Hawaii,Surface,Fresh,Thermoelectric,0.0,1360000
+Idaho,Surface,Fresh,Thermoelectric,0.0,1570000
+Illinois,Surface,Fresh,Thermoelectric,10700.0,12800000
+Indiana,Surface,Fresh,Thermoelectric,5360.0,6480000
+Iowa,Surface,Fresh,Thermoelectric,2220.0,3050000
+Kansas,Surface,Fresh,Thermoelectric,366.0,2850000
+Kentucky,Surface,Fresh,Thermoelectric,3340.0,4340000
+Louisiana,Surface,Fresh,Thermoelectric,4390.0,4530000
+Maine,Surface,Fresh,Thermoelectric,25.9,1330000
+Maryland,Surface,Fresh,Thermoelectric,434.0,5770000
+Massachusetts,Surface,Fresh,Thermoelectric,134.0,6550000
+Michigan,Surface,Fresh,Thermoelectric,8510.0,9880000
+Minnesota,Surface,Fresh,Thermoelectric,2510.0,5300000
+Mississippi,Surface,Fresh,Thermoelectric,905.0,2970000
+Missouri,Surface,Fresh,Thermoelectric,5890.0,5990000
+Montana,Surface,Fresh,Thermoelectric,150.0,989000
+Nebraska,Surface,Fresh,Thermoelectric,1790.0,1830000
+Nevada,Surface,Fresh,Thermoelectric,3.68,2700000
+New Hampshire,Surface,Fresh,Thermoelectric,201.0,1320000
+New Jersey,Surface,Fresh,Thermoelectric,512.0,8790000
+New Mexico,Surface,Fresh,Thermoelectric,42.3,2060000
+New York,Surface,Fresh,Thermoelectric,2750.0,19400000
+North Carolina,Surface,Fresh,Thermoelectric,7660.0,9540000
+North Dakota,Surface,Fresh,Thermoelectric,837.0,673000
+Ohio,Surface,Fresh,Thermoelectric,7190.0,11500000
+Oklahoma,Surface,Fresh,Thermoelectric,384.0,3750000
+Oregon,Surface,Fresh,Thermoelectric,11.2,3830000
+Pennsylvania,Surface,Fresh,Thermoelectric,5390.0,12700000
+Rhode Island,Surface,Fresh,Thermoelectric,1.44,1050000
+South Carolina,Surface,Fresh,Thermoelectric,5500.0,4630000
+South Dakota,Surface,Fresh,Thermoelectric,6.93,814000
+Tennessee,Surface,Fresh,Thermoelectric,5800.0,6350000
+Texas,Surface,Fresh,Thermoelectric,10400.0,25100000
+Utah,Surface,Fresh,Thermoelectric,45.6,2760000
+Vermont,Surface,Fresh,Thermoelectric,344.0,626000
+Virginia,Surface,Fresh,Thermoelectric,2850.0,8000000
+Washington,Surface,Fresh,Thermoelectric,36.4,6720000
+West Virginia,Surface,Fresh,Thermoelectric,2470.0,1850000
+Wisconsin,Surface,Fresh,Thermoelectric,4630.0,5690000
+Wyoming,Surface,Fresh,Thermoelectric,61.1,564000
+Puerto Rico,Surface,Fresh,Thermoelectric,2.61,3730000
+U.S. Virgin Islands,Surface,Fresh,Thermoelectric,0.17,106000
+Alabama,Surface,Saline,Thermoelectric,0.0,4780000
+Alaska,Surface,Saline,Thermoelectric,0.0,710000
+Arizona,Surface,Saline,Thermoelectric,0.0,6390000
+Arkansas,Surface,Saline,Thermoelectric,0.0,2920000
+California,Surface,Saline,Thermoelectric,6490.0,37300000
+Colorado,Surface,Saline,Thermoelectric,0.0,5030000
+Connecticut,Surface,Saline,Thermoelectric,2460.0,3570000
+Delaware,Surface,Saline,Thermoelectric,417.0,898000
+District Of Columbia,Surface,Saline,Thermoelectric,0.0,602000
+Florida,Surface,Saline,Thermoelectric,8570.0,18800000
+Georgia,Surface,Saline,Thermoelectric,283.0,9690000
+Hawaii,Surface,Saline,Thermoelectric,552.0,1360000
+Idaho,Surface,Saline,Thermoelectric,0.0,1570000
+Illinois,Surface,Saline,Thermoelectric,0.0,12800000
+Indiana,Surface,Saline,Thermoelectric,0.0,6480000
+Iowa,Surface,Saline,Thermoelectric,0.0,3050000
+Kansas,Surface,Saline,Thermoelectric,0.0,2850000
+Kentucky,Surface,Saline,Thermoelectric,0.0,4340000
+Louisiana,Surface,Saline,Thermoelectric,1.68,4530000
+Maine,Surface,Saline,Thermoelectric,26.0,1330000
+Maryland,Surface,Saline,Thermoelectric,5760.0,5770000
+Massachusetts,Surface,Saline,Thermoelectric,1930.0,6550000
+Michigan,Surface,Saline,Thermoelectric,0.0,9880000
+Minnesota,Surface,Saline,Thermoelectric,0.0,5300000
+Mississippi,Surface,Saline,Thermoelectric,62.4,2970000
+Missouri,Surface,Saline,Thermoelectric,0.0,5990000
+Montana,Surface,Saline,Thermoelectric,0.0,989000
+Nebraska,Surface,Saline,Thermoelectric,0.0,1830000
+Nevada,Surface,Saline,Thermoelectric,0.0,2700000
+New Hampshire,Surface,Saline,Thermoelectric,848.0,1320000
+New Jersey,Surface,Saline,Thermoelectric,3740.0,8790000
+New Mexico,Surface,Saline,Thermoelectric,0.0,2060000
+New York,Surface,Saline,Thermoelectric,4850.0,19400000
+North Carolina,Surface,Saline,Thermoelectric,1360.0,9540000
+North Dakota,Surface,Saline,Thermoelectric,0.0,673000
+Ohio,Surface,Saline,Thermoelectric,0.0,11500000
+Oklahoma,Surface,Saline,Thermoelectric,0.0,3750000
+Oregon,Surface,Saline,Thermoelectric,0.0,3830000
+Pennsylvania,Surface,Saline,Thermoelectric,0.0,12700000
+Rhode Island,Surface,Saline,Thermoelectric,232.0,1050000
+South Carolina,Surface,Saline,Thermoelectric,0.0,4630000
+South Dakota,Surface,Saline,Thermoelectric,0.0,814000
+Tennessee,Surface,Saline,Thermoelectric,0.0,6350000
+Texas,Surface,Saline,Thermoelectric,661.0,25100000
+Utah,Surface,Saline,Thermoelectric,0.47,2760000
+Vermont,Surface,Saline,Thermoelectric,0.0,626000
+Virginia,Surface,Saline,Thermoelectric,3150.0,8000000
+Washington,Surface,Saline,Thermoelectric,0.0,6720000
+West Virginia,Surface,Saline,Thermoelectric,0.0,1850000
+Wisconsin,Surface,Saline,Thermoelectric,0.0,5690000
+Wyoming,Surface,Saline,Thermoelectric,0.0,564000
+Puerto Rico,Surface,Saline,Thermoelectric,2270.0,3730000
+U.S. Virgin Islands,Surface,Saline,Thermoelectric,116.0,106000
+Alabama,Surface,Fresh,Total,9470.0,4780000
+Alaska,Surface,Fresh,Total,391.0,710000
+Arizona,Surface,Fresh,Total,3540.0,6390000
+Arkansas,Surface,Fresh,Total,3540.0,2920000
+California,Surface,Fresh,Total,18800.0,37300000
+Colorado,Surface,Fresh,Total,9440.0,5030000
+Connecticut,Surface,Fresh,Total,600.0,3570000
+Delaware,Surface,Fresh,Total,144.0,898000
+District Of Columbia,Surface,Fresh,Total,0.05,602000
+Florida,Surface,Fresh,Total,2230.0,18800000
+Georgia,Surface,Fresh,Total,3210.0,9690000
+Hawaii,Surface,Fresh,Total,248.0,1360000
+Idaho,Surface,Fresh,Total,13000.0,1570000
+Illinois,Surface,Fresh,Total,12200.0,12800000
+Indiana,Surface,Fresh,Total,7920.0,6480000
+Iowa,Surface,Fresh,Total,2420.0,3050000
+Kansas,Surface,Fresh,Total,800.0,2850000
+Kentucky,Surface,Fresh,Total,4130.0,4340000
+Louisiana,Surface,Fresh,Total,6960.0,4530000
+Maine,Surface,Fresh,Total,309.0,1330000
+Maryland,Surface,Fresh,Total,1210.0,5770000
+Massachusetts,Surface,Fresh,Total,703.0,6550000
+Michigan,Surface,Fresh,Total,10100.0,9880000
+Minnesota,Surface,Fresh,Total,3080.0,5300000
+Mississippi,Surface,Fresh,Total,1240.0,2970000
+Missouri,Surface,Fresh,Total,6750.0,5990000
+Montana,Surface,Fresh,Total,7360.0,989000
+Nebraska,Surface,Fresh,Total,3320.0,1830000
+Nevada,Surface,Fresh,Total,1420.0,2700000
+New Hampshire,Surface,Fresh,Total,277.0,1320000
+New Jersey,Surface,Fresh,Total,1320.0,8790000
+New Mexico,Surface,Fresh,Total,1590.0,2060000
+New York,Surface,Fresh,Total,5020.0,19400000
+North Carolina,Surface,Fresh,Total,10400.0,9540000
+North Dakota,Surface,Fresh,Total,994.0,673000
+Ohio,Surface,Fresh,Total,8510.0,11500000
+Oklahoma,Surface,Fresh,Total,1140.0,3750000
+Oregon,Surface,Fresh,Total,4600.0,3830000
+Pennsylvania,Surface,Fresh,Total,7480.0,12700000
+Rhode Island,Surface,Fresh,Total,98.0,1050000
+South Carolina,Surface,Fresh,Total,6440.0,4630000
+South Dakota,Surface,Fresh,Total,287.0,814000
+Tennessee,Surface,Fresh,Total,7230.0,6350000
+Texas,Surface,Fresh,Total,15800.0,25100000
+Utah,Surface,Fresh,Total,3110.0,2760000
+Vermont,Surface,Fresh,Total,389.0,626000
+Virginia,Surface,Fresh,Total,4140.0,8000000
+Washington,Surface,Fresh,Total,3320.0,6720000
+West Virginia,Surface,Fresh,Total,3410.0,1850000
+Wisconsin,Surface,Fresh,Total,5400.0,5690000
+Wyoming,Surface,Fresh,Total,4080.0,564000
+Puerto Rico,Surface,Fresh,Total,611.0,3730000
+U.S. Virgin Islands,Surface,Fresh,Total,2.85,106000
+Alabama,Surface,Saline,Total,0.0,4780000
+Alaska,Surface,Saline,Total,80.7,710000
+Arizona,Surface,Saline,Total,0.0,6390000
+Arkansas,Surface,Saline,Total,0.0,2920000
+California,Surface,Saline,Total,6490.0,37300000
+Colorado,Surface,Saline,Total,0.0,5030000
+Connecticut,Surface,Saline,Total,2490.0,3570000
+Delaware,Surface,Saline,Total,417.0,898000
+District Of Columbia,Surface,Saline,Total,0.0,602000
+Florida,Surface,Saline,Total,8580.0,18800000
+Georgia,Surface,Saline,Total,283.0,9690000
+Hawaii,Surface,Saline,Total,552.0,1360000
+Idaho,Surface,Saline,Total,0.0,1570000
+Illinois,Surface,Saline,Total,0.0,12800000
+Indiana,Surface,Saline,Total,0.0,6480000
+Iowa,Surface,Saline,Total,0.0,3050000
+Kansas,Surface,Saline,Total,0.0,2850000
+Kentucky,Surface,Saline,Total,0.0,4340000
+Louisiana,Surface,Saline,Total,1.68,4530000
+Maine,Surface,Saline,Total,40.8,1330000
+Maryland,Surface,Saline,Total,5910.0,5770000
+Massachusetts,Surface,Saline,Total,1930.0,6550000
+Michigan,Surface,Saline,Total,0.0,9880000
+Minnesota,Surface,Saline,Total,0.0,5300000
+Mississippi,Surface,Saline,Total,62.4,2970000
+Missouri,Surface,Saline,Total,0.0,5990000
+Montana,Surface,Saline,Total,0.0,989000
+Nebraska,Surface,Saline,Total,0.0,1830000
+Nevada,Surface,Saline,Total,0.0,2700000
+New Hampshire,Surface,Saline,Total,848.0,1320000
+New Jersey,Surface,Saline,Total,3740.0,8790000
+New Mexico,Surface,Saline,Total,0.0,2060000
+New York,Surface,Saline,Total,4850.0,19400000
+North Carolina,Surface,Saline,Total,1360.0,9540000
+North Dakota,Surface,Saline,Total,0.0,673000
+Ohio,Surface,Saline,Total,0.0,11500000
+Oklahoma,Surface,Saline,Total,0.0,3750000
+Oregon,Surface,Saline,Total,0.0,3830000
+Pennsylvania,Surface,Saline,Total,0.0,12700000
+Rhode Island,Surface,Saline,Total,241.0,1050000
+South Carolina,Surface,Saline,Total,0.0,4630000
+South Dakota,Surface,Saline,Total,0.0,814000
+Tennessee,Surface,Saline,Total,0.0,6350000
+Texas,Surface,Saline,Total,1280.0,25100000
+Utah,Surface,Saline,Total,238.0,2760000
+Vermont,Surface,Saline,Total,0.0,626000
+Virginia,Surface,Saline,Total,3200.0,8000000
+Washington,Surface,Saline,Total,33.1,6720000
+West Virginia,Surface,Saline,Total,0.0,1850000
+Wisconsin,Surface,Saline,Total,0.0,5690000
+Wyoming,Surface,Saline,Total,0.0,564000
+Puerto Rico,Surface,Saline,Total,2270.0,3730000
+U.S. Virgin Islands,Surface,Saline,Total,124.0,106000
+Alabama,Groundwater,Fresh,Public Supply,280.0,4780000
+Alaska,Groundwater,Fresh,Public Supply,27.2,710000
+Arizona,Groundwater,Fresh,Public Supply,585.0,6390000
+Arkansas,Groundwater,Fresh,Public Supply,134.0,2920000
+California,Groundwater,Fresh,Public Supply,2830.0,37300000
+Colorado,Groundwater,Fresh,Public Supply,130.0,5030000
+Connecticut,Groundwater,Fresh,Public Supply,135.0,3570000
+Delaware,Groundwater,Fresh,Public Supply,44.8,898000
+District Of Columbia,Groundwater,Fresh,Public Supply,0.0,602000
+Florida,Groundwater,Fresh,Public Supply,2010.0,18800000
+Georgia,Groundwater,Fresh,Public Supply,243.0,9690000
+Hawaii,Groundwater,Fresh,Public Supply,258.0,1360000
+Idaho,Groundwater,Fresh,Public Supply,212.0,1570000
+Illinois,Groundwater,Fresh,Public Supply,367.0,12800000
+Indiana,Groundwater,Fresh,Public Supply,351.0,6480000
+Iowa,Groundwater,Fresh,Public Supply,309.0,3050000
+Kansas,Groundwater,Fresh,Public Supply,160.0,2850000
+Kentucky,Groundwater,Fresh,Public Supply,71.0,4340000
+Louisiana,Groundwater,Fresh,Public Supply,378.0,4530000
+Maine,Groundwater,Fresh,Public Supply,27.7,1330000
+Maryland,Groundwater,Fresh,Public Supply,89.2,5770000
+Massachusetts,Groundwater,Fresh,Public Supply,191.0,6550000
+Michigan,Groundwater,Fresh,Public Supply,204.0,9880000
+Minnesota,Groundwater,Fresh,Public Supply,353.0,5300000
+Mississippi,Groundwater,Fresh,Public Supply,349.0,2970000
+Missouri,Groundwater,Fresh,Public Supply,293.0,5990000
+Montana,Groundwater,Fresh,Public Supply,65.6,989000
+Nebraska,Groundwater,Fresh,Public Supply,234.0,1830000
+Nevada,Groundwater,Fresh,Public Supply,133.0,2700000
+New Hampshire,Groundwater,Fresh,Public Supply,34.7,1320000
+New Jersey,Groundwater,Fresh,Public Supply,398.0,8790000
+New Mexico,Groundwater,Fresh,Public Supply,211.0,2060000
+New York,Groundwater,Fresh,Public Supply,457.0,19400000
+North Carolina,Groundwater,Fresh,Public Supply,194.0,9540000
+North Dakota,Groundwater,Fresh,Public Supply,30.5,673000
+Ohio,Groundwater,Fresh,Public Supply,455.0,11500000
+Oklahoma,Groundwater,Fresh,Public Supply,130.0,3750000
+Oregon,Groundwater,Fresh,Public Supply,114.0,3830000
+Pennsylvania,Groundwater,Fresh,Public Supply,226.0,12700000
+Rhode Island,Groundwater,Fresh,Public Supply,15.8,1050000
+South Carolina,Groundwater,Fresh,Public Supply,114.0,4630000
+South Dakota,Groundwater,Fresh,Public Supply,74.3,814000
+Tennessee,Groundwater,Fresh,Public Supply,301.0,6350000
+Texas,Groundwater,Fresh,Public Supply,1130.0,25100000
+Utah,Groundwater,Fresh,Public Supply,364.0,2760000
+Vermont,Groundwater,Fresh,Public Supply,14.0,626000
+Virginia,Groundwater,Fresh,Public Supply,71.0,8000000
+Washington,Groundwater,Fresh,Public Supply,471.0,6720000
+West Virginia,Groundwater,Fresh,Public Supply,34.2,1850000
+Wisconsin,Groundwater,Fresh,Public Supply,261.0,5690000
+Wyoming,Groundwater,Fresh,Public Supply,51.5,564000
+Puerto Rico,Groundwater,Fresh,Public Supply,87.3,3730000
+U.S. Virgin Islands,Groundwater,Fresh,Public Supply,0.91,106000
+Alabama,Groundwater,Saline,Public Supply,0.0,4780000
+Alaska,Groundwater,Saline,Public Supply,0.0,710000
+Arizona,Groundwater,Saline,Public Supply,0.0,6390000
+Arkansas,Groundwater,Saline,Public Supply,0.0,2920000
+California,Groundwater,Saline,Public Supply,0.0,37300000
+Colorado,Groundwater,Saline,Public Supply,0.0,5030000
+Connecticut,Groundwater,Saline,Public Supply,0.0,3570000
+Delaware,Groundwater,Saline,Public Supply,0.0,898000
+District Of Columbia,Groundwater,Saline,Public Supply,0.0,602000
+Florida,Groundwater,Saline,Public Supply,0.0,18800000
+Georgia,Groundwater,Saline,Public Supply,0.0,9690000
+Hawaii,Groundwater,Saline,Public Supply,0.0,1360000
+Idaho,Groundwater,Saline,Public Supply,0.0,1570000
+Illinois,Groundwater,Saline,Public Supply,0.0,12800000
+Indiana,Groundwater,Saline,Public Supply,0.0,6480000
+Iowa,Groundwater,Saline,Public Supply,0.0,3050000
+Kansas,Groundwater,Saline,Public Supply,0.0,2850000
+Kentucky,Groundwater,Saline,Public Supply,0.0,4340000
+Louisiana,Groundwater,Saline,Public Supply,0.0,4530000
+Maine,Groundwater,Saline,Public Supply,0.0,1330000
+Maryland,Groundwater,Saline,Public Supply,0.0,5770000
+Massachusetts,Groundwater,Saline,Public Supply,0.0,6550000
+Michigan,Groundwater,Saline,Public Supply,0.0,9880000
+Minnesota,Groundwater,Saline,Public Supply,0.0,5300000
+Mississippi,Groundwater,Saline,Public Supply,0.0,2970000
+Missouri,Groundwater,Saline,Public Supply,0.0,5990000
+Montana,Groundwater,Saline,Public Supply,0.0,989000
+Nebraska,Groundwater,Saline,Public Supply,0.0,1830000
+Nevada,Groundwater,Saline,Public Supply,0.0,2700000
+New Hampshire,Groundwater,Saline,Public Supply,0.0,1320000
+New Jersey,Groundwater,Saline,Public Supply,0.0,8790000
+New Mexico,Groundwater,Saline,Public Supply,0.0,2060000
+New York,Groundwater,Saline,Public Supply,0.0,19400000
+North Carolina,Groundwater,Saline,Public Supply,0.0,9540000
+North Dakota,Groundwater,Saline,Public Supply,0.0,673000
+Ohio,Groundwater,Saline,Public Supply,0.0,11500000
+Oklahoma,Groundwater,Saline,Public Supply,0.0,3750000
+Oregon,Groundwater,Saline,Public Supply,0.0,3830000
+Pennsylvania,Groundwater,Saline,Public Supply,0.0,12700000
+Rhode Island,Groundwater,Saline,Public Supply,0.0,1050000
+South Carolina,Groundwater,Saline,Public Supply,0.0,4630000
+South Dakota,Groundwater,Saline,Public Supply,0.0,814000
+Tennessee,Groundwater,Saline,Public Supply,0.0,6350000
+Texas,Groundwater,Saline,Public Supply,0.0,25100000
+Utah,Groundwater,Saline,Public Supply,0.0,2760000
+Vermont,Groundwater,Saline,Public Supply,0.0,626000
+Virginia,Groundwater,Saline,Public Supply,0.0,8000000
+Washington,Groundwater,Saline,Public Supply,0.0,6720000
+West Virginia,Groundwater,Saline,Public Supply,0.0,1850000
+Wisconsin,Groundwater,Saline,Public Supply,0.0,5690000
+Wyoming,Groundwater,Saline,Public Supply,0.0,564000
+Puerto Rico,Groundwater,Saline,Public Supply,0.0,3730000
+U.S. Virgin Islands,Groundwater,Saline,Public Supply,0.0,106000
+Alabama,Groundwater,Fresh,Self Supplied,38.0,4780000
+Alaska,Groundwater,Fresh,Self Supplied,14.1,710000
+Arizona,Groundwater,Fresh,Self Supplied,27.2,6390000
+Arkansas,Groundwater,Fresh,Self Supplied,12.8,2920000
+California,Groundwater,Fresh,Self Supplied,142.0,37300000
+Colorado,Groundwater,Fresh,Self Supplied,37.9,5030000
+Connecticut,Groundwater,Fresh,Self Supplied,65.4,3570000
+Delaware,Groundwater,Fresh,Self Supplied,14.8,898000
+District Of Columbia,Groundwater,Fresh,Self Supplied,0.0,602000
+Florida,Groundwater,Fresh,Self Supplied,214.0,18800000
+Georgia,Groundwater,Fresh,Self Supplied,115.0,9690000
+Hawaii,Groundwater,Fresh,Self Supplied,1.85,1360000
+Idaho,Groundwater,Fresh,Self Supplied,79.0,1570000
+Illinois,Groundwater,Fresh,Self Supplied,92.4,12800000
+Indiana,Groundwater,Fresh,Self Supplied,126.0,6480000
+Iowa,Groundwater,Fresh,Self Supplied,38.4,3050000
+Kansas,Groundwater,Fresh,Self Supplied,14.9,2850000
+Kentucky,Groundwater,Fresh,Self Supplied,19.7,4340000
+Louisiana,Groundwater,Fresh,Self Supplied,47.0,4530000
+Maine,Groundwater,Fresh,Self Supplied,33.0,1330000
+Maryland,Groundwater,Fresh,Self Supplied,85.6,5770000
+Massachusetts,Groundwater,Fresh,Self Supplied,37.9,6550000
+Michigan,Groundwater,Fresh,Self Supplied,231.0,9880000
+Minnesota,Groundwater,Fresh,Self Supplied,79.0,5300000
+Mississippi,Groundwater,Fresh,Self Supplied,44.6,2970000
+Missouri,Groundwater,Fresh,Self Supplied,61.8,5990000
+Montana,Groundwater,Fresh,Self Supplied,21.2,989000
+Nebraska,Groundwater,Fresh,Self Supplied,44.0,1830000
+Nevada,Groundwater,Fresh,Self Supplied,29.8,2700000
+New Hampshire,Groundwater,Fresh,Self Supplied,33.3,1320000
+New Jersey,Groundwater,Fresh,Self Supplied,98.3,8790000
+New Mexico,Groundwater,Fresh,Self Supplied,25.8,2060000
+New York,Groundwater,Fresh,Self Supplied,152.0,19400000
+North Carolina,Groundwater,Fresh,Self Supplied,231.0,9540000
+North Dakota,Groundwater,Fresh,Self Supplied,3.68,673000
+Ohio,Groundwater,Fresh,Self Supplied,134.0,11500000
+Oklahoma,Groundwater,Fresh,Self Supplied,26.8,3750000
+Oregon,Groundwater,Fresh,Self Supplied,60.0,3830000
+Pennsylvania,Groundwater,Fresh,Self Supplied,201.0,12700000
+Rhode Island,Groundwater,Fresh,Self Supplied,8.02,1050000
+South Carolina,Groundwater,Fresh,Self Supplied,115.0,4630000
+South Dakota,Groundwater,Fresh,Self Supplied,5.37,814000
+Tennessee,Groundwater,Fresh,Self Supplied,38.7,6350000
+Texas,Groundwater,Fresh,Self Supplied,259.0,25100000
+Utah,Groundwater,Fresh,Self Supplied,8.44,2760000
+Vermont,Groundwater,Fresh,Self Supplied,13.6,626000
+Virginia,Groundwater,Fresh,Self Supplied,124.0,8000000
+Washington,Groundwater,Fresh,Self Supplied,113.0,6720000
+West Virginia,Groundwater,Fresh,Self Supplied,30.9,1850000
+Wisconsin,Groundwater,Fresh,Self Supplied,78.4,5690000
+Wyoming,Groundwater,Fresh,Self Supplied,8.55,564000
+Puerto Rico,Groundwater,Fresh,Self Supplied,2.41,3730000
+U.S. Virgin Islands,Groundwater,Saline,Self Supplied,0.0,106000
+Alabama,Groundwater,Saline,Self Supplied,0.0,4780000
+Alaska,Groundwater,Saline,Self Supplied,0.0,710000
+Arizona,Groundwater,Saline,Self Supplied,0.0,6390000
+Arkansas,Groundwater,Saline,Self Supplied,0.0,2920000
+California,Groundwater,Saline,Self Supplied,0.0,37300000
+Colorado,Groundwater,Saline,Self Supplied,0.0,5030000
+Connecticut,Groundwater,Saline,Self Supplied,0.0,3570000
+Delaware,Groundwater,Saline,Self Supplied,0.0,898000
+District Of Columbia,Groundwater,Saline,Self Supplied,0.0,602000
+Florida,Groundwater,Saline,Self Supplied,0.0,18800000
+Georgia,Groundwater,Saline,Self Supplied,0.0,9690000
+Hawaii,Groundwater,Saline,Self Supplied,0.0,1360000
+Idaho,Groundwater,Saline,Self Supplied,0.0,1570000
+Illinois,Groundwater,Saline,Self Supplied,0.0,12800000
+Indiana,Groundwater,Saline,Self Supplied,0.0,6480000
+Iowa,Groundwater,Saline,Self Supplied,0.0,3050000
+Kansas,Groundwater,Saline,Self Supplied,0.0,2850000
+Kentucky,Groundwater,Saline,Self Supplied,0.0,4340000
+Louisiana,Groundwater,Saline,Self Supplied,0.0,4530000
+Maine,Groundwater,Saline,Self Supplied,0.0,1330000
+Maryland,Groundwater,Saline,Self Supplied,0.0,5770000
+Massachusetts,Groundwater,Saline,Self Supplied,0.0,6550000
+Michigan,Groundwater,Saline,Self Supplied,0.0,9880000
+Minnesota,Groundwater,Saline,Self Supplied,0.0,5300000
+Mississippi,Groundwater,Saline,Self Supplied,0.0,2970000
+Missouri,Groundwater,Saline,Self Supplied,0.0,5990000
+Montana,Groundwater,Saline,Self Supplied,0.0,989000
+Nebraska,Groundwater,Saline,Self Supplied,0.0,1830000
+Nevada,Groundwater,Saline,Self Supplied,0.0,2700000
+New Hampshire,Groundwater,Saline,Self Supplied,0.0,1320000
+New Jersey,Groundwater,Saline,Self Supplied,0.0,8790000
+New Mexico,Groundwater,Saline,Self Supplied,0.0,2060000
+New York,Groundwater,Saline,Self Supplied,0.0,19400000
+North Carolina,Groundwater,Saline,Self Supplied,0.0,9540000
+North Dakota,Groundwater,Saline,Self Supplied,0.0,673000
+Ohio,Groundwater,Saline,Self Supplied,0.0,11500000
+Oklahoma,Groundwater,Saline,Self Supplied,0.0,3750000
+Oregon,Groundwater,Saline,Self Supplied,0.0,3830000
+Pennsylvania,Groundwater,Saline,Self Supplied,0.0,12700000
+Rhode Island,Groundwater,Saline,Self Supplied,0.0,1050000
+South Carolina,Groundwater,Saline,Self Supplied,0.0,4630000
+South Dakota,Groundwater,Saline,Self Supplied,0.0,814000
+Tennessee,Groundwater,Saline,Self Supplied,0.0,6350000
+Texas,Groundwater,Saline,Self Supplied,0.0,25100000
+Utah,Groundwater,Saline,Self Supplied,0.0,2760000
+Vermont,Groundwater,Saline,Self Supplied,0.0,626000
+Virginia,Groundwater,Saline,Self Supplied,0.0,8000000
+Washington,Groundwater,Saline,Self Supplied,0.0,6720000
+West Virginia,Groundwater,Saline,Self Supplied,0.0,1850000
+Wisconsin,Groundwater,Saline,Self Supplied,0.0,5690000
+Wyoming,Groundwater,Saline,Self Supplied,0.0,564000
+Puerto Rico,Groundwater,Saline,Self Supplied,0.0,3730000
+U.S. Virgin Islands,Groundwater,Saline,Self Supplied,0.0,106000
+Alabama,Groundwater,Fresh,Irrigation,84.9,4780000
+Alaska,Groundwater,Fresh,Irrigation,1.57,710000
+Arizona,Groundwater,Fresh,Irrigation,1690.0,6390000
+Arkansas,Groundwater,Fresh,Irrigation,7380.0,2920000
+California,Groundwater,Fresh,Irrigation,8690.0,37300000
+Colorado,Groundwater,Fresh,Irrigation,1300.0,5030000
+Connecticut,Groundwater,Fresh,Irrigation,0.85,3570000
+Delaware,Groundwater,Fresh,Irrigation,86.1,898000
+District Of Columbia,Groundwater,Fresh,Irrigation,0.05,602000
+Florida,Groundwater,Fresh,Irrigation,1580.0,18800000
+Georgia,Groundwater,Fresh,Irrigation,636.0,9690000
+Hawaii,Groundwater,Fresh,Irrigation,101.0,1360000
+Idaho,Groundwater,Fresh,Irrigation,3820.0,1570000
+Illinois,Groundwater,Fresh,Irrigation,208.0,12800000
+Indiana,Groundwater,Fresh,Irrigation,98.4,6480000
+Iowa,Groundwater,Fresh,Irrigation,41.6,3050000
+Kansas,Groundwater,Fresh,Irrigation,2880.0,2850000
+Kentucky,Groundwater,Fresh,Irrigation,1.65,4340000
+Louisiana,Groundwater,Fresh,Irrigation,670.0,4530000
+Maine,Groundwater,Fresh,Irrigation,2.51,1330000
+Maryland,Groundwater,Fresh,Irrigation,53.4,5770000
+Massachusetts,Groundwater,Fresh,Irrigation,118.0,6550000
+Michigan,Groundwater,Fresh,Irrigation,147.0,9880000
+Minnesota,Groundwater,Fresh,Irrigation,171.0,5300000
+Mississippi,Groundwater,Fresh,Irrigation,1960.0,2970000
+Missouri,Groundwater,Fresh,Irrigation,1350.0,5990000
+Montana,Groundwater,Fresh,Irrigation,127.0,989000
+Nebraska,Groundwater,Fresh,Irrigation,4300.0,1830000
+Nevada,Groundwater,Fresh,Irrigation,653.0,2700000
+New Hampshire,Groundwater,Fresh,Irrigation,1.25,1320000
+New Jersey,Groundwater,Fresh,Irrigation,67.6,8790000
+New Mexico,Groundwater,Fresh,Irrigation,1240.0,2060000
+New York,Groundwater,Fresh,Irrigation,30.2,19400000
+North Carolina,Groundwater,Fresh,Irrigation,88.3,9540000
+North Dakota,Groundwater,Fresh,Irrigation,77.5,673000
+Ohio,Groundwater,Fresh,Irrigation,17.2,11500000
+Oklahoma,Groundwater,Fresh,Irrigation,429.0,3750000
+Oregon,Groundwater,Fresh,Irrigation,1910.0,3830000
+Pennsylvania,Groundwater,Fresh,Irrigation,7.39,12700000
+Rhode Island,Groundwater,Fresh,Irrigation,2.3,1050000
+South Carolina,Groundwater,Fresh,Irrigation,67.7,4630000
+South Dakota,Groundwater,Fresh,Irrigation,198.0,814000
+Tennessee,Groundwater,Fresh,Irrigation,44.3,6350000
+Texas,Groundwater,Fresh,Irrigation,5100.0,25100000
+Utah,Groundwater,Fresh,Irrigation,494.0,2760000
+Vermont,Groundwater,Fresh,Irrigation,0.77,626000
+Virginia,Groundwater,Fresh,Irrigation,16.0,8000000
+Washington,Groundwater,Fresh,Irrigation,798.0,6720000
+West Virginia,Groundwater,Fresh,Irrigation,0.05,1850000
+Wisconsin,Groundwater,Fresh,Irrigation,256.0,5690000
+Wyoming,Groundwater,Fresh,Irrigation,437.0,564000
+Puerto Rico,Groundwater,Fresh,Irrigation,22.4,3730000
+U.S. Virgin Islands,Groundwater,Fresh,Irrigation,0.0,106000
+Alabama,Groundwater,Saline,Irrigation,0.0,4780000
+Alaska,Groundwater,Saline,Irrigation,0.0,710000
+Arizona,Groundwater,Saline,Irrigation,0.0,6390000
+Arkansas,Groundwater,Saline,Irrigation,0.0,2920000
+California,Groundwater,Saline,Irrigation,0.0,37300000
+Colorado,Groundwater,Saline,Irrigation,0.0,5030000
+Connecticut,Groundwater,Saline,Irrigation,0.0,3570000
+Delaware,Groundwater,Saline,Irrigation,0.0,898000
+District Of Columbia,Groundwater,Saline,Irrigation,0.0,602000
+Florida,Groundwater,Saline,Irrigation,0.0,18800000
+Georgia,Groundwater,Saline,Irrigation,0.0,9690000
+Hawaii,Groundwater,Saline,Irrigation,0.0,1360000
+Idaho,Groundwater,Saline,Irrigation,0.0,1570000
+Illinois,Groundwater,Saline,Irrigation,0.0,12800000
+Indiana,Groundwater,Saline,Irrigation,0.0,6480000
+Iowa,Groundwater,Saline,Irrigation,0.0,3050000
+Kansas,Groundwater,Saline,Irrigation,0.0,2850000
+Kentucky,Groundwater,Saline,Irrigation,0.0,4340000
+Louisiana,Groundwater,Saline,Irrigation,0.0,4530000
+Maine,Groundwater,Saline,Irrigation,0.0,1330000
+Maryland,Groundwater,Saline,Irrigation,0.0,5770000
+Massachusetts,Groundwater,Saline,Irrigation,0.0,6550000
+Michigan,Groundwater,Saline,Irrigation,0.0,9880000
+Minnesota,Groundwater,Saline,Irrigation,0.0,5300000
+Mississippi,Groundwater,Saline,Irrigation,0.0,2970000
+Missouri,Groundwater,Saline,Irrigation,0.0,5990000
+Montana,Groundwater,Saline,Irrigation,0.0,989000
+Nebraska,Groundwater,Saline,Irrigation,0.0,1830000
+Nevada,Groundwater,Saline,Irrigation,0.0,2700000
+New Hampshire,Groundwater,Saline,Irrigation,0.0,1320000
+New Jersey,Groundwater,Saline,Irrigation,0.0,8790000
+New Mexico,Groundwater,Saline,Irrigation,0.0,2060000
+New York,Groundwater,Saline,Irrigation,0.0,19400000
+North Carolina,Groundwater,Saline,Irrigation,0.0,9540000
+North Dakota,Groundwater,Saline,Irrigation,0.0,673000
+Ohio,Groundwater,Saline,Irrigation,0.0,11500000
+Oklahoma,Groundwater,Saline,Irrigation,0.0,3750000
+Oregon,Groundwater,Saline,Irrigation,0.0,3830000
+Pennsylvania,Groundwater,Saline,Irrigation,0.0,12700000
+Rhode Island,Groundwater,Saline,Irrigation,0.0,1050000
+South Carolina,Groundwater,Saline,Irrigation,0.0,4630000
+South Dakota,Groundwater,Saline,Irrigation,0.0,814000
+Tennessee,Groundwater,Saline,Irrigation,0.0,6350000
+Texas,Groundwater,Saline,Irrigation,0.0,25100000
+Utah,Groundwater,Saline,Irrigation,0.0,2760000
+Vermont,Groundwater,Saline,Irrigation,0.0,626000
+Virginia,Groundwater,Saline,Irrigation,0.0,8000000
+Washington,Groundwater,Saline,Irrigation,0.0,6720000
+West Virginia,Groundwater,Saline,Irrigation,0.0,1850000
+Wisconsin,Groundwater,Saline,Irrigation,0.0,5690000
+Wyoming,Groundwater,Saline,Irrigation,0.0,564000
+Puerto Rico,Groundwater,Saline,Irrigation,0.0,3730000
+U.S. Virgin Islands,Groundwater,Saline,Irrigation,0.0,106000
+Alabama,Groundwater,Fresh,Livestock,11.7,4780000
+Alaska,Groundwater,Fresh,Livestock,0.1,710000
+Arizona,Groundwater,Fresh,Livestock,27.0,6390000
+Arkansas,Groundwater,Fresh,Livestock,15.6,2920000
+California,Groundwater,Fresh,Livestock,84.4,37300000
+Colorado,Groundwater,Fresh,Livestock,25.1,5030000
+Connecticut,Groundwater,Fresh,Livestock,1.01,3570000
+Delaware,Groundwater,Fresh,Livestock,1.31,898000
+District Of Columbia,Groundwater,Fresh,Livestock,0.0,602000
+Florida,Groundwater,Fresh,Livestock,19.1,18800000
+Georgia,Groundwater,Fresh,Livestock,2.38,9690000
+Hawaii,Groundwater,Fresh,Livestock,0.63,1360000
+Idaho,Groundwater,Fresh,Livestock,38.5,1570000
+Illinois,Groundwater,Fresh,Livestock,36.0,12800000
+Indiana,Groundwater,Fresh,Livestock,26.2,6480000
+Iowa,Groundwater,Fresh,Livestock,102.0,3050000
+Kansas,Groundwater,Fresh,Livestock,91.0,2850000
+Kentucky,Groundwater,Fresh,Livestock,2.21,4340000
+Louisiana,Groundwater,Fresh,Livestock,4.15,4530000
+Maine,Groundwater,Fresh,Livestock,1.71,1330000
+Maryland,Groundwater,Fresh,Livestock,6.02,5770000
+Massachusetts,Groundwater,Fresh,Livestock,0.9,6550000
+Michigan,Groundwater,Fresh,Livestock,17.7,9880000
+Minnesota,Groundwater,Fresh,Livestock,59.3,5300000
+Mississippi,Groundwater,Fresh,Livestock,7.35,2970000
+Missouri,Groundwater,Fresh,Livestock,18.4,5990000
+Montana,Groundwater,Fresh,Livestock,12.4,989000
+Nebraska,Groundwater,Fresh,Livestock,93.0,1830000
+Nevada,Groundwater,Fresh,Livestock,5.06,2700000
+New Hampshire,Groundwater,Fresh,Livestock,0.67,1320000
+New Jersey,Groundwater,Fresh,Livestock,0.98,8790000
+New Mexico,Groundwater,Fresh,Livestock,32.8,2060000
+New York,Groundwater,Fresh,Livestock,14.6,19400000
+North Carolina,Groundwater,Fresh,Livestock,56.9,9540000
+North Dakota,Groundwater,Fresh,Livestock,12.9,673000
+Ohio,Groundwater,Fresh,Livestock,7.7,11500000
+Oklahoma,Groundwater,Fresh,Livestock,32.5,3750000
+Oregon,Groundwater,Fresh,Livestock,3.0,3830000
+Pennsylvania,Groundwater,Fresh,Livestock,45.6,12700000
+Rhode Island,Groundwater,Fresh,Livestock,0.17,1050000
+South Carolina,Groundwater,Fresh,Livestock,5.23,4630000
+South Dakota,Groundwater,Fresh,Livestock,19.1,814000
+Tennessee,Groundwater,Fresh,Livestock,14.0,6350000
+Texas,Groundwater,Fresh,Livestock,131.0,25100000
+Utah,Groundwater,Fresh,Livestock,7.77,2760000
+Vermont,Groundwater,Fresh,Livestock,4.22,626000
+Virginia,Groundwater,Fresh,Livestock,6.52,8000000
+Washington,Groundwater,Fresh,Livestock,19.2,6720000
+West Virginia,Groundwater,Fresh,Livestock,1.66,1850000
+Wisconsin,Groundwater,Fresh,Livestock,65.8,5690000
+Wyoming,Groundwater,Fresh,Livestock,6.14,564000
+Puerto Rico,Groundwater,Fresh,Livestock,5.57,3730000
+U.S. Virgin Islands,Groundwater,Fresh,Livestock,0.01,106000
+Alabama,Groundwater,Saline,Livestock,0.0,4780000
+Alaska,Groundwater,Saline,Livestock,0.0,710000
+Arizona,Groundwater,Saline,Livestock,0.0,6390000
+Arkansas,Groundwater,Saline,Livestock,0.0,2920000
+California,Groundwater,Saline,Livestock,0.0,37300000
+Colorado,Groundwater,Saline,Livestock,0.0,5030000
+Connecticut,Groundwater,Saline,Livestock,0.0,3570000
+Delaware,Groundwater,Saline,Livestock,0.0,898000
+District Of Columbia,Groundwater,Saline,Livestock,0.0,602000
+Florida,Groundwater,Saline,Livestock,0.0,18800000
+Georgia,Groundwater,Saline,Livestock,0.0,9690000
+Hawaii,Groundwater,Saline,Livestock,0.0,1360000
+Idaho,Groundwater,Saline,Livestock,0.0,1570000
+Illinois,Groundwater,Saline,Livestock,0.0,12800000
+Indiana,Groundwater,Saline,Livestock,0.0,6480000
+Iowa,Groundwater,Saline,Livestock,0.0,3050000
+Kansas,Groundwater,Saline,Livestock,0.0,2850000
+Kentucky,Groundwater,Saline,Livestock,0.0,4340000
+Louisiana,Groundwater,Saline,Livestock,0.0,4530000
+Maine,Groundwater,Saline,Livestock,0.0,1330000
+Maryland,Groundwater,Saline,Livestock,0.0,5770000
+Massachusetts,Groundwater,Saline,Livestock,0.0,6550000
+Michigan,Groundwater,Saline,Livestock,0.0,9880000
+Minnesota,Groundwater,Saline,Livestock,0.0,5300000
+Mississippi,Groundwater,Saline,Livestock,0.0,2970000
+Missouri,Groundwater,Saline,Livestock,0.0,5990000
+Montana,Groundwater,Saline,Livestock,0.0,989000
+Nebraska,Groundwater,Saline,Livestock,0.0,1830000
+Nevada,Groundwater,Saline,Livestock,0.0,2700000
+New Hampshire,Groundwater,Saline,Livestock,0.0,1320000
+New Jersey,Groundwater,Saline,Livestock,0.0,8790000
+New Mexico,Groundwater,Saline,Livestock,0.0,2060000
+New York,Groundwater,Saline,Livestock,0.0,19400000
+North Carolina,Groundwater,Saline,Livestock,0.0,9540000
+North Dakota,Groundwater,Saline,Livestock,0.0,673000
+Ohio,Groundwater,Saline,Livestock,0.0,11500000
+Oklahoma,Groundwater,Saline,Livestock,0.0,3750000
+Oregon,Groundwater,Saline,Livestock,0.0,3830000
+Pennsylvania,Groundwater,Saline,Livestock,0.0,12700000
+Rhode Island,Groundwater,Saline,Livestock,0.0,1050000
+South Carolina,Groundwater,Saline,Livestock,0.0,4630000
+South Dakota,Groundwater,Saline,Livestock,0.0,814000
+Tennessee,Groundwater,Saline,Livestock,0.0,6350000
+Texas,Groundwater,Saline,Livestock,0.0,25100000
+Utah,Groundwater,Saline,Livestock,0.0,2760000
+Vermont,Groundwater,Saline,Livestock,0.0,626000
+Virginia,Groundwater,Saline,Livestock,0.0,8000000
+Washington,Groundwater,Saline,Livestock,0.0,6720000
+West Virginia,Groundwater,Saline,Livestock,0.0,1850000
+Wisconsin,Groundwater,Saline,Livestock,0.0,5690000
+Wyoming,Groundwater,Saline,Livestock,0.0,564000
+Puerto Rico,Groundwater,Saline,Livestock,0.0,3730000
+U.S. Virgin Islands,Groundwater,Saline,Livestock,0.0,106000
+Alabama,Groundwater,Fresh,Aquaculture,32.4,4780000
+Alaska,Groundwater,Fresh,Aquaculture,429.0,710000
+Arizona,Groundwater,Fresh,Aquaculture,39.5,6390000
+Arkansas,Groundwater,Fresh,Aquaculture,181.0,2920000
+California,Groundwater,Fresh,Aquaculture,171.0,37300000
+Colorado,Groundwater,Fresh,Aquaculture,23.0,5030000
+Connecticut,Groundwater,Fresh,Aquaculture,6.67,3570000
+Delaware,Groundwater,Fresh,Aquaculture,0.06,898000
+District Of Columbia,Groundwater,Fresh,Aquaculture,0.0,602000
+Florida,Groundwater,Fresh,Aquaculture,1.86,18800000
+Georgia,Groundwater,Fresh,Aquaculture,3.92,9690000
+Hawaii,Groundwater,Fresh,Aquaculture,2.14,1360000
+Idaho,Groundwater,Fresh,Aquaculture,65.6,1570000
+Illinois,Groundwater,Fresh,Aquaculture,4.78,12800000
+Indiana,Groundwater,Fresh,Aquaculture,6.6,6480000
+Iowa,Groundwater,Fresh,Aquaculture,14.4,3050000
+Kansas,Groundwater,Fresh,Aquaculture,4.37,2850000
+Kentucky,Groundwater,Fresh,Aquaculture,0.53,4340000
+Louisiana,Groundwater,Fresh,Aquaculture,197.0,4530000
+Maine,Groundwater,Fresh,Aquaculture,25.8,1330000
+Maryland,Groundwater,Fresh,Aquaculture,5.06,5770000
+Massachusetts,Groundwater,Fresh,Aquaculture,7.23,6550000
+Michigan,Groundwater,Fresh,Aquaculture,4.21,9880000
+Minnesota,Groundwater,Fresh,Aquaculture,1.69,5300000
+Mississippi,Groundwater,Fresh,Aquaculture,113.0,2970000
+Missouri,Groundwater,Fresh,Aquaculture,10.5,5990000
+Montana,Groundwater,Fresh,Aquaculture,2.45,989000
+Nebraska,Groundwater,Fresh,Aquaculture,6.07,1830000
+Nevada,Groundwater,Fresh,Aquaculture,10.6,2700000
+New Hampshire,Groundwater,Fresh,Aquaculture,8.09,1320000
+New Jersey,Groundwater,Fresh,Aquaculture,9.16,8790000
+New Mexico,Groundwater,Fresh,Aquaculture,15.8,2060000
+New York,Groundwater,Fresh,Aquaculture,3.36,19400000
+North Carolina,Groundwater,Fresh,Aquaculture,11.5,9540000
+North Dakota,Groundwater,Fresh,Aquaculture,0.0,673000
+Ohio,Groundwater,Fresh,Aquaculture,15.4,11500000
+Oklahoma,Groundwater,Fresh,Aquaculture,3.25,3750000
+Oregon,Groundwater,Fresh,Aquaculture,33.4,3830000
+Pennsylvania,Groundwater,Fresh,Aquaculture,47.9,12700000
+Rhode Island,Groundwater,Fresh,Aquaculture,5.6,1050000
+South Carolina,Groundwater,Fresh,Aquaculture,2.0,4630000
+South Dakota,Groundwater,Fresh,Aquaculture,24.8,814000
+Tennessee,Groundwater,Fresh,Aquaculture,15.4,6350000
+Texas,Groundwater,Fresh,Aquaculture,9.13,25100000
+Utah,Groundwater,Fresh,Aquaculture,97.1,2760000
+Vermont,Groundwater,Fresh,Aquaculture,5.97,626000
+Virginia,Groundwater,Fresh,Aquaculture,9.39,8000000
+Washington,Groundwater,Fresh,Aquaculture,86.4,6720000
+West Virginia,Groundwater,Fresh,Aquaculture,11.7,1850000
+Wisconsin,Groundwater,Fresh,Aquaculture,25.5,5690000
+Wyoming,Groundwater,Fresh,Aquaculture,2.1,564000
+Puerto Rico,Groundwater,Fresh,Aquaculture,0.01,3730000
+U.S. Virgin Islands,Groundwater,Fresh,Aquaculture,0.0,106000
+Alabama,Groundwater,Saline,Aquaculture,0.0,4780000
+Alaska,Groundwater,Saline,Aquaculture,0.0,710000
+Arizona,Groundwater,Saline,Aquaculture,0.0,6390000
+Arkansas,Groundwater,Saline,Aquaculture,0.0,2920000
+California,Groundwater,Saline,Aquaculture,0.0,37300000
+Colorado,Groundwater,Saline,Aquaculture,0.0,5030000
+Connecticut,Groundwater,Saline,Aquaculture,0.0,3570000
+Delaware,Groundwater,Saline,Aquaculture,0.0,898000
+District Of Columbia,Groundwater,Saline,Aquaculture,0.0,602000
+Florida,Groundwater,Saline,Aquaculture,0.0,18800000
+Georgia,Groundwater,Saline,Aquaculture,0.0,9690000
+Hawaii,Groundwater,Saline,Aquaculture,0.0,1360000
+Idaho,Groundwater,Saline,Aquaculture,0.0,1570000
+Illinois,Groundwater,Saline,Aquaculture,0.0,12800000
+Indiana,Groundwater,Saline,Aquaculture,0.0,6480000
+Iowa,Groundwater,Saline,Aquaculture,0.0,3050000
+Kansas,Groundwater,Saline,Aquaculture,0.0,2850000
+Kentucky,Groundwater,Saline,Aquaculture,0.0,4340000
+Louisiana,Groundwater,Saline,Aquaculture,0.0,4530000
+Maine,Groundwater,Saline,Aquaculture,0.0,1330000
+Maryland,Groundwater,Saline,Aquaculture,0.0,5770000
+Massachusetts,Groundwater,Saline,Aquaculture,0.0,6550000
+Michigan,Groundwater,Saline,Aquaculture,0.0,9880000
+Minnesota,Groundwater,Saline,Aquaculture,0.0,5300000
+Mississippi,Groundwater,Saline,Aquaculture,0.0,2970000
+Missouri,Groundwater,Saline,Aquaculture,0.0,5990000
+Montana,Groundwater,Saline,Aquaculture,0.0,989000
+Nebraska,Groundwater,Saline,Aquaculture,0.0,1830000
+Nevada,Groundwater,Saline,Aquaculture,0.0,2700000
+New Hampshire,Groundwater,Saline,Aquaculture,0.0,1320000
+New Jersey,Groundwater,Saline,Aquaculture,0.0,8790000
+New Mexico,Groundwater,Saline,Aquaculture,0.0,2060000
+New York,Groundwater,Saline,Aquaculture,0.0,19400000
+North Carolina,Groundwater,Saline,Aquaculture,0.0,9540000
+North Dakota,Groundwater,Saline,Aquaculture,0.0,673000
+Ohio,Groundwater,Saline,Aquaculture,0.0,11500000
+Oklahoma,Groundwater,Saline,Aquaculture,0.0,3750000
+Oregon,Groundwater,Saline,Aquaculture,0.0,3830000
+Pennsylvania,Groundwater,Saline,Aquaculture,0.0,12700000
+Rhode Island,Groundwater,Saline,Aquaculture,0.0,1050000
+South Carolina,Groundwater,Saline,Aquaculture,0.0,4630000
+South Dakota,Groundwater,Saline,Aquaculture,0.0,814000
+Tennessee,Groundwater,Saline,Aquaculture,0.0,6350000
+Texas,Groundwater,Saline,Aquaculture,0.0,25100000
+Utah,Groundwater,Saline,Aquaculture,0.0,2760000
+Vermont,Groundwater,Saline,Aquaculture,0.0,626000
+Virginia,Groundwater,Saline,Aquaculture,0.0,8000000
+Washington,Groundwater,Saline,Aquaculture,0.0,6720000
+West Virginia,Groundwater,Saline,Aquaculture,0.0,1850000
+Wisconsin,Groundwater,Saline,Aquaculture,0.0,5690000
+Wyoming,Groundwater,Saline,Aquaculture,0.0,564000
+Puerto Rico,Groundwater,Saline,Aquaculture,0.0,3730000
+U.S. Virgin Islands,Groundwater,Saline,Aquaculture,0.0,106000
+Alabama,Groundwater,Fresh,Aquaculture,34.0,4780000
+Alaska,Groundwater,Fresh,Aquaculture,3.38,710000
+Arizona,Groundwater,Fresh,Aquaculture,12.9,6390000
+Arkansas,Groundwater,Fresh,Aquaculture,56.1,2920000
+California,Groundwater,Fresh,Aquaculture,399.0,37300000
+Colorado,Groundwater,Fresh,Aquaculture,3.45,5030000
+Connecticut,Groundwater,Fresh,Aquaculture,6.28,3570000
+Delaware,Groundwater,Fresh,Aquaculture,8.43,898000
+District Of Columbia,Groundwater,Fresh,Aquaculture,0.0,602000
+Florida,Groundwater,Fresh,Aquaculture,165.0,18800000
+Georgia,Groundwater,Fresh,Aquaculture,206.0,9690000
+Hawaii,Groundwater,Fresh,Aquaculture,4.63,1360000
+Idaho,Groundwater,Fresh,Aquaculture,32.6,1570000
+Illinois,Groundwater,Fresh,Aquaculture,124.0,12800000
+Indiana,Groundwater,Fresh,Aquaculture,82.2,6480000
+Iowa,Groundwater,Fresh,Aquaculture,123.0,3050000
+Kansas,Groundwater,Fresh,Aquaculture,33.5,2850000
+Kentucky,Groundwater,Fresh,Aquaculture,81.4,4340000
+Louisiana,Groundwater,Fresh,Aquaculture,231.0,4530000
+Maine,Groundwater,Fresh,Aquaculture,6.54,1330000
+Maryland,Groundwater,Fresh,Aquaculture,11.3,5770000
+Massachusetts,Groundwater,Fresh,Aquaculture,4.28,6550000
+Michigan,Groundwater,Fresh,Aquaculture,75.0,9880000
+Minnesota,Groundwater,Fresh,Aquaculture,61.8,5300000
+Mississippi,Groundwater,Fresh,Aquaculture,77.8,2970000
+Missouri,Groundwater,Fresh,Aquaculture,34.3,5990000
+Montana,Groundwater,Fresh,Aquaculture,36.9,989000
+Nebraska,Groundwater,Fresh,Aquaculture,28.8,1830000
+Nevada,Groundwater,Fresh,Aquaculture,0.7,2700000
+New Hampshire,Groundwater,Fresh,Aquaculture,10.6,1320000
+New Jersey,Groundwater,Fresh,Aquaculture,34.8,8790000
+New Mexico,Groundwater,Fresh,Aquaculture,10.3,2060000
+New York,Groundwater,Fresh,Aquaculture,35.9,19400000
+North Carolina,Groundwater,Fresh,Aquaculture,83.8,9540000
+North Dakota,Groundwater,Fresh,Aquaculture,5.77,673000
+Ohio,Groundwater,Fresh,Aquaculture,197.0,11500000
+Oklahoma,Groundwater,Fresh,Aquaculture,6.46,3750000
+Oregon,Groundwater,Fresh,Aquaculture,2.62,3830000
+Pennsylvania,Groundwater,Fresh,Aquaculture,73.8,12700000
+Rhode Island,Groundwater,Fresh,Aquaculture,4.17,1050000
+South Carolina,Groundwater,Fresh,Aquaculture,22.7,4630000
+South Dakota,Groundwater,Fresh,Aquaculture,6.85,814000
+Tennessee,Groundwater,Fresh,Aquaculture,47.6,6350000
+Texas,Groundwater,Fresh,Aquaculture,108.0,25100000
+Utah,Groundwater,Fresh,Aquaculture,31.2,2760000
+Vermont,Groundwater,Fresh,Aquaculture,2.0,626000
+Virginia,Groundwater,Fresh,Aquaculture,74.2,8000000
+Washington,Groundwater,Fresh,Aquaculture,99.4,6720000
+West Virginia,Groundwater,Fresh,Aquaculture,35.1,1850000
+Wisconsin,Groundwater,Fresh,Aquaculture,54.3,5690000
+Wyoming,Groundwater,Fresh,Aquaculture,4.92,564000
+Puerto Rico,Groundwater,Fresh,Aquaculture,4.3,3730000
+U.S. Virgin Islands,Groundwater,Fresh,Aquaculture,0.22,106000
+Alabama,Groundwater,Saline,Aquaculture,0.0,4780000
+Alaska,Groundwater,Saline,Aquaculture,0.0,710000
+Arizona,Groundwater,Saline,Aquaculture,0.0,6390000
+Arkansas,Groundwater,Saline,Aquaculture,5.05,2920000
+California,Groundwater,Saline,Aquaculture,0.0,37300000
+Colorado,Groundwater,Saline,Aquaculture,0.0,5030000
+Connecticut,Groundwater,Saline,Aquaculture,0.0,3570000
+Delaware,Groundwater,Saline,Aquaculture,0.0,898000
+District Of Columbia,Groundwater,Saline,Aquaculture,0.0,602000
+Florida,Groundwater,Saline,Aquaculture,0.0,18800000
+Georgia,Groundwater,Saline,Aquaculture,0.0,9690000
+Hawaii,Groundwater,Saline,Aquaculture,0.0,1360000
+Idaho,Groundwater,Saline,Aquaculture,0.0,1570000
+Illinois,Groundwater,Saline,Aquaculture,0.0,12800000
+Indiana,Groundwater,Saline,Aquaculture,0.0,6480000
+Iowa,Groundwater,Saline,Aquaculture,0.0,3050000
+Kansas,Groundwater,Saline,Aquaculture,0.0,2850000
+Kentucky,Groundwater,Saline,Aquaculture,0.0,4340000
+Louisiana,Groundwater,Saline,Aquaculture,0.0,4530000
+Maine,Groundwater,Saline,Aquaculture,0.0,1330000
+Maryland,Groundwater,Saline,Aquaculture,0.0,5770000
+Massachusetts,Groundwater,Saline,Aquaculture,0.0,6550000
+Michigan,Groundwater,Saline,Aquaculture,0.0,9880000
+Minnesota,Groundwater,Saline,Aquaculture,0.0,5300000
+Mississippi,Groundwater,Saline,Aquaculture,0.0,2970000
+Missouri,Groundwater,Saline,Aquaculture,0.0,5990000
+Montana,Groundwater,Saline,Aquaculture,0.0,989000
+Nebraska,Groundwater,Saline,Aquaculture,0.0,1830000
+Nevada,Groundwater,Saline,Aquaculture,0.0,2700000
+New Hampshire,Groundwater,Saline,Aquaculture,0.0,1320000
+New Jersey,Groundwater,Saline,Aquaculture,0.0,8790000
+New Mexico,Groundwater,Saline,Aquaculture,0.0,2060000
+New York,Groundwater,Saline,Aquaculture,0.0,19400000
+North Carolina,Groundwater,Saline,Aquaculture,0.0,9540000
+North Dakota,Groundwater,Saline,Aquaculture,0.0,673000
+Ohio,Groundwater,Saline,Aquaculture,0.0,11500000
+Oklahoma,Groundwater,Saline,Aquaculture,0.0,3750000
+Oregon,Groundwater,Saline,Aquaculture,0.0,3830000
+Pennsylvania,Groundwater,Saline,Aquaculture,0.0,12700000
+Rhode Island,Groundwater,Saline,Aquaculture,0.0,1050000
+South Carolina,Groundwater,Saline,Aquaculture,0.0,4630000
+South Dakota,Groundwater,Saline,Aquaculture,0.0,814000
+Tennessee,Groundwater,Saline,Aquaculture,0.0,6350000
+Texas,Groundwater,Saline,Aquaculture,2.04,25100000
+Utah,Groundwater,Saline,Aquaculture,37.5,2760000
+Vermont,Groundwater,Saline,Aquaculture,0.0,626000
+Virginia,Groundwater,Saline,Aquaculture,0.02,8000000
+Washington,Groundwater,Saline,Aquaculture,0.0,6720000
+West Virginia,Groundwater,Saline,Aquaculture,3.8,1850000
+Wisconsin,Groundwater,Saline,Aquaculture,0.0,5690000
+Wyoming,Groundwater,Saline,Aquaculture,0.0,564000
+Puerto Rico,Groundwater,Saline,Aquaculture,0.0,3730000
+U.S. Virgin Islands,Groundwater,Saline,Aquaculture,0.0,106000
+Alabama,Groundwater,Fresh,Mining,12.7,4780000
+Alaska,Groundwater,Fresh,Mining,0.01,710000
+Arizona,Groundwater,Fresh,Mining,86.6,6390000
+Arkansas,Groundwater,Fresh,Mining,0.18,2920000
+California,Groundwater,Fresh,Mining,24.1,37300000
+Colorado,Groundwater,Fresh,Mining,5.46,5030000
+Connecticut,Groundwater,Fresh,Mining,0.92,3570000
+Delaware,Groundwater,Fresh,Mining,0.44,898000
+District Of Columbia,Groundwater,Fresh,Mining,0.0,602000
+Florida,Groundwater,Fresh,Mining,78.8,18800000
+Georgia,Groundwater,Fresh,Mining,19.3,9690000
+Hawaii,Groundwater,Fresh,Mining,1.4,1360000
+Idaho,Groundwater,Fresh,Mining,1.28,1570000
+Illinois,Groundwater,Fresh,Mining,15.5,12800000
+Indiana,Groundwater,Fresh,Mining,4.52,6480000
+Iowa,Groundwater,Fresh,Mining,1.53,3050000
+Kansas,Groundwater,Fresh,Mining,9.34,2850000
+Kentucky,Groundwater,Fresh,Mining,7.8,4340000
+Louisiana,Groundwater,Fresh,Mining,5.32,4530000
+Maine,Groundwater,Fresh,Mining,1.14,1330000
+Maryland,Groundwater,Fresh,Mining,7.25,5770000
+Massachusetts,Groundwater,Fresh,Mining,1.82,6550000
+Michigan,Groundwater,Fresh,Mining,10.1,9880000
+Minnesota,Groundwater,Fresh,Mining,8.32,5300000
+Mississippi,Groundwater,Fresh,Mining,8.23,2970000
+Missouri,Groundwater,Fresh,Mining,24.4,5990000
+Montana,Groundwater,Fresh,Mining,1.73,989000
+Nebraska,Groundwater,Fresh,Mining,0.09,1830000
+Nevada,Groundwater,Fresh,Mining,341.0,2700000
+New Hampshire,Groundwater,Fresh,Mining,0.01,1320000
+New Jersey,Groundwater,Fresh,Mining,1.73,8790000
+New Mexico,Groundwater,Fresh,Mining,27.4,2060000
+New York,Groundwater,Fresh,Mining,8.34,19400000
+North Carolina,Groundwater,Fresh,Mining,27.8,9540000
+North Dakota,Groundwater,Fresh,Mining,8.73,673000
+Ohio,Groundwater,Fresh,Mining,79.0,11500000
+Oklahoma,Groundwater,Fresh,Mining,4.75,3750000
+Oregon,Groundwater,Fresh,Mining,7.47,3830000
+Pennsylvania,Groundwater,Fresh,Mining,51.4,12700000
+Rhode Island,Groundwater,Fresh,Mining,0.43,1050000
+South Carolina,Groundwater,Fresh,Mining,6.69,4630000
+South Dakota,Groundwater,Fresh,Mining,7.22,814000
+Tennessee,Groundwater,Fresh,Mining,6.89,6350000
+Texas,Groundwater,Fresh,Mining,122.0,25100000
+Utah,Groundwater,Fresh,Mining,2.59,2760000
+Vermont,Groundwater,Fresh,Mining,0.32,626000
+Virginia,Groundwater,Fresh,Mining,6.56,8000000
+Washington,Groundwater,Fresh,Mining,13.4,6720000
+West Virginia,Groundwater,Fresh,Mining,5.53,1850000
+Wisconsin,Groundwater,Fresh,Mining,10.9,5690000
+Wyoming,Groundwater,Fresh,Mining,37.1,564000
+Puerto Rico,Groundwater,Fresh,Mining,1.43,3730000
+U.S. Virgin Islands,Groundwater,Fresh,Mining,0.0,106000
+Alabama,Groundwater,Saline,Mining,0.0,4780000
+Alaska,Groundwater,Saline,Mining,144.0,710000
+Arizona,Groundwater,Saline,Mining,0.0,6390000
+Arkansas,Groundwater,Saline,Mining,0.0,2920000
+California,Groundwater,Saline,Mining,236.0,37300000
+Colorado,Groundwater,Saline,Mining,19.4,5030000
+Connecticut,Groundwater,Saline,Mining,0.0,3570000
+Delaware,Groundwater,Saline,Mining,0.0,898000
+District Of Columbia,Groundwater,Saline,Mining,0.0,602000
+Florida,Groundwater,Saline,Mining,0.0,18800000
+Georgia,Groundwater,Saline,Mining,0.0,9690000
+Hawaii,Groundwater,Saline,Mining,0.0,1360000
+Idaho,Groundwater,Saline,Mining,0.0,1570000
+Illinois,Groundwater,Saline,Mining,25.5,12800000
+Indiana,Groundwater,Saline,Mining,0.0,6480000
+Iowa,Groundwater,Saline,Mining,0.0,3050000
+Kansas,Groundwater,Saline,Mining,0.0,2850000
+Kentucky,Groundwater,Saline,Mining,0.0,4340000
+Louisiana,Groundwater,Saline,Mining,0.0,4530000
+Maine,Groundwater,Saline,Mining,0.0,1330000
+Maryland,Groundwater,Saline,Mining,0.0,5770000
+Massachusetts,Groundwater,Saline,Mining,0.0,6550000
+Michigan,Groundwater,Saline,Mining,0.57,9880000
+Minnesota,Groundwater,Saline,Mining,0.0,5300000
+Mississippi,Groundwater,Saline,Mining,12.6,2970000
+Missouri,Groundwater,Saline,Mining,0.0,5990000
+Montana,Groundwater,Saline,Mining,18.6,989000
+Nebraska,Groundwater,Saline,Mining,0.13,1830000
+Nevada,Groundwater,Saline,Mining,0.95,2700000
+New Hampshire,Groundwater,Saline,Mining,0.0,1320000
+New Jersey,Groundwater,Saline,Mining,0.0,8790000
+New Mexico,Groundwater,Saline,Mining,0.0,2060000
+New York,Groundwater,Saline,Mining,0.0,19400000
+North Carolina,Groundwater,Saline,Mining,0.0,9540000
+North Dakota,Groundwater,Saline,Mining,13.6,673000
+Ohio,Groundwater,Saline,Mining,0.0,11500000
+Oklahoma,Groundwater,Saline,Mining,1400.0,3750000
+Oregon,Groundwater,Saline,Mining,0.0,3830000
+Pennsylvania,Groundwater,Saline,Mining,0.0,12700000
+Rhode Island,Groundwater,Saline,Mining,0.0,1050000
+South Carolina,Groundwater,Saline,Mining,0.0,4630000
+South Dakota,Groundwater,Saline,Mining,0.0,814000
+Tennessee,Groundwater,Saline,Mining,0.0,6350000
+Texas,Groundwater,Saline,Mining,810.0,25100000
+Utah,Groundwater,Saline,Mining,41.6,2760000
+Vermont,Groundwater,Saline,Mining,0.0,626000
+Virginia,Groundwater,Saline,Mining,0.0,8000000
+Washington,Groundwater,Saline,Mining,0.0,6720000
+West Virginia,Groundwater,Saline,Mining,1.02,1850000
+Wisconsin,Groundwater,Saline,Mining,0.0,5690000
+Wyoming,Groundwater,Saline,Mining,67.1,564000
+Puerto Rico,Groundwater,Saline,Mining,0.32,3730000
+U.S. Virgin Islands,Groundwater,Saline,Mining,0.0,106000
+Alabama,Groundwater,Fresh,Thermoelectric,0.0,4780000
+Alaska,Groundwater,Fresh,Thermoelectric,2.19,710000
+Arizona,Groundwater,Fresh,Thermoelectric,77.3,6390000
+Arkansas,Groundwater,Fresh,Thermoelectric,4.26,2920000
+California,Groundwater,Fresh,Thermoelectric,33.1,37300000
+Colorado,Groundwater,Fresh,Thermoelectric,16.8,5030000
+Connecticut,Groundwater,Fresh,Thermoelectric,0.0,3570000
+Delaware,Groundwater,Fresh,Thermoelectric,0.37,898000
+District Of Columbia,Groundwater,Fresh,Thermoelectric,0.0,602000
+Florida,Groundwater,Fresh,Thermoelectric,43.5,18800000
+Georgia,Groundwater,Fresh,Thermoelectric,2.92,9690000
+Hawaii,Groundwater,Fresh,Thermoelectric,53.2,1360000
+Idaho,Groundwater,Fresh,Thermoelectric,0.88,1570000
+Illinois,Groundwater,Fresh,Thermoelectric,5.65,12800000
+Indiana,Groundwater,Fresh,Thermoelectric,24.6,6480000
+Iowa,Groundwater,Fresh,Thermoelectric,21.2,3050000
+Kansas,Groundwater,Fresh,Thermoelectric,11.2,2850000
+Kentucky,Groundwater,Fresh,Thermoelectric,15.3,4340000
+Louisiana,Groundwater,Fresh,Thermoelectric,41.1,4530000
+Maine,Groundwater,Fresh,Thermoelectric,0.96,1330000
+Maryland,Groundwater,Fresh,Thermoelectric,2.25,5770000
+Massachusetts,Groundwater,Fresh,Thermoelectric,0.21,6550000
+Michigan,Groundwater,Fresh,Thermoelectric,4.12,9880000
+Minnesota,Groundwater,Fresh,Thermoelectric,2.34,5300000
+Mississippi,Groundwater,Fresh,Thermoelectric,50.0,2970000
+Missouri,Groundwater,Fresh,Thermoelectric,19.9,5990000
+Montana,Groundwater,Fresh,Thermoelectric,0.85,989000
+Nebraska,Groundwater,Fresh,Thermoelectric,5.25,1830000
+Nevada,Groundwater,Fresh,Thermoelectric,17.9,2700000
+New Hampshire,Groundwater,Fresh,Thermoelectric,1.02,1320000
+New Jersey,Groundwater,Fresh,Thermoelectric,1.57,8790000
+New Mexico,Groundwater,Fresh,Thermoelectric,9.59,2060000
+New York,Groundwater,Fresh,Thermoelectric,2.39,19400000
+North Carolina,Groundwater,Fresh,Thermoelectric,0.37,9540000
+North Dakota,Groundwater,Fresh,Thermoelectric,0.0,673000
+Ohio,Groundwater,Fresh,Thermoelectric,23.0,11500000
+Oklahoma,Groundwater,Fresh,Thermoelectric,1.26,3750000
+Oregon,Groundwater,Fresh,Thermoelectric,1.48,3830000
+Pennsylvania,Groundwater,Fresh,Thermoelectric,4.49,12700000
+Rhode Island,Groundwater,Fresh,Thermoelectric,0.0,1050000
+South Carolina,Groundwater,Fresh,Thermoelectric,4.86,4630000
+South Dakota,Groundwater,Fresh,Thermoelectric,3.34,814000
+Tennessee,Groundwater,Fresh,Thermoelectric,1.78,6350000
+Texas,Groundwater,Fresh,Thermoelectric,38.8,25100000
+Utah,Groundwater,Fresh,Thermoelectric,24.0,2760000
+Vermont,Groundwater,Fresh,Thermoelectric,0.74,626000
+Virginia,Groundwater,Fresh,Thermoelectric,1.55,8000000
+Washington,Groundwater,Fresh,Thermoelectric,1.57,6720000
+West Virginia,Groundwater,Fresh,Thermoelectric,1.4,1850000
+Wisconsin,Groundwater,Fresh,Thermoelectric,2.78,5690000
+Wyoming,Groundwater,Fresh,Thermoelectric,2.29,564000
+Puerto Rico,Groundwater,Fresh,Thermoelectric,1.17,3730000
+U.S. Virgin Islands,Groundwater,Fresh,Thermoelectric,0.0,106000
+Alabama,Groundwater,Saline,Thermoelectric,0.0,4780000
+Alaska,Groundwater,Saline,Thermoelectric,0.0,710000
+Arizona,Groundwater,Saline,Thermoelectric,0.0,6390000
+Arkansas,Groundwater,Saline,Thermoelectric,0.0,2920000
+California,Groundwater,Saline,Thermoelectric,48.4,37300000
+Colorado,Groundwater,Saline,Thermoelectric,0.0,5030000
+Connecticut,Groundwater,Saline,Thermoelectric,0.0,3570000
+Delaware,Groundwater,Saline,Thermoelectric,0.0,898000
+District Of Columbia,Groundwater,Saline,Thermoelectric,0.0,602000
+Florida,Groundwater,Saline,Thermoelectric,6.54,18800000
+Georgia,Groundwater,Saline,Thermoelectric,0.0,9690000
+Hawaii,Groundwater,Saline,Thermoelectric,50.8,1360000
+Idaho,Groundwater,Saline,Thermoelectric,0.0,1570000
+Illinois,Groundwater,Saline,Thermoelectric,0.0,12800000
+Indiana,Groundwater,Saline,Thermoelectric,0.0,6480000
+Iowa,Groundwater,Saline,Thermoelectric,0.0,3050000
+Kansas,Groundwater,Saline,Thermoelectric,0.0,2850000
+Kentucky,Groundwater,Saline,Thermoelectric,0.0,4340000
+Louisiana,Groundwater,Saline,Thermoelectric,0.0,4530000
+Maine,Groundwater,Saline,Thermoelectric,0.0,1330000
+Maryland,Groundwater,Saline,Thermoelectric,0.0,5770000
+Massachusetts,Groundwater,Saline,Thermoelectric,0.0,6550000
+Michigan,Groundwater,Saline,Thermoelectric,0.0,9880000
+Minnesota,Groundwater,Saline,Thermoelectric,0.0,5300000
+Mississippi,Groundwater,Saline,Thermoelectric,7.05,2970000
+Missouri,Groundwater,Saline,Thermoelectric,0.0,5990000
+Montana,Groundwater,Saline,Thermoelectric,0.0,989000
+Nebraska,Groundwater,Saline,Thermoelectric,0.0,1830000
+Nevada,Groundwater,Saline,Thermoelectric,11.0,2700000
+New Hampshire,Groundwater,Saline,Thermoelectric,0.0,1320000
+New Jersey,Groundwater,Saline,Thermoelectric,0.0,8790000
+New Mexico,Groundwater,Saline,Thermoelectric,0.0,2060000
+New York,Groundwater,Saline,Thermoelectric,0.0,19400000
+North Carolina,Groundwater,Saline,Thermoelectric,0.0,9540000
+North Dakota,Groundwater,Saline,Thermoelectric,0.0,673000
+Ohio,Groundwater,Saline,Thermoelectric,0.0,11500000
+Oklahoma,Groundwater,Saline,Thermoelectric,0.0,3750000
+Oregon,Groundwater,Saline,Thermoelectric,0.0,3830000
+Pennsylvania,Groundwater,Saline,Thermoelectric,0.0,12700000
+Rhode Island,Groundwater,Saline,Thermoelectric,0.0,1050000
+South Carolina,Groundwater,Saline,Thermoelectric,0.0,4630000
+South Dakota,Groundwater,Saline,Thermoelectric,0.0,814000
+Tennessee,Groundwater,Saline,Thermoelectric,0.0,6350000
+Texas,Groundwater,Saline,Thermoelectric,0.0,25100000
+Utah,Groundwater,Saline,Thermoelectric,10.5,2760000
+Vermont,Groundwater,Saline,Thermoelectric,0.0,626000
+Virginia,Groundwater,Saline,Thermoelectric,0.0,8000000
+Washington,Groundwater,Saline,Thermoelectric,0.0,6720000
+West Virginia,Groundwater,Saline,Thermoelectric,0.0,1850000
+Wisconsin,Groundwater,Saline,Thermoelectric,0.0,5690000
+Wyoming,Groundwater,Saline,Thermoelectric,0.0,564000
+Puerto Rico,Groundwater,Saline,Thermoelectric,0.0,3730000
+U.S. Virgin Islands,Groundwater,Saline,Thermoelectric,0.0,106000
+Alabama,Groundwater,Fresh,Total,494.0,4780000
+Alaska,Groundwater,Fresh,Total,478.0,710000
+Arizona,Groundwater,Fresh,Total,2550.0,6390000
+Arkansas,Groundwater,Fresh,Total,7780.0,2920000
+California,Groundwater,Fresh,Total,12300.0,37300000
+Colorado,Groundwater,Fresh,Total,1540.0,5030000
+Connecticut,Groundwater,Fresh,Total,216.0,3570000
+Delaware,Groundwater,Fresh,Total,156.0,898000
+District Of Columbia,Groundwater,Fresh,Total,0.05,602000
+Florida,Groundwater,Fresh,Total,3970.0,18800000
+Georgia,Groundwater,Fresh,Total,1230.0,9690000
+Hawaii,Groundwater,Fresh,Total,423.0,1360000
+Idaho,Groundwater,Fresh,Total,4250.0,1570000
+Illinois,Groundwater,Fresh,Total,853.0,12800000
+Indiana,Groundwater,Fresh,Total,720.0,6480000
+Iowa,Groundwater,Fresh,Total,650.0,3050000
+Kansas,Groundwater,Fresh,Total,3200.0,2850000
+Kentucky,Groundwater,Fresh,Total,199.0,4340000
+Louisiana,Groundwater,Fresh,Total,1570.0,4530000
+Maine,Groundwater,Fresh,Total,99.4,1330000
+Maryland,Groundwater,Fresh,Total,260.0,5770000
+Massachusetts,Groundwater,Fresh,Total,361.0,6550000
+Michigan,Groundwater,Fresh,Total,693.0,9880000
+Minnesota,Groundwater,Fresh,Total,736.0,5300000
+Mississippi,Groundwater,Fresh,Total,2610.0,2970000
+Missouri,Groundwater,Fresh,Total,1810.0,5990000
+Montana,Groundwater,Fresh,Total,268.0,989000
+Nebraska,Groundwater,Fresh,Total,4710.0,1830000
+Nevada,Groundwater,Fresh,Total,1190.0,2700000
+New Hampshire,Groundwater,Fresh,Total,89.7,1320000
+New Jersey,Groundwater,Fresh,Total,612.0,8790000
+New Mexico,Groundwater,Fresh,Total,1570.0,2060000
+New York,Groundwater,Fresh,Total,704.0,19400000
+North Carolina,Groundwater,Fresh,Total,694.0,9540000
+North Dakota,Groundwater,Fresh,Total,139.0,673000
+Ohio,Groundwater,Fresh,Total,929.0,11500000
+Oklahoma,Groundwater,Fresh,Total,635.0,3750000
+Oregon,Groundwater,Fresh,Total,2130.0,3830000
+Pennsylvania,Groundwater,Fresh,Total,657.0,12700000
+Rhode Island,Groundwater,Fresh,Total,36.5,1050000
+South Carolina,Groundwater,Fresh,Total,339.0,4630000
+South Dakota,Groundwater,Fresh,Total,339.0,814000
+Tennessee,Groundwater,Fresh,Total,470.0,6350000
+Texas,Groundwater,Fresh,Total,6830.0,25100000
+Utah,Groundwater,Fresh,Total,1030.0,2760000
+Vermont,Groundwater,Fresh,Total,41.6,626000
+Virginia,Groundwater,Fresh,Total,299.0,8000000
+Washington,Groundwater,Fresh,Total,1600.0,6720000
+West Virginia,Groundwater,Fresh,Total,121.0,1850000
+Wisconsin,Groundwater,Fresh,Total,754.0,5690000
+Wyoming,Groundwater,Fresh,Total,550.0,564000
+Puerto Rico,Groundwater,Fresh,Total,125.0,3730000
+U.S. Virgin Islands,Groundwater,Fresh,Total,1.14,106000
+Alabama,Groundwater,Saline,Total,0.0,4780000
+Alaska,Groundwater,Saline,Total,144.0,710000
+Arizona,Groundwater,Saline,Total,0.0,6390000
+Arkansas,Groundwater,Saline,Total,5.05,2920000
+California,Groundwater,Saline,Total,369.0,37300000
+Colorado,Groundwater,Saline,Total,19.4,5030000
+Connecticut,Groundwater,Saline,Total,0.0,3570000
+Delaware,Groundwater,Saline,Total,0.0,898000
+District Of Columbia,Groundwater,Saline,Total,0.0,602000
+Florida,Groundwater,Saline,Total,154.0,18800000
+Georgia,Groundwater,Saline,Total,0.0,9690000
+Hawaii,Groundwater,Saline,Total,50.8,1360000
+Idaho,Groundwater,Saline,Total,0.0,1570000
+Illinois,Groundwater,Saline,Total,25.5,12800000
+Indiana,Groundwater,Saline,Total,0.0,6480000
+Iowa,Groundwater,Saline,Total,0.0,3050000
+Kansas,Groundwater,Saline,Total,0.0,2850000
+Kentucky,Groundwater,Saline,Total,0.0,4340000
+Louisiana,Groundwater,Saline,Total,0.0,4530000
+Maine,Groundwater,Saline,Total,0.0,1330000
+Maryland,Groundwater,Saline,Total,0.0,5770000
+Massachusetts,Groundwater,Saline,Total,0.0,6550000
+Michigan,Groundwater,Saline,Total,0.57,9880000
+Minnesota,Groundwater,Saline,Total,0.0,5300000
+Mississippi,Groundwater,Saline,Total,19.6,2970000
+Missouri,Groundwater,Saline,Total,0.0,5990000
+Montana,Groundwater,Saline,Total,18.6,989000
+Nebraska,Groundwater,Saline,Total,0.13,1830000
+Nevada,Groundwater,Saline,Total,11.9,2700000
+New Hampshire,Groundwater,Saline,Total,0.0,1320000
+New Jersey,Groundwater,Saline,Total,0.0,8790000
+New Mexico,Groundwater,Saline,Total,0.0,2060000
+New York,Groundwater,Saline,Total,0.0,19400000
+North Carolina,Groundwater,Saline,Total,0.0,9540000
+North Dakota,Groundwater,Saline,Total,13.6,673000
+Ohio,Groundwater,Saline,Total,0.0,11500000
+Oklahoma,Groundwater,Saline,Total,1400.0,3750000
+Oregon,Groundwater,Saline,Total,0.0,3830000
+Pennsylvania,Groundwater,Saline,Total,0.0,12700000
+Rhode Island,Groundwater,Saline,Total,0.0,1050000
+South Carolina,Groundwater,Saline,Total,0.0,4630000
+South Dakota,Groundwater,Saline,Total,0.0,814000
+Tennessee,Groundwater,Saline,Total,0.0,6350000
+Texas,Groundwater,Saline,Total,884.0,25100000
+Utah,Groundwater,Saline,Total,92.6,2760000
+Vermont,Groundwater,Saline,Total,0.0,626000
+Virginia,Groundwater,Saline,Total,9.97,8000000
+Washington,Groundwater,Saline,Total,0.0,6720000
+West Virginia,Groundwater,Saline,Total,4.82,1850000
+Wisconsin,Groundwater,Saline,Total,0.0,5690000
+Wyoming,Groundwater,Saline,Total,67.1,564000
+Puerto Rico,Groundwater,Saline,Total,0.32,3730000
+U.S. Virgin Islands,Groundwater,Saline,Total,0.0,106000
+Alabama,Groundwater,Fresh,Industrial,0.0,4780000
+Alaska,Groundwater,Fresh,Industrial,0.0,710000
+Arizona,Groundwater,Fresh,Industrial,0.0,6390000
+Arkansas,Groundwater,Fresh,Industrial,0.0,2920000
+California,Groundwater,Fresh,Industrial,0.0,37300000
+Colorado,Groundwater,Fresh,Industrial,0.0,5030000
+Connecticut,Groundwater,Fresh,Industrial,0.0,3570000
+Delaware,Groundwater,Fresh,Industrial,0.0,898000
+District Of Columbia,Groundwater,Fresh,Industrial,0.0,602000
+Florida,Groundwater,Fresh,Industrial,0.0,18800000
+Georgia,Groundwater,Fresh,Industrial,0.0,9690000
+Hawaii,Groundwater,Fresh,Industrial,0.0,1360000
+Idaho,Groundwater,Fresh,Industrial,0.0,1570000
+Illinois,Groundwater,Fresh,Industrial,0.0,12800000
+Indiana,Groundwater,Fresh,Industrial,0.0,6480000
+Iowa,Groundwater,Fresh,Industrial,0.0,3050000
+Kansas,Groundwater,Fresh,Industrial,0.0,2850000
+Kentucky,Groundwater,Fresh,Industrial,0.0,4340000
+Louisiana,Groundwater,Fresh,Industrial,0.0,4530000
+Maine,Groundwater,Fresh,Industrial,0.0,1330000
+Maryland,Groundwater,Fresh,Industrial,0.0,5770000
+Massachusetts,Groundwater,Fresh,Industrial,0.0,6550000
+Michigan,Groundwater,Fresh,Industrial,0.0,9880000
+Minnesota,Groundwater,Fresh,Industrial,0.0,5300000
+Mississippi,Groundwater,Fresh,Industrial,0.0,2970000
+Missouri,Groundwater,Fresh,Industrial,0.0,5990000
+Montana,Groundwater,Fresh,Industrial,0.0,989000
+Nebraska,Groundwater,Fresh,Industrial,0.0,1830000
+Nevada,Groundwater,Fresh,Industrial,0.0,2700000
+New Hampshire,Groundwater,Fresh,Industrial,0.0,1320000
+New Jersey,Groundwater,Fresh,Industrial,0.0,8790000
+New Mexico,Groundwater,Fresh,Industrial,0.0,2060000
+New York,Groundwater,Fresh,Industrial,0.0,19400000
+North Carolina,Groundwater,Fresh,Industrial,0.0,9540000
+North Dakota,Groundwater,Fresh,Industrial,0.0,673000
+Ohio,Groundwater,Fresh,Industrial,0.0,11500000
+Oklahoma,Groundwater,Fresh,Industrial,0.0,3750000
+Oregon,Groundwater,Fresh,Industrial,0.0,3830000
+Pennsylvania,Groundwater,Fresh,Industrial,0.0,12700000
+Rhode Island,Groundwater,Fresh,Industrial,0.0,1050000
+South Carolina,Groundwater,Fresh,Industrial,0.0,4630000
+South Dakota,Groundwater,Fresh,Industrial,0.0,814000
+Tennessee,Groundwater,Fresh,Industrial,0.0,6350000
+Texas,Groundwater,Fresh,Industrial,0.0,25100000
+Utah,Groundwater,Fresh,Industrial,0.0,2760000
+Vermont,Groundwater,Fresh,Industrial,0.0,626000
+Virginia,Groundwater,Fresh,Industrial,0.0,8000000
+Washington,Groundwater,Fresh,Industrial,0.0,6720000
+West Virginia,Groundwater,Fresh,Industrial,0.0,1850000
+Wisconsin,Groundwater,Fresh,Industrial,0.0,5690000
+Wyoming,Groundwater,Fresh,Industrial,0.0,564000
+Puerto Rico,Groundwater,Fresh,Industrial,0.0,3730000
+U.S. Virgin Islands,Groundwater,Fresh,Industrial,0.0,106000
+Alabama,Groundwater,Saline,Industrial,0.0,4780000
+Alaska,Groundwater,Saline,Industrial,0.0,710000
+Arizona,Groundwater,Saline,Industrial,0.0,6390000
+Arkansas,Groundwater,Saline,Industrial,0.0,2920000
+California,Groundwater,Saline,Industrial,0.0,37300000
+Colorado,Groundwater,Saline,Industrial,0.0,5030000
+Connecticut,Groundwater,Saline,Industrial,0.0,3570000
+Delaware,Groundwater,Saline,Industrial,0.0,898000
+District Of Columbia,Groundwater,Saline,Industrial,0.0,602000
+Florida,Groundwater,Saline,Industrial,0.0,18800000
+Georgia,Groundwater,Saline,Industrial,0.0,9690000
+Hawaii,Groundwater,Saline,Industrial,0.0,1360000
+Idaho,Groundwater,Saline,Industrial,0.0,1570000
+Illinois,Groundwater,Saline,Industrial,0.0,12800000
+Indiana,Groundwater,Saline,Industrial,0.0,6480000
+Iowa,Groundwater,Saline,Industrial,0.0,3050000
+Kansas,Groundwater,Saline,Industrial,0.0,2850000
+Kentucky,Groundwater,Saline,Industrial,0.0,4340000
+Louisiana,Groundwater,Saline,Industrial,0.0,4530000
+Maine,Groundwater,Saline,Industrial,0.0,1330000
+Maryland,Groundwater,Saline,Industrial,0.0,5770000
+Massachusetts,Groundwater,Saline,Industrial,0.0,6550000
+Michigan,Groundwater,Saline,Industrial,0.0,9880000
+Minnesota,Groundwater,Saline,Industrial,0.0,5300000
+Mississippi,Groundwater,Saline,Industrial,0.0,2970000
+Missouri,Groundwater,Saline,Industrial,0.0,5990000
+Montana,Groundwater,Saline,Industrial,0.0,989000
+Nebraska,Groundwater,Saline,Industrial,0.0,1830000
+Nevada,Groundwater,Saline,Industrial,0.0,2700000
+New Hampshire,Groundwater,Saline,Industrial,0.0,1320000
+New Jersey,Groundwater,Saline,Industrial,0.0,8790000
+New Mexico,Groundwater,Saline,Industrial,0.0,2060000
+New York,Groundwater,Saline,Industrial,0.0,19400000
+North Carolina,Groundwater,Saline,Industrial,0.0,9540000
+North Dakota,Groundwater,Saline,Industrial,0.0,673000
+Ohio,Groundwater,Saline,Industrial,0.0,11500000
+Oklahoma,Groundwater,Saline,Industrial,0.0,3750000
+Oregon,Groundwater,Saline,Industrial,0.0,3830000
+Pennsylvania,Groundwater,Saline,Industrial,0.0,12700000
+Rhode Island,Groundwater,Saline,Industrial,0.0,1050000
+South Carolina,Groundwater,Saline,Industrial,0.0,4630000
+South Dakota,Groundwater,Saline,Industrial,0.0,814000
+Tennessee,Groundwater,Saline,Industrial,0.0,6350000
+Texas,Groundwater,Saline,Industrial,0.0,25100000
+Utah,Groundwater,Saline,Industrial,0.0,2760000
+Vermont,Groundwater,Saline,Industrial,0.0,626000
+Virginia,Groundwater,Saline,Industrial,0.0,8000000
+Washington,Groundwater,Saline,Industrial,0.0,6720000
+West Virginia,Groundwater,Saline,Industrial,0.0,1850000
+Wisconsin,Groundwater,Saline,Industrial,0.0,5690000
+Wyoming,Groundwater,Saline,Industrial,0.0,564000
+Puerto Rico,Groundwater,Saline,Industrial,0.0,3730000
+U.S. Virgin Islands,Groundwater,Saline,Industrial,0.0,106000
